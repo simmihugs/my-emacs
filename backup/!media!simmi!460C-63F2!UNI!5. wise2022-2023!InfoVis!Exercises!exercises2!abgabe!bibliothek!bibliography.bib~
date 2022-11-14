@@ -1,0 +1,886 @@
+@book{demtexp1,
+  title={Experimentalphysik 1},
+  author={Demtr{\"o}der, W.},
+  isbn={9783540260349},
+%  series={Experimentalphysik / Wolfgang Demtr{\"o}der},
+  url={https://books.google.de/books?id=9kn3RBqXOkYC},
+  year={2006},
+  publisher={Springer}
+}
+@book{demtexp2,
+  title={Experimentalphysik 2},
+  author={Demtr{\"o}der, W.},
+  isbn={9783540682196},
+  series={Experimentalphysik / Wolfgang Demtr{\"o}der},
+  url={https://books.google.de/books?id=AtDxWU39CTMC},
+  year={2008},
+  publisher={Springer Berlin Heidelberg}
+}
+@book{demtexp3,
+  title={Experimentalphysik 3: Atome, Molek{\"u}le und Festk{\"o}rper},
+  author={Demtr{\"o}der, W.},
+  isbn={9783662490945},
+  series={Springer-Lehrbuch},
+  url={https://books.google.de/books?id=tR5kDAAAQBAJ},
+  year={2016},
+  publisher={Springer Berlin Heidelberg}
+}
+@book{demtexp4,
+  title={Experimentalphysik 4},
+  author={Demtr{\"o}der, W.},
+  isbn={9783642015984},
+  series={Experimentalphysik / Wolfgang Demtr{\"o}der},
+  url={https://books.google.de/books?id=50xTorK8Zx8C},
+  year={2009},
+  publisher={Springer}
+}
+@book{Bergmann+2018,
+url = {https://doi.org/10.1515/9783111616049},
+title = {Optik},
+author = {Ludwig Bergmann},
+publisher = {De Gruyter},
+address = {Berlin, Boston},
+doi = {doi:10.1515/9783111616049},
+isbn = {9783111616049},
+year = {2018},
+lastchecked = {2022-10-30}
+}
+@book{flimec,
+  title={Mechanik: Lehrbuch zur Theoretischen Physik I},
+  author={Flie{\ss}bach, T.},
+  isbn={9783827414335},
+  url={https://books.google.de/books?id=Ha2wAAAACAAJ},
+  year={2003},
+  publisher={Spektrum Akademischer Verlag}
+}
+@book{flielek,
+  title={Elektrodynamik: Lehrbuch zur Theoretischen Physik II},
+  author={Flie{\ss}bach, T.},
+  isbn={9783827420213},
+  url={https://books.google.de/books?id=o4syKAAACAAJ},
+  year={2008},
+  publisher={Spektrum Akademischer Verlag}
+}
+@book{fliqm,
+  title={Quantenmechanik: Lehrbuch zur Theoretischen Physik III},
+  author={Flie{\ss}bach, T.},
+  isbn={9783827415899},
+  url={https://books.google.de/books?id=EM3\_uAAACAAJ},
+  year={2005},
+  publisher={Spektrum Akademischer Verlag}
+}
+@book{flistat,
+  title={Statistische Physik: Lehrbuch zur Theoretischen Physik IV},
+  author={Flie{\ss}bach, T.},
+  isbn={9783827416841},
+  url={https://books.google.de/books?id=OAqqGAAACAAJ},
+  year={2006},
+  publisher={Spektrum Akademischer Verlag}
+}
+@BOOK{Schwarz,
+	AUTHOR = {Schwarz, Hans-Rudolf AND Köckler, Norbert},
+	YEAR = {2011},
+	TITLE = {Numerische Mathematik - },
+	EDITION = {8. Aufl.},
+	ISBN = {978-3-834-88166-3},
+	PUBLISHER = {Springer-Verlag},
+	ADDRESS = {Berlin Heidelberg New York},
+}
+@BOOK{GrQm,
+	AUTHOR = {Griffiths, David},
+	YEAR = {2018},
+	TITLE = {Introduction to Quantum Mechanics - },
+	EDITION = {},
+	ISBN = {978-1-107-18963-8},
+	PUBLISHER = {Cambridge University Press},
+	ADDRESS = {Cambridge},
+}
+@BOOK{GrElec,
+	AUTHOR = {Griffiths, David},
+	YEAR = {2017},
+	TITLE = {Introduction to Electrodynamics - },
+	EDITION = {},
+	ISBN = {978-1-108-35714-2},
+	PUBLISHER = {Cambridge University Press},
+	ADDRESS = {Cambridge},
+}
+@BOOK{GrPar,
+	AUTHOR = {Griffiths, David},
+	YEAR = {2008},
+	TITLE = {Introduction to Elementary Particles - },
+	EDITION = {},
+	ISBN = {978-3-527-61847-7},
+	PUBLISHER = {John Wiley & Sons},
+	ADDRESS = {New York},
+}
+@BOOK{NumRec,
+	AUTHOR = {Press, H. William AND Teukolsky, Saul A. AND Vetterling, William T. AND Flannery, Brian P.},
+	YEAR = {2007},
+	TITLE = {Numerical Recipes 3rd Edition - The Art of Scientific Computing},
+	EDITION = {},
+	ISBN = {978-0-521-88068-8},
+	PUBLISHER = {Cambridge University Press},
+	ADDRESS = {Cambridge},
+}
+@BOOK{StatMec,
+	AUTHOR = {Beale, R. K. Pathria AND Beale, Paul D.},
+	YEAR = {2011},
+	TITLE = {Statistical Mechanics - },
+	EDITION = {},
+	ISBN = {978-0-123-82189-8},
+	PUBLISHER = {Academic Press},
+	ADDRESS = {Amsterdam, Boston},
+}
+@BOOK{Bronstein,
+	AUTHOR = {Bronstein, Ilja N. AND Mühlig, Heiner AND Musiol, Gerhard AND Semendjajew, Konstantin A.},
+	YEAR = {2016},
+	TITLE = {Taschenbuch der Mathematik (Bronstein) - },
+	EDITION = {10. Aufl.},
+	ISBN = {978-3-808-55789-1},
+	PUBLISHER = {Europa Lehrmittel Verlag},
+	ADDRESS = {Haan-Gruiten},
+}
+@BOOK{Solid,
+	AUTHOR = {Ibach AND Lüth},
+	YEAR = {2013},
+	TITLE = {Festkörperphysik - Einführung in die Grundlagen},
+	EDITION = {},
+	ISBN = {978-3-662-35366-0},
+	PUBLISHER = {Springer-Verlag},
+	ADDRESS = {Berlin Heidelberg New York},
+}
+@BOOK{Kittel,
+	AUTHOR = {Kittel, Charles},
+	YEAR = {2013},
+	TITLE = {Einführung in die Festkörperphysik - },
+	EDITION = {unveränderte Auflage},
+	ISBN = {978-3-486-59755-4},
+	PUBLISHER = {Oldenbourg Wissenschaftsverlag},
+	ADDRESS = {München},
+}
+@BOOK{Ashcroft,
+	AUTHOR = {Ashcroft, Neil W. AND Mermin, David N.},
+	YEAR = {2012},
+	TITLE = {Festkörperphysik - },
+	EDITION = {4. verbesserte},
+	ISBN = {978-3-486-71301-5},
+	PUBLISHER = {Oldenbourg Wissenschaftsverlag},
+	ADDRESS = {München},
+}
+@BOOK{Schroed,
+	AUTHOR = {Schroeder, Daniel V.},
+	YEAR = {2013},
+	TITLE = {An Introduction to Thermal Physics - },
+	EDITION = {},
+	ISBN = {978-1-292-02621-3},
+	PUBLISHER = {Pearson Education Limited},
+	ADDRESS = {Harlow},
+}
+@BOOK{Povh,
+	AUTHOR = {Povh, Bogdan AND Rith, Klaus AND Scholz, Christop AND Zetsche, Frank AND Rodejohann, Werner},
+	YEAR = {2013},
+	TITLE = {Teilchen und Kerne - Eine Einführung in die physikalischen Konzepte},
+	EDITION = {},
+	ISBN = {978-3-662-10281-7},
+	PUBLISHER = {Springer-Verlag},
+	ADDRESS = {Berlin Heidelberg New York},
+}
+@BOOK{Kardar,
+	AUTHOR = {Kardar, Mehran},
+	YEAR = {2007},
+	TITLE = {Statistical Physics of Particles - },
+	EDITION = {},
+	ISBN = {978-1-139-46487-1},
+	PUBLISHER = {Cambridge University Press},
+	ADDRESS = {Cambridge},
+}
+@BOOK{Hecht,
+	AUTHOR = {Hecht, Eugene},
+	YEAR = {2018},
+	TITLE = {Optik},
+	EDITION = {},
+	ISBN = {978-3-110-52665-3},
+	PUBLISHER = {Walter de Gruyter GmbH \& Co KG},
+	ADDRESS = {Berlin},
+}
+@BOOK{Schuenemann,
+	AUTHOR = {Schünemann, Volker AND H\xe4rpfer, Claudius},
+	YEAR = {2006},
+	TITLE = {Biophysik - Eine Einführung},
+	EDITION = {2005. Aufl.},
+	ISBN = {978-3-540-26489-7},
+	PUBLISHER = {Springer-Verlag},
+	ADDRESS = {Berlin Heidelberg New York},
+}
+@BOOK{Tipler,
+	AUTHOR = {Tipler, Paul A. AND Mosca, Gene AND Wagner, Jenny AND Basler, Michael AND Dohmen, Renate AND Heinisch, Carsten AND Schleitzer, Anna AND Zillgitt, Michael AND Kommer, Christoph},
+	YEAR = {2014},
+	TITLE = {Physik - für Wissenschaftler und Ingenieure},
+	EDITION = {7. Aufl.},
+	ISBN = {978-3-642-54166-7},
+	PUBLISHER = {Springer-Verlag},
+	ADDRESS = {Berlin Heidelberg New York},
+}
+@BOOK{GdMBio,
+	AUTHOR = {Cypionka, Heribert},
+	YEAR = {2013},
+	TITLE = {Grundlagen der Mikrobiologie - },
+	EDITION = {2. überarb. u. erw.},
+	ISBN = {978-3-662-07586-9},
+	PUBLISHER = {Springer-Verlag},
+	ADDRESS = {Berlin Heidelberg New York},
+}
+
+@book{TheFish,
+  title = {Thermofisher Spectra Viewer},
+  author = {},
+  year = {2018},
+  urldate = {2018-12-30},
+  url = {https://www.thermofisher.com/order/spectra-viewer},
+}
+
+@book{vis,
+	title={Stoffwerte Flüssigkeiten},
+	author={},
+	year={2018},
+	urldate={2019-1-8},
+	url={http://www.uni-magdeburg.de/isut/LSS/Lehre/Arbeitsheft/IV.pdf},
+}
+
+@book{jena1,
+	title={Few cycle Laser},
+	author={},
+	year={2018},
+	urldate={2019-1-8},
+	url={https://www.hi-jena.de/en/research_areas/high_power_laser/highaveragepower/few-cycle-lasers/},
+}
+
+@article{fawcett2006introduction,
+  title="{Introduction to Receiver Operator Curves}",
+  author={Fawcett, T},
+  journal={Pattern Recognit. Lett},
+  volume={27},
+  pages={861--874},
+  year={2006}
+}
+
+
+@phdthesis{kahn,
+  author = "James Meier Samuel Kahn",
+  title = "{Selective Background Monte Carlo Simulation at Belle II}",
+  volume =	 {2019},
+  school = "Ludwig-Maximilians-Universität München",
+  year =	          {2019},
+  url =		 {https://edoc.ub.uni-muenchen.de/24013/},
+}
+
+
+@book{Goodfellow-et-al-2016,
+    title={Deep Learning},
+    author={Ian Goodfellow and Yoshua Bengio and Aaron Courville},
+    publisher={MIT Press},
+    note={\url{http://www.deeplearningbook.org}},
+    year={2016}
+}
+
+
+@article{Zaheer2017,
+    author         = "Zaheer, M. and Kottur, S. and Ravanbakhsh, S. and Poczos, B. and Salakhutdinov, R. and Smola, A.",
+    title          = "Deep Sets",
+    year           = "2017",
+    eprint         = "1703.06114",
+    archivePrefix  = "arXiv",
+    primaryClass   = "cs.LG"
+}
+
+@misc{M.A.Nielsen,
+      title="{Neural Networks and Deep Learning}",
+      author={Michael A. Nielsen},
+      publisher={Determination Press},
+      url = "http://neuralnetworksanddeeplearning.com",
+      year={2015},
+      note="Accessed: 2020-1-30",
+}
+
+
+@misc{MedCalc:2020,
+      title="{ROC curve analysis}",
+      author={MedCalc Software Ltd},
+      url = "https://www.medcalc.org/manual/roc-curves.php",
+      year={2020},
+      note="Accessed: 2020-1-30",
+}
+
+
+@thesis{fichtner,
+  author = "Michael Fichtner",
+  title = "{Optimierung der Untergrundsimulation mit Techniken des maschinellen Lernens bei ATLAS}",
+  year =	 {2019},
+  school=  "Ludwig-Maximilians-Universität München",
+}
+
+
+@article{LHC,
+   author={CERN},
+   title="{The Large Hadron Collider}",
+   url={https://home.cern/science/accelerators/large-hadron-collider},
+   year={2020},
+}
+
+@article{ATLAS,
+   author={CERN},
+   title={ATLAS},
+   url={https://home.cern/science/experiments/atlas},
+   year={2020},
+}
+
+
+@article{fsp101-atlas,
+   author={fsp101},
+   title={FSP101-ATLAS},
+   url={http://www.fsp101-atlas.de/e197881/},
+   year={2020},
+}
+
+
+@article{Evans:2008zzb,
+      author         = "Evans, Lyndon and Bryant, Philip",
+      title          = "{LHC Machine}",
+      journal        = "JINST",
+      volume         = "3",
+      year           = "2008",
+      pages          = "S08001",
+      doi            = "10.1088/1748-0221/3/08/S08001",
+      SLACcitation   = "%%CITATION = JINST,3,S08001;%%"
+}
+
+
+
+@article{Aad:2008zzm,
+      author         = "Aad, G. and others",
+      title          = "{The ATLAS Experiment at the CERN Large Hadron Collider}",
+      collaboration  = "ATLAS",
+      journal        = "JINST",
+      volume         = "3",
+      year           = "2008",
+      pages          = "S08003",
+      doi            = "10.1088/1748-0221/3/08/S08003",
+      SLACcitation   = "%%CITATION = JINST,3,S08003;%%"
+}
+
+
+@article{HIGGS,
+   author={CERN},
+   title={New results indicate that particle discovered at CERN is a Higgs boson.},
+   url={https://home.cern/news/press-release/cern/new-results-indicate-particle-discovered-cern-higgs-boson},
+   DATE_ADDED={10.07.2019},
+   year={2019},
+}
+
+@article{ROCcurveanalysis,
+   author={MEDCALC},
+   title={ROC curve analysis},
+   url={https://www.medcalc.org/manual/roc-curves.php},
+   DATE_ADDED={08.07.2019},
+   year={2019},
+}
+
+@article{Martin:1997ns,
+      author         = "Martin, Stephen P.",
+      title          = "{A Supersymmetry primer}",
+      year           = "1997",
+      pages          = "1-98",
+      doi            = "10.1142/9789812839657_0001, 10.1142/9789814307505_0001",
+      note           = "[Adv. Ser. Direct. High Energy Phys.18,1(1998)]",
+      eprint         = "hep-ph/9709356",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ph",
+      reportNumber   = "FERMILAB-PUB-97-425-T",
+      SLACcitation   = "%%CITATION = HEP-PH/9709356;%%"
+}
+
+@thesis{schanet18ma,
+  author = "Eric Schanet",
+  title = "Sensitivity studies for a search for charginos in final states with one lepton with the 
+ATLAS detector and interpretation of a search for gluinos and squarks in the pMSSM",
+  school = "Ludwig-Maximilians-Universität München",
+  year = "2018",
+  url = "https://www.etp.physik.uni-muenchen.de/publications/theses/download/master_eschanet.pdf"
+}
+
+
+@article{Daoud2017SimulationOT,
+author = {Al Daoud, Essam},
+title     = {Simulation of the Large Hadrons Collisions Using Monte Carlo Tools},
+	  abstract     = {In many cases, theoretical treatments are available for models for which there is no perfect physical realization. In this situation, the only possible test for an approximate theoretical solution is to compare with data generated from a computer simulation. In this paper, Monte Carlo tools are used to study and compare the elementary particles models. All the experiments are implemented using 10000 events, and the simulated energy is 13 TeV. The mean and the curves of several variables are calculated for each model using MadAnalysis 5. Anomalies in the results can be seen in the muons masses of the minimal supersymmetric standard model and the two Higgs doublet model.},
+	    journal   = {International Journal of Mathematical and Computational Sciences},
+	  volume    = {11},
+	  number    = {3},
+	  year      = {2017},
+	  pages     = {94 - 97},
+	  ee        = {https://publications.waset.org/pdf/10006544},
+	  url   	= {https://publications.waset.org/vol/123},
+	  bibsource = {https://publications.waset.org/},
+	  issn  	= {eISSN: 1307-6892},
+	  publisher = {World Academy of Science, Engineering and Technology},
+	  index 	= {Open Science Index 123, 2017},
+	}
+
+@misc{PeaseC,
+  title="{An Overview of Monte Carlo Methods}",
+  author={Christopher Pease},
+  year={2018},
+  note="Accessed: 2019-12-20",
+  url={https://towardsdatascience.com/an-overview-of-monte-carlo-methods-675384eb1694}
+}
+@misc{CitekeyMisc,
+      title        = "Pluto: The 'Other' Red Planet",
+      author       = "{NASA}",
+      howpublished = "\url{https://www.nasa.gov/nh/pluto-the-other-red-planet}",
+      year         = 2015,
+      note         = "Accessed: 2018-12-06"
+    }
+
+
+@article{pdg,
+  title={Review of Particle Physics},
+  author={J. Beringer et al (Particle Data Group)},
+  year={2012},
+  url={https://journals.aps.org/prd/pdf/10.1103/PhysRevD.86.010001}
+}
+
+@inproceedings{Sahoo:2016hln,
+      author         = "Sahoo, Raghunath",
+      title          = "{Relativistic Kinematics}",
+      year           = "2016",
+      eprint         = "1604.02651",
+      archivePrefix  = "arXiv",
+      primaryClass   = "nucl-ex",
+      SLACcitation   = "%%CITATION = ARXIV:1604.02651;%%"
+}
+
+@article{innerdetector,
+   author={ATLAS},
+   title="{The Inner Detector}",
+   url={https://atlas.cern/discover/detector/inner-detector},
+   year={2019},
+}
+
+
+@article{Aad:2014mta,
+      author         = "Aad, Georges and others",
+      title          = "{Operation and performance of the ATLAS semiconductor
+                        tracker}",
+      collaboration  = "ATLAS",
+      journal        = "JINST",
+      volume         = "9",
+      year           = "2014",
+      pages          = "P08009",
+      doi            = "10.1088/1748-0221/9/08/P08009",
+      eprint         = "1404.7473",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ex",
+      reportNumber   = "CERN-PH-EP-2014-049",
+      SLACcitation   = "%%CITATION = ARXIV:1404.7473;%%"
+}
+
+
+@inproceedings{Mitsou:2003rp,
+      author         = "Mitsou, Vasiliki A.",
+      title          = "{The ATLAS transition radiation tracker}",
+      booktitle      = "{Astroparticle, particle and space physics, detectors and
+                        medical physics applications. Proceedings, 8th Conference,
+                        ICATPP 2003, Como, Italy, October 6-10, 2003}",
+      collaboration  = "ATLAS TRT",
+      url            = "http://weblib.cern.ch/abstract?ATL-CONF-2003-012",
+      year           = "2003",
+      pages          = "497-501",
+      doi            = "10.1142/9789812702708_0073",
+      eprint         = "hep-ex/0311058",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ex",
+      reportNumber   = "ATL-CONF-2003-012",
+      SLACcitation   = "%%CITATION = HEP-EX/0311058;%%"
+}
+
+@article{calorimeter,
+   author={ATLAS},
+   title={Calorimeters},
+   url={https://atlas.cern/discover/detector/calorimeter},
+   year={2019},
+}
+
+@article {KerschnerMed21,
+   author={Bernd Kerschner},
+   title={Blaues Licht: Blaufilter verbessern den Schlaf wohl nicht},
+   url={https://www.medizin-transparent.at/schlaflos-durch-blaues-licht/#ref7},
+   year={2021},
+}
+@article {ColorBlind2022,
+   title={Color blindness},
+   url={"https://en.wikipedia.org/wiki/Color_blindness#Red%E2%80%93green_color_blindness"},
+   year={2022},
+}
+@article {nei:2019,
+   title={Color Blindness},
+   url={"https://www.nei.nih.gov/learn-about-eye-health/eye-conditions-and-diseases/color-blindness"},
+   year={2019},
+}
+
+@article {neitypes:2019,
+   title={},
+   url={"https://www.nei.nih.gov/learn-about-eye-health/eye-conditions-and-diseases/color-blindness/types-color-blindness"},
+   year={2019},
+}
+
+@article{muonsystem,
+   author={Max Planck Institute for Physics},
+   title="{The ATLAS muon system}",
+   url={https://www.mpp.mpg.de/en/research/structure-of-matter/atlas-detector/atlas-muon-spectrometer/},
+   year={2019},
+}
+
+@techreport{ATL-OREACH-PUB-2020-001,
+      title         = "{Review of the 13 TeV ATLAS Open Data release}",
+      institution   = "CERN",
+      collaboration = "ATLAS Collaboration",
+      address       = "Geneva",
+      number        = "ATL-OREACH-PUB-2020-001",
+      month         = "Jan",
+      year          = "2020",
+      reportNumber  = "ATL-OREACH-PUB-2020-001",
+      url           = "https://cds.cern.ch/record/2707171",
+}
+
+@techreport{ATL-PHYS-PUB-2017-006,
+      title = "{ATLAS simulation of boson plus jets processes in Run 2}",
+      institution   = "CERN",
+      collaboration = "ATLAS Collaboration",
+      address       = "Geneva",
+      number        = "ATL-PHYS-PUB-2017-006",
+      month         = "Jan",
+      year          = "2020",
+      reportNumber  = "ATL-PHYS-PUB-2017-006",
+      url="https://cds.cern.ch/record/2261937",
+}
+
+@article{Kingma:2014vow,
+      author         = "Kingma, Diederik P. and Ba, Jimmy",
+      title          = "{Adam: A Method for Stochastic Optimization}",
+      year           = "2014",
+      eprint         = "1412.6980",
+      archivePrefix  = "arXiv",
+      primaryClass   = "cs.LG",
+      SLACcitation   = "%%CITATION = ARXIV:1412.6980;%%"
+}
+
+@article{Winiker:2022,
+      author         = "Christina Winiker",
+      title          = "{LMU M�nchen, Skript zur Vorlesung \"Informationsvisualisierung\"}",
+      year           = "2022",
+}
+
+
+@techreport{ATL-OREACH-PUB-2020-001,
+      title         = "{Review of the 13 TeV ATLAS Open Data release}",
+      institution   = "CERN",
+      collaboration = "ATLAS Collaboration",
+      address       = "Geneva",
+      number        = "ATL-OREACH-PUB-2020-001",
+      month         = "Jan",
+      year          = "2020",
+      reportNumber  = "ATL-OREACH-PUB-2020-001",
+      url           = "https://cds.cern.ch/record/2707171",
+}
+
+@article{Komiske:2017aww,
+      author         = "Komiske, Patrick T. and Metodiev, Eric M. and Thaler, Jesse",
+      title          = "{Energy Flow Polynomials: A complete linear basis for jet 
+                         substructure}",
+      journal        = "JHEP",
+      volume         = "04",
+      year           = "2018",
+      pages          = "013",
+      doi            = "10.1007/JHEP04(2018)013",
+      eprint         = "1712.07124",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ph",
+      reportNumber   = "MIT-CTP-4965"
+}
+
+@article{Komiske:2018cqr,
+      author         = "Komiske, Patrick T. and Metodiev, Eric M. and Thaler,
+                        Jesse",
+      title          = "{Energy Flow Networks: Deep Sets for Particle Jets}",
+      journal        = "JHEP",
+      volume         = "01",
+      year           = "2019",
+      pages          = "121",
+      doi            = "10.1007/JHEP01(2019)121",
+      eprint         = "1810.05165",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ph",
+      reportNumber   = "MIT-CTP 5064",
+      SLACcitation   = "%%CITATION = ARXIV:1810.05165;%%"
+}
+
+
+
+
+@article{Komiske:2019fks,
+      author         = "Komiske, Patrick T. and Metodiev, Eric M. and Thaler, Jesse",
+      title          = "{Metric Space of Collider Events}",
+      journal        = "Phys. Rev. Lett.",
+      volume         = "123",
+      year           = "2019",
+      number         = "4",
+      pages          = "041801",
+      doi            = "10.1103/PhysRevLett.123.041801",
+      eprint         = "1902.02346",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ph",
+      reportNumber   = "MIT-CTP 5102",
+}
+
+@article{Komiske:2019jim,
+      author         = "Komiske, Patrick T. and Mastandrea, Radha and Metodiev,
+                        Eric M. and Naik, Preksha and Thaler, Jesse",
+      title          = "{Exploring the Space of Jets with CMS Open Data}",
+      year           = "2019",
+      eprint         = "1908.08542",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ph",
+      reportNumber   = "MIT-CTP 5129",
+}
+
+
+@misc{komiske_patrick_2019_3340205,
+  author       = {Komiske, Patrick and Mastandrea, Radha and Metodiev, Eric and
+                  Naik, Preksha and Thaler, Jesse},
+  title        = {{CMS 2011A Open Data $|$ Jet Primary Dataset $|$ pT $>$ 
+                   375 GeV $|$ MOD HDF5 Format}},
+  month        = aug,
+  year         = 2019,
+  doi          = {10.5281/zenodo.3340205},
+  url          = {https://doi.org/10.5281/zenodo.3340205}
+}
+
+@misc{komiske_patrick_2019_3341500,
+  author       = {Komiske, Patrick and Mastandrea, Radha and Metodiev, Eric and
+                  Naik, Preksha and Thaler, Jesse},
+  title        = {{CMS 2011A Simulation $|$ Pythia 6 QCD 170-300 $|$ pT $>$ 
+                   375 GeV $|$ MOD HDF5 Format}},
+  month        = aug,
+  year         = 2019,
+  doi          = {10.5281/zenodo.3341500},
+  url          = {https://doi.org/10.5281/zenodo.3341500}
+}
+
+@misc{komiske_patrick_2019_3341498,
+  author       = {Komiske, Patrick and Mastandrea, Radha and Metodiev, Eric and
+                  Naik, Preksha and Thaler, Jesse},
+  title        = {{CMS 2011A Simulation $|$ Pythia 6 QCD 300-470 $|$ pT $>$ 
+                   375 GeV $|$ MOD HDF5 Format}},
+  month        = aug,
+  year         = 2019,
+  doi          = {10.5281/zenodo.3341498},
+  url          = {https://doi.org/10.5281/zenodo.3341498}
+}
+
+@misc{komiske_patrick_2019_3341419,
+  author       = {Komiske, Patrick and Mastandrea, Radha and Metodiev, Eric and
+                  Naik, Preksha and Thaler, Jesse},
+  title        = {{CMS 2011A Simulation $|$ Pythia 6 QCD 470-600 $|$ pT $>$ 
+                   375 GeV $|$ MOD HDF5 Format}},
+  month        = aug,
+  year         = 2019,
+  doi          = {10.5281/zenodo.3341419},
+  url          = {https://doi.org/10.5281/zenodo.3341419}
+}
+
+@misc{komiske_patrick_2019_3364139,
+  author       = {Komiske, Patrick and Mastandrea, Radha and Metodiev, Eric and
+                  Naik, Preksha and Thaler, Jesse},
+  title        = {{CMS 2011A Simulation $|$ Pythia 6 QCD 600-800 $|$ pT $>$ 
+                   375 GeV $|$ MOD HDF5 Format}},
+  month        = aug,
+  year         = 2019,
+  doi          = {10.5281/zenodo.3364139},
+  url          = {https://doi.org/10.5281/zenodo.3364139}
+}
+
+@misc{komiske_patrick_2019_3341413,
+  author       = {Komiske, Patrick and Mastandrea, Radha and Metodiev, Eric and
+                  Naik, Preksha and Thaler, Jesse},
+  title        = {{CMS 2011A Simulation $|$ Pythia 6 QCD 800-1000 $|$ pT $>$ 
+                   375 GeV $|$ MOD HDF5 Format}},
+  month        = aug,
+  year         = 2019,
+  doi          = {10.5281/zenodo.3341413},
+  url          = {https://doi.org/10.5281/zenodo.3341413}
+}
+
+@misc{komiske_patrick_2019_3341502,
+  author       = {Komiske, Patrick and Mastandrea, Radha and Metodiev, Eric and
+                  Naik, Preksha and Thaler, Jesse},
+  title        = {{CMS 2011A Simulation $|$ Pythia 6 QCD 1000-1400 $|$ pT $>$
+                   375 GeV $|$ MOD HDF5 Format}},
+  month        = aug,
+  year         = 2019,
+  doi          = {10.5281/zenodo.3341502},
+  url          = {https://doi.org/10.5281/zenodo.3341502}
+}
+
+@misc{komiske_patrick_2019_3341770,
+  author       = {Komiske, Patrick and Mastandrea, Radha and Metodiev, Eric and
+                  Naik, Preksha and Thaler, Jesse},
+  title        = {{CMS 2011A Simulation $|$ Pythia 6 QCD 1400-1800 $|$ pT $>$
+                   375 GeV $|$ MOD HDF5 Format}},
+  month        = aug,
+  year         = 2019,
+  doi          = {10.5281/zenodo.3341770},
+  url          = {https://doi.org/10.5281/zenodo.3341770}
+}
+
+@misc{komiske_patrick_2019_3341772,
+  author       = {Komiske, Patrick and Mastandrea, Radha and Metodiev, Eric and
+                  Naik, Preksha and Thaler, Jesse},
+  title        = {{CMS 2011A Simulation $|$ Pythia 6 QCD1800-inf $|$ pT $>$ 
+                   375 GeV $|$ MOD HDF5 Format}},
+  month        = aug,
+  year         = 2019,
+  doi          = {10.5281/zenodo.3341772},
+  url          = {https://doi.org/10.5281/zenodo.3341772}
+}
+
+
+
+@inproceedings{Kibble:2014spa,
+      author         = "Kibble, Tom W. B.",
+      title          = "{The Standard Model of Particle Physics}",
+      year           = "2014",
+      eprint         = "1412.4094",
+      archivePrefix  = "arXiv",
+      primaryClass   = "physics.hist-ph",
+      SLACcitation   = "%%CITATION = ARXIV:1412.4094;%%"
+}
+
+@misc{chollet2015keras,
+  title={Keras},
+  author={Chollet, Fran\c{c}ois and others},
+  year={2015},
+  note="Accessed: 2020-1-30",
+  url = "https://keras.io",
+}
+
+@article{Tanabashi:2018oca,
+      author         = "Tanabashi, M. and others",
+      title          = "{Review of Particle Physics}",
+      collaboration  = "Particle Data Group",
+      journal        = "Phys. Rev.",
+      volume         = "D98",
+      year           = "2018",
+      number         = "3",
+      pages          = "030001",
+      doi            = "10.1103/PhysRevD.98.030001",
+      SLACcitation   = "%%CITATION = PHRVA,D98,030001;%%"
+        publisher = {American Physical Society},
+  doi = {10.1103/PhysRevD.98.030001},
+  url = {https://link.aps.org/doi/10.1103/PhysRevD.98.030001}
+
+}
+
+
+@article{Wong2011,
+      author         = "Wong, Bang",
+      title          = "{Points of view: Color blindness}",
+      journal        = "Nature Methods",
+      volume         = "8",
+      year           = "2011",
+      date           = "2011/06/01"
+      doi            = {10.1038/nmeth.1618},
+      url            = {https://doi.org/10.1038/nmeth.1618}
+}
+
+@article{https://doi.org/10.1111/j.1399-0004.2004.00343.x,
+author = {Deeb, SS},
+title = {The molecular basis of variation in human color vision},
+journal = {Clinical Genetics},
+volume = {67},
+number = {5},
+pages = {369-377},
+keywords = {cone photopigments, vision, visual pigment genes },
+doi = {https://doi.org/10.1111/j.1399-0004.2004.00343.x},
+url = {https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1399-0004.2004.00343.x},
+eprint = {https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.1399-0004.2004.00343.x},
+abstract = {Common variation in red-green color vision exists among both normal and color-deficient subjects. Differences at amino acids involved in tuning the spectra of the red and green cone pigments account for the majority of this variation. One source of variation is the very common Ser180Ala polymorphism that accounts for two spectrally different red pigments and that plays an important role in variation in normal color vision as well as in determining the severity of defective color vision. This polymorphism most likely resulted from gene conversion by the green-pigment gene. Another common source of variation is the existence of several types of red/green pigment chimeras with different spectral properties. The red and green-pigment genes are arranged in a head-to-tail tandem array on the X-chromosome with one red-pigment gene followed by one or more green-pigment genes. The high homology between these genes has predisposed the locus to relatively common unequal recombination events that give rise to red/green hybrid genes and to deletion of the green-pigment genes. Such events constitute the most common cause of red-green color vision defects. Only the first two pigment genes of the red/green array are expressed in the retina and therefore contribute to the color vision phenotype. The severity of red-green color vision defects is inversely proportional to the difference between the wavelengths of maximal absorption of the photopigments encoded by the first two genes of the array. Women who are heterozygous for red and green pigment genes that encode three spectrally distinct photopigments have the potential for enhanced color vision.},
+year = {2005}
+}
+@ARTICLE{Tahkamo2018-vu,
+  title    = "Systematic review of light exposure impact on human circadian
+              rhythm",
+  author   = "T{\"a}hk{\"a}m{\"o}, Leena and Partonen, Timo and Pesonen,
+              Anu-Katriina",
+  abstract = "Light is necessary for life, and artificial light improves visual
+              performance and safety, but there is an increasing concern of the
+              potential health and environmental impacts of light. Findings
+              from a number of studies suggest that mistimed light exposure
+              disrupts the circadian rhythm in humans, potentially causing
+              further health impacts. However, a variety of methods has been
+              applied in individual experimental studies of light-induced
+              circadian impacts, including definition of light exposure and
+              outcomes. Thus, a systematic review is needed to synthesize the
+              results. In addition, a review of the scientific evidence on the
+              impacts of light on circadian rhythm is needed for developing an
+              evaluation method of light pollution, i.e., the negative impacts
+              of artificial light, in life cycle assessment (LCA). The current
+              LCA practice does not have a method to evaluate the light
+              pollution, neither in terms of human health nor the ecological
+              impacts. The systematic literature survey was conducted by
+              searching for two concepts: light and circadian rhythm. The
+              circadian rhythm was searched with additional terms of melatonin
+              and rapid-eye-movement (REM) sleep. The literature search
+              resulted to 128 articles which were subjected to a data
+              collection and analysis. Melatonin secretion was studied in 122
+              articles and REM sleep in 13 articles. The reports on melatonin
+              secretion were divided into studies with specific light exposure
+              (101 reports), usually in a controlled laboratory environment,
+              and studies of prevailing light conditions typical at home or
+              work environments (21 studies). Studies were generally conducted
+              on adults in their twenties or thirties, but only very few
+              studies experimented on children and elderly adults. Surprisingly
+              many studies were conducted with a small sample size: 39 out of
+              128 studies were conducted with 10 or less subjects. The quality
+              criteria of studies for more profound synthesis were a minimum
+              sample size of 20 subjects and providing details of the light
+              exposure (spectrum or wavelength; illuminance, irradiance or
+              photon density). This resulted to 13 qualified studies on
+              melatonin and 2 studies on REM sleep. Further analysis of these
+              15 reports indicated that a two-hour exposure to blue light (460
+              nm) in the evening suppresses melatonin, the maximum
+              melatonin-suppressing effect being achieved at the shortest
+              wavelengths (424 nm, violet). The melatonin concentration
+              recovered rather rapidly, within 15 min from cessation of the
+              exposure, suggesting a short-term or simultaneous impact of light
+              exposure on the melatonin secretion. Melatonin secretion and
+              suppression were reduced with age, but the light-induced
+              circadian phase advance was not impaired with age. Light exposure
+              in the evening, at night and in the morning affected the
+              circadian phase of melatonin levels. In addition, even the
+              longest wavelengths (631 nm, red) and intermittent light
+              exposures induced circadian resetting responses, and exposure to
+              low light levels (5-10 lux) at night when sleeping with eyes
+              closed induced a circadian response. The review enables further
+              development of an evaluation method of light pollution in LCA
+              regarding the light-induced impacts on human circadian system.",
+  journal  = "Chronobiol Int",
+  volume   =  36,
+  number   =  2,
+  pages    = "151--170",
+  month    =  oct,
+  year     =  2018,
+  address  = "England",
+  keywords = "Light; REM sleep; circadian rhythm; health; human health;
+              melatonin",
+  language = "en"
+}

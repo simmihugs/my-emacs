@@ -1,0 +1,33 @@
+GtkWindow {
+    background-color: magenta;
+}
+
+GtkButton {
+    background-image: none;
+}
+
+#myGrid {
+    background: gray;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+}
+
+#myChildTop {
+    background: white;
+}
+
+#myButton_normal{
+    background: blue;
+    color: white;
+    font-family: DejaVu Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 10px;
+    border-radius: 5px;
+}
+
+#myButton_normal:hover{
+    background: lightblue;
+    color: black;
+}

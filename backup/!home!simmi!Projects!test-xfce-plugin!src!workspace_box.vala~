@@ -1,0 +1,178 @@
+namespace Tint2Tasklist {
+
+	private class WorkspaceBox : Gtk.Box {
+
+		private Plugin plugin;
+		internal Wnck.Workspace wnck_workspace { get; set; }
+		internal Gtk.Box window_box { get; set; }
+
+		public WorkspaceBox(Plugin plugin, Wnck.Workspace wnck_workspace) {
+			this.plugin = plugin;
+			this.plugin.find_plugin_monitor ();
+			
+			this.wnck_workspace = wnck_workspace;
+
+			this.set_orientation (Gtk.Orientation.HORIZONTAL);
+
+			this.add (new WorkspaceButton (this.plugin, this.wnck_workspace));
+
+			this.window_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+			
+			unowned List<Wnck.Window> wnck_windows = this.plugin.wnck_screen.get_windows ();
+			foreach (Wnck.Window wnck_window in wnck_windows) {
+				var wnck_window_workspace = wnck_window.get_workspace ();
+				if (wnck_window_workspace != null && wnck_window_workspace == this.wnck_workspace)
+				{
+
+					// connect each window with moving the monitor action
+					wnck_window.geometry_changed.connect (() => {
+							//ignore panels
+							if (wnck_window_workspace != null) {
+								Gtk.Box box = this.plugin.box;
+								var workspace_boxes = box.get_children ();
+								foreach (var w in workspace_boxes) {
+									WorkspaceBox workspace_box = (WorkspaceBox)w;
+									var workspace_box_workspace = workspace_box.wnck_workspace;
+									Gtk.Box window_box = workspace_box.window_box;
+									//window is same workspace as workspacebox
+									if (wnck_window_workspace == workspace_box_workspace) {
+										//window exists on same monitor
+										if (this.plugin.monitor.is_on_monitor (wnck_window)) {
+											//window isnt already added
+											if (!workspace_box.window_exists (wnck_window)) {
+												window_box.add (new WindowButton (this.plugin, wnck_window, this.wnck_workspace));
+												window_box.show_all ();
+											}
+										} else {
+											//window is not on same monitor
+											workspace_box.remove_window_button (wnck_window);
+										}
+									}
+								}
+							}
+						});
+					
+					if (this.plugin.monitor.is_on_monitor (wnck_window)) {
+						this.window_box.add (new WindowButton (this.plugin,
+															   wnck_window,
+															   this.wnck_workspace));
+					}
+				}
+			}
+			this.add (window_box);
+
+			this.plugin.wnck_screen.window_opened.connect (add_window);
+			this.plugin.wnck_screen.window_closed.connect (remove_window);
+		}
+
+		public bool window_exists (Wnck.Window other_wnck_window) {
+			var windows = this.window_box.get_children ();
+			foreach (var w in windows) {
+				var window_button = (WindowButton)w;
+				var window = window_button.wnck_window;
+				if (other_wnck_window == window) {
+					return true;
+				}
+			}
+			return false;
+		}
+
+		public void remove_window_button (Wnck.Window other_wnck_window) {
+			if (this.window_exists (other_wnck_window)) {
+				var windows = this.window_box.get_children ();
+				foreach (var w in windows) {
+					var window_button = (WindowButton)w;
+					var window = window_button.wnck_window;
+					if (other_wnck_window == window) {
+						this.window_box.remove (w);
+					}
+				}
+			}
+		}
+
+		private void react_to_monitor_switch (Wnck.Window wnck_window, Wnck.Workspace wnck_window_workspace) {
+			var wnck_window_workspace_ = wnck_window.get_workspace ();
+			Gtk.Box box = this.plugin.box;
+			var workspace_boxes = box.get_children ();
+			foreach (var w in workspace_boxes) {
+				WorkspaceBox workspace_box = (WorkspaceBox)w;
+				var workspace_box_workspace = workspace_box.wnck_workspace;
+				Gtk.Box window_box = workspace_box.window_box;
+				if (wnck_window_workspace_ != null && wnck_window_workspace == workspace_box_workspace) {
+					if (this.plugin.monitor.is_on_monitor (wnck_window)) {
+						if (!workspace_box.window_exists (wnck_window)) {
+							window_box.add (new WindowButton (this.plugin, wnck_window, this.wnck_workspace));
+							window_box.show_all ();
+						}
+					} else {
+						workspace_box.remove_window_button (wnck_window);
+					}
+				}
+			}
+		}
+
+		private void add_window (Wnck.Window wnck_window) {
+			var wnck_window_workspace = wnck_window.get_workspace ();
+
+			// connect each window with moving the monitor action
+			wnck_window.geometry_changed.connect (() => {
+					//ignore panels
+					if (wnck_window_workspace != null) {
+						Gtk.Box box = this.plugin.box;
+						var workspace_boxes = box.get_children ();
+						foreach (var w in workspace_boxes) {
+							WorkspaceBox workspace_box = (WorkspaceBox)w;
+							var workspace_box_workspace = workspace_box.wnck_workspace;
+							Gtk.Box window_box = workspace_box.window_box;
+							//window is same workspace as workspacebox
+							if (wnck_window_workspace == workspace_box_workspace) {
+								//window exists on same monitor
+								if (this.plugin.monitor.is_on_monitor (wnck_window)) {
+									//window isnt already added
+									if (!workspace_box.window_exists (wnck_window)) {
+										window_box.add (new WindowButton (this.plugin, wnck_window, this.wnck_workspace));
+										window_box.show_all ();
+									}
+								} else {
+									//window is not on same monitor
+									workspace_box.remove_window_button (wnck_window);
+								}
+							}
+						}
+					}
+				});
+
+			
+			if (wnck_window_workspace != null &&
+				wnck_window_workspace == this.wnck_workspace &&
+				this.plugin.monitor.is_on_monitor (wnck_window))
+			{
+				
+				this.window_box.add (new WindowButton (this.plugin,
+													   wnck_window,
+													   this.wnck_workspace));
+				this.window_box.show_all ();
+			}
+
+			// wnck_window.geometry_changed.connect (() => {
+			// 		react_to_monitor_switch (wnck_window, wnck_window_workspace);
+			// 	});
+		}
+
+		private void remove_window (Wnck.Window wnck_window) {
+			var wnck_window_workspace = wnck_window.get_workspace ();
+			if (wnck_window_workspace != null &&
+				wnck_window_workspace == this.wnck_workspace &&
+				this.plugin.monitor.is_on_monitor (wnck_window))
+			{
+				var window_buttons = this.window_box.get_children ();
+				foreach (var w in window_buttons) {
+					WindowButton window_button = (WindowButton) w;
+					if (window_button.wnck_window == wnck_window) {
+						this.window_box.remove (w);
+					}
+				}
+			}
+		}
+	}
+}

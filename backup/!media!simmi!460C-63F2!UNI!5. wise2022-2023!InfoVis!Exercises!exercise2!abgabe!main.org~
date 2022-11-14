@@ -1,0 +1,82 @@
+#+TITLE: Informationsvisualisierung @@latex:\\@@ Exercise sheet 2
+#+AUTHOR: Simon Grätz
+#+INCLUDE: header.org
+#+LaTeX_CLASS:article
+#+LaTeX_CLASS_OPTIONS: [a4paper,11pt]
+#+LATEX_HEADER: \renewcommand\thesection{Exercise \arabic{section}.}
+#+LATEX_HEADER: \renewcommand\thesubsection{\alph{subsection})}
+#+LATEX_HEADER: \renewcommand\thesubsubsection{\roman{subsubsection}.}
+#+LATEX_HEADER: \makeatletter
+#+LATEX_HEADER:   \renewcommand\l@section{\@dottedtocline{2}{0em}{5.5em}}
+#+LATEX_HEADER:   \renewcommand\l@subsection{\@dottedtocline{2}{2em}{1.5em}}
+#+LATEX_HEADER:   \renewcommand\l@subsubsection{\@dottedtocline{2}{4em}{1.5em}}
+#+LATEX_HEADER: \makeatother
+# +LATEX_HEADER: \usepackage{gfsartemisia}
+#+LATEX_HEADER: \usepackage[T1]{fontenc}
+
+#+LATEX_HEADER: \newcommand{\checkedsquare}{\color{blue}\rlap{$\checkmark$}\color{black}\square}
+
+#+OPTIONS: toc:nil
+
+#+begin_export latex
+  \tableofcontents \clearpage
+#+end_export
+
+* Heatmaps 9/20 points
+  Heatmaps are a frequently used visualization technique. In this
+  exercise, we work out what heatmaps are and where they are used with
+  help from public literature.
+** Definition Heatmaps
+   Give a definition (2-3 sentences) of heatmaps, then explain how to
+   classify them.
+** Examples of Heatmaps
+   Find at least two different examples of heatmaps and discuss why a
+   heatmap is (or is not) suitable for the data that are shown in the
+   examples. Further, what advantages do heatmaps have compared to
+   other types of charts? (max. 250 words)
+** /Rainbow scale/
+   A heatmap can be represented by different color scales. Why should
+   we not use a rainbow scale?  Justify the answer. Which color scales
+   are well-suited for heatmaps? Give an example and explain
+   it. (max. 200 words)
+* Color Scale 7/20 points
+  Color scales aim to make data values and differences easily
+  recognizable.
+** /grayscale/
+   Why is grayscale usually not considered a color scale? Name at
+   least two advantages of using grayscale for data visualizations.
+** Examples for single color scale
+   Give three examples of the usage of single color scale and briefly
+   evaluate them.
+* Multiple Choice: Marks and Channels 4/20 points
+  Mark the correct statements below.
+  | $\square$        | The Expressiveness Principle says that the importance of an                                                             |
+  |                  | attribute should match the salience of the visual channel.                                                              |
+  | $\checkedsquare$ | The discriminability criterion takes into account i.e. how                                                              |
+  |                  | many colors there are to tell apart in a visualization.                                                                 |
+  |                  | What is the mark of a barplot? $\checkedsquare\quad$ Lines $\square\quad$ Point $\square\quad$ Size $\square\quad$ Axis |
+  | $\square$        | For nominal data, length is an adequate channel to encode information.                                                  |
+  
+  *Reasoning:*
+
+  1. Expressiveness Principle
+
+     \noindent " _Effectiveness_ principle: importance of the attribute
+     should match the salience of the visual channel" cite:InfoVis3.
+
+  2. Discriminability
+
+     \noindent "Discriminability: How many colors can I tell apart?"
+     cite:InfoVis3.
+
+  3. What is the mark of a barplot?
+
+     \noindent "Bar charts encode two attributes using a line mark
+     \dots" cite:munzner2015visualization.
+
+  4. Adequate channel to encode nominal data
+
+     \noindent Length, area, volume etc. is adequate for ordered
+     (ordinal, quantitative) rather then nominal data cite:InfoVis3. 
+\newpage
+  #+LATEX: \printbibliography

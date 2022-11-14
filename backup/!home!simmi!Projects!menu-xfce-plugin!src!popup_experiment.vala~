@@ -1,0 +1,121 @@
+namespace Tint2Tasklist {
+
+    private class PopupE : Gtk.Window {
+		
+		private Wnck.Window wnck_window;
+		private Plugin plugin;
+		internal Gtk.Frame frame;
+		private Gtk.Image image;
+
+        public PopupE (Plugin plugin, Wnck.Window wnck_window) {
+            Object(type: Gtk.WindowType.POPUP);
+			this.wnck_window = wnck_window;
+			this.plugin = plugin;
+			
+            var frame = new Gtk.Frame(null);
+            frame.shadow_type = Gtk.ShadowType.OUT;
+            add(frame);
+
+			Gdk.Pixbuf pixbuf = wnck_window.get_icon ();
+
+			var pack = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+			var line = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+			
+			var name = wnck_window.get_class_group_name ();
+			var name_label = new Gtk.Label (name);
+			name_label.set_hexpand (true);
+			line.add (name_label);
+			
+			Gtk.Button closeButton = new Gtk.Button.from_icon_name ("window-close", Gtk.IconSize.BUTTON);
+			closeButton.button_press_event.connect ((event) => {
+					wnck_window.close (event.time);
+					this.hide ();
+					return true;
+				});
+			
+			line.add (closeButton);
+			pack.add (line);
+
+			this.image = create_image (this.plugin, this.wnck_window);
+			pack.add (image);
+			var screen = Wnck.Screen.get_default ();
+			screen.force_update ();
+			screen.active_workspace_changed.connect ((w) => {
+					screen.force_update ();
+					pack.remove (this.image);
+					this.image = create_image (this.plugin, this.wnck_window);
+					pack.add (this.image);
+					pack.show_all ();
+				});
+			
+            frame.add(pack);
+			
+            //show.connect(on_show);
+            //hide.connect(on_hide);
+            button_press_event.connect(on_button_press_event);
+
+			this.leave_notify_event.connect ((event) => {
+					if (event.x < 0) {
+						this.hide ();						
+					} else if (event.x > 300) {
+						this.hide ();						
+					}
+					return true;
+				});
+
+        }
+
+		private Gtk.Image create_image (Plugin plugin, Wnck.Window wnck_window) {
+			int x_image = 300;
+			int y_image = x_image * 9 / 16;
+			Cairo.ImageSurface nsurface = new Cairo.ImageSurface (Cairo.Format.ARGB32, x_image, y_image);
+			Cairo.Context ncontext = new Cairo.Context (nsurface);
+			
+			Gdk.Pixbuf a = this.wnck_window.get_icon ();
+			ulong xid = wnck_window.get_xid ();
+			var gdk_screen = Gdk.Screen.get_default ();
+			var gdk_windows = gdk_screen.get_window_stack ();
+
+			int x = 0;
+			int y = 0;
+			int w = 0;
+			int h = 0;
+			foreach (var gdk_window in gdk_windows) {
+				Gdk.WindowTypeHint type_hint = gdk_window.get_type_hint ();
+				if (type_hint == Gdk.WindowTypeHint.NORMAL) {
+					var gdk_x11_window = (Gdk.X11.Window)gdk_window;
+					var gdk_xid = gdk_x11_window.get_xid ();
+					if (gdk_xid == xid) {
+						gdk_window.get_geometry (out x, out y, out w, out h);
+						a = Gdk.pixbuf_get_from_window (gdk_window, x, y, w, h);
+					}
+				}
+			}
+				
+			int scaled_w = (int)(x_image * (double)w / this.plugin.monitor.monitor_rectangle.width);
+			int scaled_h = (int)(y_image * (double)h / this.plugin.monitor.monitor_rectangle.height);			
+				
+			int x_offset = (x_image - scaled_w) / 2;
+			int y_offset = (y_image - scaled_h) / 2;			
+				
+			var image_pixbuf = a.scale_simple (scaled_w, scaled_h, HYPER);
+			Gdk.cairo_set_source_pixbuf (ncontext, image_pixbuf, x_offset, y_offset);
+			ncontext.paint ();
+			return new Gtk.Image.from_surface (nsurface);
+		}
+
+		private void on_show() {
+		}
+
+		private void on_hide() {
+		}
+
+		private bool on_button_press_event(Gdk.EventButton event) {
+			if (event.type == Gdk.EventType.BUTTON_PRESS) {
+				hide();
+				return true;
+			}
+			return false;
+		}	
+	}
+}

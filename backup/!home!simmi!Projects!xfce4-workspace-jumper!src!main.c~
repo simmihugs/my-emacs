@@ -1,0 +1,239 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <getopt.h>
+
+#include "windowhelper.h"
+
+MonitorContainer *getMonitors() {
+  GdkDisplay *defaultDisplay = gdk_display_get_default ();
+  int monitor_numbers = gdk_display_get_n_monitors (defaultDisplay);
+
+  Monitor **monitors = (Monitor **)malloc(monitor_numbers * sizeof(Monitor *));
+
+  for (int i=0; i<monitor_numbers; ++i) {
+    GdkMonitor *gdk_monitor = gdk_display_get_monitor (defaultDisplay, i);
+    Monitor *monitor = (Monitor *)malloc(sizeof(Monitor));
+    monitor->monitor = gdk_monitor;
+    monitor->id = i;
+    GdkRectangle gdk_geometry = { .x = 0, .y = 0, .width = 0, .height = 0 };
+    gdk_monitor_get_geometry (monitor->monitor, &gdk_geometry);
+    monitor->x = gdk_geometry.x;
+    monitor->y = gdk_geometry.y;
+    monitor->width = gdk_geometry.width;
+    monitor->height = gdk_geometry.height;
+
+    monitors[i] = monitor;
+  }
+
+  MonitorContainer *container = (MonitorContainer *)malloc(sizeof(MonitorContainer));
+  container->monitor_numbers = monitor_numbers;
+  container->monitors = monitors;
+  return container;  
+}
+
+Window *createWindow(WnckWindow *wnck_window) {
+  int x, y, width, height;
+  wnck_window_get_geometry(wnck_window, &x, &y, &width, &height);
+
+  Window *window = (Window *)malloc(sizeof(Window));
+  window->wnck_window = wnck_window;
+  window->x = x;
+  window->y = y;
+  window->width = width;
+  window->height = height;
+
+  return window;
+}
+
+gboolean onMonitor(Window *window, Monitor *monitor) {
+  return monitor->x <= window->x && window->x < monitor->x + monitor->width;
+}
+
+void print_usage(){
+  printf("Usage: windowhelper -l | windowhelper -r | windowhelper -R | windowhelper -L \n");
+}
+
+void move_to_monitor(Window *window, Monitor *monitor) {
+    wnck_window_unmaximize(window->wnck_window); 
+    wnck_window_set_geometry(window->wnck_window,
+			     WNCK_WINDOW_GRAVITY_STATIC,
+			     WNCK_WINDOW_CHANGE_X 
+			     + WNCK_WINDOW_CHANGE_Y 
+			     + WNCK_WINDOW_CHANGE_WIDTH 
+			     + WNCK_WINDOW_CHANGE_HEIGHT,
+			     monitor->x,
+			     0,
+			     window->width,
+			     window->height);
+    wnck_window_maximize(window->wnck_window); 
+}
+
+Window *getActiveWindow() {
+  WnckScreen *wnckScreen = wnck_screen_get_default();
+  wnck_screen_force_update(wnckScreen);
+  WnckWindow *activeWnckWindow = wnck_screen_get_active_window(wnckScreen);
+  Window *activeWindow = createWindow(activeWnckWindow);
+  return activeWindow;
+}
+
+int get_monitor_number(Window *window, MonitorContainer *container) {
+  int monitor_number = -1;
+  for (int i=0; i<container->monitor_numbers; i++) {
+    if (onMonitor(window, container->monitors[i])) {
+      monitor_number = i;
+      break;
+    }
+  }
+  return monitor_number;
+}
+
+void tile_to_monitor(Direction direction) {
+  MonitorContainer *container = getMonitors();
+  Window *activeWindow = getActiveWindow();
+  int monitor_number = get_monitor_number(activeWindow, container);
+
+  if (monitor_number == -1) {
+    printf("Determining the monitor number of the window was unsuccessfull.\n");
+  } else if (direction == RIGHT && monitor_number+1 < container->monitor_numbers) {
+    printf("Tile window to right monitor\n");
+    move_to_monitor(activeWindow, container->monitors[monitor_number+1]);
+  } else if (direction == LEFT && monitor_number-1 >= 0) {
+    printf("Tile window to left monitor\n");
+    move_to_monitor(activeWindow, container->monitors[monitor_number-1]);
+  } else if (!wnck_window_is_maximized(activeWindow->wnck_window)) {
+    wnck_window_maximize(activeWindow->wnck_window);
+  } else {
+    printf("Already tiled\n");
+  }
+}
+
+void move_to_half(Window *window, int x, int y, int width, int height) {
+  wnck_window_unmaximize(window->wnck_window); 
+  wnck_window_set_geometry(window->wnck_window,
+			   WNCK_WINDOW_GRAVITY_STATIC,
+			   WNCK_WINDOW_CHANGE_X 
+			   + WNCK_WINDOW_CHANGE_Y 
+			   + WNCK_WINDOW_CHANGE_WIDTH 
+			   + WNCK_WINDOW_CHANGE_HEIGHT,
+			   x,
+			   y,
+			   width,
+			   height);
+  wnck_window_maximize_vertically(window->wnck_window);
+}
+
+gboolean isNotTiled(Window *window, Monitor *monitor) {
+  return !(window->width==monitor->width/2 &&
+	   (window->x == monitor->x || window->x == monitor->x + monitor->width/2));
+}
+
+gboolean isMaximized(Window *window) {
+  return wnck_window_is_maximized(window->wnck_window);
+}
+
+gboolean isInLeftHalf(Window *window, Monitor *monitor) {
+  return window->x > monitor->x && window->x <= monitor->x + monitor->width/2;
+}
+
+gboolean isRightHalf(Window *window, Monitor *monitor) {
+  return window->x == monitor->x+monitor->width/2;
+}
+
+gboolean isLeftHalf(Window *window, Monitor *monitor) {
+  return window->x == monitor->x;
+}
+
+void tile_to_half(Direction direction) {
+  MonitorContainer *container = getMonitors();
+  Window *activeWindow = getActiveWindow();
+  int monitor_number = get_monitor_number(activeWindow, container);
+
+  if (monitor_number == -1) {
+    printf("Determining the monitor number of the window was unsuccessfull.\n");    
+  } else {
+    Monitor *m = container->monitors[monitor_number];
+    if (direction == LEFT) {
+
+      if (isMaximized(activeWindow)) {
+	  move_to_half(activeWindow, m->x, 0, m->width/2, m->height);
+      }
+
+      else if (isNotTiled(activeWindow, m)) {
+	if (isInLeftHalf(activeWindow, m)) {
+	  move_to_half(activeWindow, m->x, 0, m->width/2, m->height);
+	} else {
+	  move_to_half(activeWindow, m->x+m->width/2, 0, m->width/2, m->height);
+	}
+      }
+
+      else {
+	if (isRightHalf(activeWindow, m)) {
+	  move_to_half(activeWindow, m->x, 0, m->width/2, m->height);
+	} else {
+	  if (monitor_number > 0) {
+	    Monitor *new_m = container->monitors[monitor_number-1];
+	    move_to_half(activeWindow, new_m->x + new_m->width/2, 0, new_m->width/2, new_m->height);	    
+	  }
+	}
+      }
+    }
+
+    else if (direction == RIGHT) {
+      
+      if (isMaximized(activeWindow)) {
+	move_to_half(activeWindow, m->x+m->width/2, 0, m->width/2, m->height);
+      }
+      
+      else if (isNotTiled(activeWindow, m)) {
+	if (isInLeftHalf(activeWindow, m)) {
+	  move_to_half(activeWindow, m->x, 0, m->width/2, m->height);
+	} else {
+	  move_to_half(activeWindow, m->x+m->width/2, 0, m->width/2, m->height);
+	}
+      }
+
+      else {
+	if (isLeftHalf(activeWindow, m)) {
+	  move_to_half(activeWindow, m->x+m->width/2, 0, m->width/2, m->height);
+	} else {
+	  if (monitor_number+1 < container->monitor_numbers) {
+	    Monitor *new_monitor = container->monitors[monitor_number+1];
+	    move_to_half(activeWindow, new_monitor->x, 0, new_monitor->width/2, new_monitor->height);
+	  }
+	}
+      }
+    }
+  }
+}
+      
+
+int main(int argc, char **argv) {
+  gdk_init(&argc, &argv);
+
+  int option;
+  if (argc == 1){
+    print_usage();
+    return 0;
+  } else {
+    while ((option = getopt(argc, argv, "lrLR")) != -1){
+      switch (option) {
+      case 'l':
+	tile_to_half(LEFT);
+	break;
+      case 'r':
+	tile_to_half(RIGHT);
+	break;
+      case 'L':
+	tile_to_monitor(LEFT);
+	break;
+      case 'R':
+	tile_to_monitor(RIGHT);
+	break;
+      default:
+	print_usage();
+      }
+    }
+    return 0;
+  }
+  
+}

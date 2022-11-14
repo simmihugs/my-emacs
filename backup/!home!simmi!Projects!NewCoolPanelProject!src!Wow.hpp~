@@ -1,0 +1,25 @@
+#ifndef WOW_HPP
+#define WOW_HPP
+
+#include <gtk/gtk.h>
+#include <libwnck/libwnck.h>
+
+#include <iostream>
+#include <string>
+#include <vector>
+
+
+extern "C"
+{
+  #include <libxfce4panel/libxfce4panel.h>
+}
+
+namespace Plugin
+{  
+  extern XfcePanelPlugin* plugin;
+
+  void aboutDialog();
+  void getPointerPosition(gint* x, gint* y);
+}    
+
+#endif

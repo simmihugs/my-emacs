@@ -1,0 +1,8 @@
+[Xfce Panel]
+Type=X-XFCE-PanelPlugin
+Encoding=UTF-8
+Name=Tint2 Tasklist
+Comment=Show Taskslist like Tint2
+Icon=org.xfce.panel.tasklist
+X-XFCE-Module=tint2tasklist
+X-XFCE-API=2.0

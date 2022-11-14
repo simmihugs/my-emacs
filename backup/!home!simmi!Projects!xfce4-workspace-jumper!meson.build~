@@ -1,0 +1,10 @@
+project('xfce4-windowhelper', 'c', meson_version : '>= 0.37.0')
+
+dependencies = [dependency('libwnck-3.0')]
+
+exe = executable('windowhelper',
+                 sources : ['src/main.c'],
+                 c_args : '-DWNCK_I_KNOW_THIS_IS_UNSTABLE',
+                 dependencies : dependencies,
+                 install : true)
+

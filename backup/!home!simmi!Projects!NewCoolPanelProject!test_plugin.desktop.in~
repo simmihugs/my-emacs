@@ -1,0 +1,7 @@
+[Xfce Panel]
+Type=X-XFCE-PanelPlugin
+Encoding=UTF-8
+Name=Test name
+Comment=This is a test plugin
+Icon=multimedia-volume-control
+X-XFCE-Exec=/usr/lib/xfce4/panel/plugins/test-plugin.so

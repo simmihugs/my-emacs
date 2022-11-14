@@ -1,0 +1,18 @@
+(use-package company-ghci)
+
+(use-package company
+  :init
+  (add-hook 'after-init-hook 'global-company-mode)
+  :hook 
+  ((emacs-lisp-mode
+    haskell-mode
+    my-haskell
+    slime-repl-mode
+    common-lisp-mode
+    rust-mode
+    lsp-mode
+    company-ghc) . company-mode)
+  :config
+  (setq company-idle-delay 0.01
+	company-minimum-prefix-length 2
+	company-selection-wrap-around t))

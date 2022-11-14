@@ -1,0 +1,40 @@
+namespace MyApp {
+    int main (string[] args) {
+        run_my_app (args);
+        
+        return 0;
+    }
+    int run_my_app (string[] args) {
+        Gtk.init (ref args);
+        Wnck.Screen screen = Wnck.Screen.get_default ();
+        screen.force_update ();
+        unowned var windows = screen.get_windows ();
+        foreach (var window in windows) {
+            var workspace = window.get_workspace ();
+            if (workspace != null) {
+                string name = window.get_class_group_name ();
+                stdout.printf ("windowname : %s\n", name);
+            }
+        }
+        
+        var window = new Gtk.Window ();
+        window.title = "First GTK+ Program";
+        //window.border_width = 10;
+        window.window_position = Gtk.WindowPosition.CENTER;
+        window.fullscreen ();
+        //window.set_default_size (800, 600);
+        //window.set_size_request (800, 600);
+        window.destroy.connect (Gtk.main_quit);
+        window.set_decorated (false);
+        var button = new Gtk.Button.with_label ("Click me!");
+        button.clicked.connect (() => {
+                button.label = "Thank you";
+                Gtk.main_quit();
+            });
+        window.add (button);
+        window.show_all ();
+        Gtk.main ();
+        return 0;
+    }
+    
+}

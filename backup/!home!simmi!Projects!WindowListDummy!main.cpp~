@@ -1,0 +1,509 @@
+/// TODO
+/// - Button for each monitor
+/// - Button for each workspace on each monitor
+/// - under each of these parameters sort in windows
+/// - react to adding and removing of windows
+/// - react to change of number of workspaces+monitors
+/// - Add icons
+
+#include <cstdlib>
+#include <iostream>
+#include <list>
+#include <sstream>
+#include <string>
+#include <vector>
+#include <gtk/gtk.h>
+#include <gdk/gdk.h>
+#include <gdk/gdkx.h>
+#include <libwnck/libwnck.h>
+
+#include "Windows.hpp"
+#include "Utils.hpp"
+
+static void activate(GtkApplication *app, gpointer user_data);
+
+GtkWidget *container;
+GtkWidget *window;
+
+void compare_windows();
+
+int main(int argc, char **argv)
+{
+  if (false) {
+    Utils::findXDGDirectories();
+    Utils::loadXDGDirectories();
+  
+    gdk_init (&argc, &argv);
+    WnckScreen *screen = wnck_screen_get_default();
+    wnck_screen_force_update(screen);  
+    GList *window_l = wnck_screen_get_windows (screen);
+    for (; window_l != NULL; window_l = window_l->next) {
+      WnckWindow *window = WNCK_WINDOW (window_l->data);
+
+      WnckWorkspace *workspace = wnck_window_get_workspace(window);
+      if (workspace != NULL) {
+	const char *window_class = wnck_window_get_class_group_name(window);
+	//const char *window_name = wnck_window_get_name(window);
+	//const char *window_icon = wnck_window_get_icon_name(window);
+
+	std::cout << "Window-Class: " << window_class << std::endl;
+
+	for (auto tuple: Utils::appInfoNames) {
+
+	  auto it2 = tuple.find(Utils::toLowercase(window_class));
+	  if (it2 != tuple.end()) {
+	    Utils::AppInfo *info = it2->second;
+	    //info->print();
+
+	    std::string icon = info->icon;
+	    GdkPixbuf *mIconPixbuf = gdk_pixbuf_new_from_file(icon.c_str(), NULL);
+	    if (mIconPixbuf != NULL) {
+	      std::cout << "Hurray found the icon " 
+			<< "icon: " << icon << std::endl;
+	    } else {
+	      std::cout << "Could not find the icon! "
+			<< "icon: " << icon << std::endl;
+	    }
+	
+	  }
+	}
+	std::cout << "\n";
+      }
+    }
+
+  }
+
+  gdk_init (&argc, &argv);
+
+  GtkApplication *app;
+  int status;
+
+  app = gtk_application_new(NULL, G_APPLICATION_FLAGS_NONE);
+  g_signal_connect(app, "activate", G_CALLBACK(activate), NULL);
+  status = g_application_run(G_APPLICATION(app), argc, argv);
+  g_object_unref(app);
+  
+  return status;
+  
+}
+
+std::string int_str(int i)
+{
+  std::stringstream ss;
+  std::string str;
+  ss << i;
+  ss >> str;
+  return str;
+}
+
+static void make_window_active_and_move_to_workspace(WnckWindow *window)
+{
+  WnckWorkspace *workspace = wnck_window_get_workspace(window);
+  wnck_workspace_activate (workspace, gtk_get_current_event_time());
+  wnck_window_activate(window, gtk_get_current_event_time());
+}
+
+// static void make_window_active_on_current_workspace(WnckWindow *window)
+// {
+//   wnck_window_activate(window, gtk_get_current_event_time());
+// }
+
+class Monitor {
+private:
+  int x;
+  int width;
+public:
+  Monitor(int x, int width)
+  {
+    this->x = x;
+    this->width = width;
+  }
+
+  bool wnck_window_is_on_monitor(WnckWindow *wnck_window)
+  {
+    int xp, yp, widthp, heightp;
+    wnck_window_get_geometry(wnck_window, &xp, &yp, &widthp, &heightp);
+    return this->x <= xp && xp<this->x+this->width;
+  }
+};
+
+int get_monitor(WnckWindow *wnck_window)
+{
+  GdkScreen *gdk_screen = gdk_screen_get_default();
+  GdkDisplay *gdk_display = gdk_screen_get_display(gdk_screen);
+  gint n = gdk_display_get_n_monitors(gdk_display);
+  GdkRectangle *gdk_rectangle = (GdkRectangle *)malloc(sizeof(GdkRectangle));
+
+  std::vector<Monitor> xs;
+  
+  for (int i=0; i<n; ++i) {
+    GdkMonitor *gdk_monitor = gdk_display_get_monitor(gdk_display, i);
+    gdk_monitor_get_geometry(gdk_monitor, gdk_rectangle);
+    xs.push_back(Monitor(gdk_rectangle->x, gdk_rectangle->width));
+  }
+
+  int xp, yp, widthp, heightp;
+  wnck_window_get_geometry(wnck_window, &xp, &yp, &widthp, &heightp);
+
+  int index = 0;
+  for (auto monitor: xs) {
+    if (monitor.wnck_window_is_on_monitor(wnck_window))
+      return index;
+    index++;
+  }
+
+  return index;
+}
+
+static void get_windows()//GtkWidget *container)
+{
+  WnckScreen *screen = wnck_screen_get_default();
+  wnck_screen_force_update(screen);
+
+  //int width = wnck_screen_get_width (screen);
+  //std::cout << "Screenwidth: " << width << std::endl;
+  
+  std::stringstream ss;
+  std::string tmp;      
+
+  GtkWidget *sub_container = gtk_box_new(GTK_ORIENTATION_VERTICAL, 5);
+
+  gtk_container_add(GTK_CONTAINER(sub_container), gtk_button_new_with_label("Window:"));
+  gtk_container_add(GTK_CONTAINER(sub_container), gtk_label_new("Workspace:"));
+  // gtk_container_add(GTK_CONTAINER(sub_container), gtk_label_new("Screen:"));
+  
+  // gtk_container_add(GTK_CONTAINER(sub_container), gtk_label_new("x:"));
+  // gtk_container_add(GTK_CONTAINER(sub_container), gtk_label_new("y:"));
+  // gtk_container_add(GTK_CONTAINER(sub_container), gtk_label_new("width:"));
+  // gtk_container_add(GTK_CONTAINER(sub_container), gtk_label_new("height:"));
+  gtk_container_add(GTK_CONTAINER(sub_container), gtk_label_new("monitor:"));  
+  
+
+  gtk_container_add(GTK_CONTAINER(container), sub_container);
+
+  // GdkScreen *gdk_screen = gdk_screen_get_default();
+  // GdkDisplay *gdk_display = gdk_screen_get_display(gdk_screen);
+  // gint n = gdk_display_get_n_monitors(gdk_display);
+  // GdkRectangle *gdk_rectangle = (GdkRectangle *)malloc(sizeof(GdkRectangle));
+  // for (int i=0; i<n; ++i) {
+  //   GdkMonitor *gdk_monitor = gdk_display_get_monitor(gdk_display, i);
+  //   gdk_monitor_get_geometry(gdk_monitor, gdk_rectangle);
+  //   //gdk_screen_get_monitor_geometry(gdk_screen, i, gdk_rectangle);
+  //   std::cout << "Monitor" << i << ": " << "x: " << gdk_rectangle->x << " y: " << gdk_rectangle->y << " width: " << gdk_rectangle->width << " height: " << gdk_rectangle->height << std::endl;
+  // }
+  
+  // std::cout << n << std::endl;
+  
+  GList *window_l = wnck_screen_get_windows (screen);
+  for (; window_l != NULL; window_l = window_l->next) {
+    WnckWindow *window = WNCK_WINDOW (window_l->data);
+    
+    const char *window_name = wnck_window_get_class_group_name(window);
+
+    WnckWorkspace *workspace = wnck_window_get_workspace(window);
+    if (workspace != NULL) {
+
+      int x, y, width, height;
+      wnck_window_get_geometry(window, &x, &y, &width, &height);
+
+      // GdkScreen *gdk_screen = gdk_screen_get_default();
+      // GdkDisplay *gdk_display = gdk_screen_get_display(gdk_screen);
+      // gint n = gdk_display_get_n_monitors(gdk_display);
+      // std::cout << n << std::endl;
+      
+      /*
+	GList *windows = gdk_screen_get_window_stack(gdk_screen);	
+	for (; windows != NULL; windows = windows->next) {
+	GdkWindow *gdk_window = GDK_WINDOW(windows->data);
+	//gint monitor_number = gdk_screen_get_monitor_at_window(gdk_screen, gdk_window);
+	GdkMonitor *gdk_monitor = gdk_display_get_monitor_at_window(gdk_display, gdk_window);
+
+	GdkRectangle *gdk_geometry = (GdkRectangle *)malloc(sizeof(GdkRectangle));
+	gdk_monitor_get_geometry(gdk_monitor, gdk_geometry);
+	
+        int gdk_x, gdk_y, gdk_w, gdk_h;
+	
+	gdk_window_get_geometry(gdk_window, &gdk_x, &gdk_y, &gdk_w, &gdk_h);
+	//std::cout << monitor_number << std::endl;
+	std::cout << "monitor: " << " x: " << gdk_geometry->x << " y: " << gdk_geometry->y << " height: " << gdk_geometry->height << " width: " << gdk_geometry->width << std::endl;
+	}
+      */
+
+      //gint number_of_monitors = gdk_screen_get_n_monitors(gdk_screen);
+      
+      // gulong xid = wnck_window_get_xid (window);
+      // GdkWindow *gdk_window = (GdkWindow *)gdk_xid_table_lookup(xid);
+
+      //gint monitor_number = gdk_screen_get_monitor_at_window(gdk_screen, gdk_window);      
+
+      GdkPixbuf *icon_ = wnck_window_get_icon(window);
+      GtkWidget *image_button = gtk_button_new();
+      GdkPixbuf *pixbuf = gdk_pixbuf_scale_simple(icon_, 24, 24, GDK_INTERP_HYPER);
+      GtkWidget *icon = gtk_image_new_from_pixbuf(pixbuf);
+      gtk_button_set_image(GTK_BUTTON(image_button), icon);
+      
+      int workspace_number = wnck_workspace_get_number(workspace);
+      //WnckScreen *wscreen = wnck_workspace_get_screen(workspace);
+      //int screennumber = wnck_screen_get_number(wscreen);
+
+      GtkWidget *sub_sub_container = gtk_box_new(GTK_ORIENTATION_VERTICAL, 5);
+      GtkWidget *window_button = gtk_button_new_with_label(window_name);
+      gtk_container_add(GTK_CONTAINER(sub_sub_container), window_button);
+      gtk_container_add(GTK_CONTAINER(sub_sub_container), image_button);      
+
+      g_signal_connect_swapped(window_button, "clicked", G_CALLBACK(make_window_active_and_move_to_workspace), window);
+      g_signal_connect_swapped(image_button, "clicked", G_CALLBACK(make_window_active_and_move_to_workspace), window);            
+
+      gtk_container_add(GTK_CONTAINER(sub_sub_container), gtk_label_new(int_str(workspace_number + 1).c_str()));
+      //gtk_container_add(GTK_CONTAINER(sub_sub_container), gtk_label_new(int_str(screennumber + 1).c_str()));
+
+      // gtk_container_add(GTK_CONTAINER(sub_sub_container), gtk_label_new(int_str(x).c_str()));
+      // gtk_container_add(GTK_CONTAINER(sub_sub_container), gtk_label_new(int_str(y).c_str()));
+      // gtk_container_add(GTK_CONTAINER(sub_sub_container), gtk_label_new(int_str(width).c_str()));
+      // gtk_container_add(GTK_CONTAINER(sub_sub_container), gtk_label_new(int_str(height).c_str()));
+      gtk_container_add(GTK_CONTAINER(sub_sub_container), gtk_label_new(int_str(get_monitor(window) + 1).c_str()));                  
+  
+      gtk_container_add(GTK_CONTAINER(container), sub_sub_container);
+    }
+  }
+
+  /*
+    g_signal_connect(G_OBJECT(screen), "window-opened",
+    G_CALLBACK(+[](WnckScreen* wnckScreen, WnckWindow* wnckWindow) {
+    gtk_container_add(GTK_CONTAINER(container), gtk_button_new_with_label("adsfasdf"));
+    gtk_widget_show_all(window);
+    }),
+    NULL);    
+  */
+}
+
+class WnckWindowDetail {
+public:
+  gulong id;
+  WnckWindow *window;
+  GdkPixbuf *gdkPixbuf;
+  float scale_factor;
+  int width;
+  int height;
+  int x;
+  int y;
+  
+  WnckWindowDetail (gulong id, WnckWindow *window) {
+    this->id = id;
+    this->window = window;
+    this->gdkPixbuf = NULL;
+    this->scale_factor = 0.2;
+    int x, y, width, height;
+    wnck_window_get_geometry(window, &x, &y, &width, &height);
+    this->height = height;
+    this->width = width;
+    this->x = x;
+    this->y = y;
+  }
+
+  const char *get_window_group_name() {
+    return wnck_window_get_class_group_name(window);
+  }
+
+  GtkWidget *get_window_miniature_view() {
+    if (gdkPixbuf == NULL) {
+      std::cout << "ERROR: get_window_miniature_view()" << std::endl;
+      exit(EXIT_FAILURE);
+    }
+    GdkPixbuf *scaled_pixbuf = gdk_pixbuf_scale_simple(gdkPixbuf, scale_factor * width, scale_factor * height, GDK_INTERP_HYPER);
+    return gtk_image_new_from_pixbuf(scaled_pixbuf);
+  }
+
+  GtkWidget *get_window_icon() {
+    return gtk_image_new_from_pixbuf(wnck_window_get_icon(window));
+  }
+
+  void set_gdkPixbuf(GdkPixbuf *pixbuf)
+  {
+    this->gdkPixbuf = pixbuf;
+  }
+  
+};
+
+std::vector<WnckWindowDetail> WnckWindowDetails;
+
+void get_wnck_window_details()
+{
+  WnckScreen *wnck_screen = wnck_screen_get_default();
+  wnck_screen_force_update(wnck_screen);  
+  GList *window_l = wnck_screen_get_windows (wnck_screen);
+  for (; window_l != NULL; window_l = window_l->next) {
+    WnckWindow *wnck_window = WNCK_WINDOW (window_l->data);
+    WnckWorkspace *workspace = wnck_window_get_workspace(wnck_window);
+    if (workspace != NULL) {    
+      gulong xid = wnck_window_get_xid(wnck_window);
+      WnckWindowDetails.push_back(WnckWindowDetail(xid, wnck_window));
+    }
+  }    
+}
+
+class GdkWindowDetail {
+public:
+  gulong id;
+  GdkPixbuf *gdkpixbuf;
+  GdkWindowDetail (gulong id, GdkPixbuf *gdkpixbuf) : id(id), gdkpixbuf(gdkpixbuf) {};
+};
+
+std::vector<GdkWindowDetail> GdkWindowDetails;
+
+void get_gdk_window_details()
+{
+  GdkScreen *gdk_screen = gdk_screen_get_default();
+  GList *windows = gdk_screen_get_window_stack(gdk_screen);	
+  for (; windows != NULL; windows = windows->next) {
+    GdkWindow *gdk_window = GDK_WINDOW(windows->data);
+    GdkWindowTypeHint typehint = gdk_window_get_type_hint(gdk_window);
+    if (typehint == GDK_WINDOW_TYPE_HINT_NORMAL) {
+      int x, y, width, height;
+      gdk_window_get_geometry(gdk_window, &x, &y, &width, &height);
+
+      gulong id = gdk_x11_window_get_xid(gdk_window);
+      GdkPixbuf *pixbuf = gdk_pixbuf_get_from_window(gdk_window, x, y, width, height);	
+      GdkWindowDetails.push_back(GdkWindowDetail(id, pixbuf));
+    }
+  }  
+}
+
+void compare_windows()
+{
+  get_gdk_window_details();
+  get_wnck_window_details();
+  bool setbuf;
+  for (auto wnck_detail : WnckWindowDetails) {
+
+    setbuf = false;    
+    for (auto gdk_detail : GdkWindowDetails) {
+      if (wnck_detail.id == gdk_detail.id) {
+	setbuf = true;
+	auto pixbuf = gdk_detail.gdkpixbuf;
+	wnck_detail.set_gdkPixbuf(pixbuf);
+      }
+    }
+    
+    if (setbuf==false) {
+      std::cout << "No pixbuf set for: " << wnck_detail.get_window_group_name() << std::endl;
+      exit(EXIT_FAILURE);
+    } else {
+      std::cout << "Set pixbuf for: " << wnck_detail.get_window_group_name() << std::endl;
+      std::cout << "Pixbuf is NULL? " << (wnck_detail.gdkPixbuf == NULL ? "Yes" : "No") << std::endl;
+    }
+  }
+}
+
+/*
+  static void activate(GtkApplication* app, gpointer user_data)
+  {
+  compare_windows();
+  
+  window = gtk_application_window_new (app);
+  container = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5);
+
+  for (auto wnck_window: WnckWindowDetails) {
+  const char *window_group = wnck_window.get_window_group_name();
+  //GtkWidget *window_miniature = wnck_window.get_window_miniature_view();
+  GtkWidget *window_miniature = gtk_image_new_from_pixbuf(wnck_window.gdkPixbuf);
+  GtkWidget *window_icon = wnck_window.get_window_icon();
+
+  GtkWidget *vertical_container = gtk_box_new(GTK_ORIENTATION_VERTICAL, 5);
+  GtkWidget *title_container = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5);    
+
+  ///Create title container
+  //Add window group name to title container
+  gtk_container_add(GTK_CONTAINER(title_container), gtk_label_new(window_group));
+
+  //Add image button to title container
+  GtkWidget *image_button = gtk_button_new();
+  gtk_button_set_image(GTK_BUTTON(image_button), window_icon);
+  //GtkWidget *img = gtk_button_get_image(GTK_BUTTON(image_button));    
+  //gtk_widget_set_valign(img, GTK_ALIGN_CENTER);  
+  gtk_button_set_always_show_image(GTK_BUTTON(image_button), true);    
+  gtk_container_add(GTK_CONTAINER(title_container), image_button);
+  g_signal_connect_swapped(image_button, "clicked", G_CALLBACK(make_window_active_and_move_to_workspace), wnck_window.window);            
+
+  //Add title container to vertical container
+  gtk_container_add(GTK_CONTAINER(vertical_container), title_container);
+
+  //Add image to vertical container
+  GtkWidget *image_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 5);
+  GtkWidget *image = gtk_image_new();
+  image = gtk_image_new_from_pixbuf(wnck_window.gdkPixbuf);
+  gtk_container_add(GTK_CONTAINER(image_box), image);
+  gtk_container_add(GTK_CONTAINER(vertical_container), image_box);
+
+  //Add item to final container
+  gtk_container_add(GTK_CONTAINER(container), vertical_container);    
+  }
+
+  gtk_container_add(GTK_CONTAINER(window), container);
+  gtk_window_set_title(GTK_WINDOW (window), "WnckWindowOverview");
+  gtk_window_set_default_size(GTK_WINDOW (window), 400, 100);
+  gtk_widget_show_all(window);
+  
+  }
+
+*/
+static void activate(GtkApplication* app, gpointer user_data)
+{
+  window = gtk_application_window_new (app);
+
+  GtkWidget *vertical_container = gtk_box_new(GTK_ORIENTATION_VERTICAL, 10);
+  GtkWidget *image_container = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 10);  
+  container = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5);
+  
+  GtkWidget *image_button = gtk_button_new();
+  GdkPixbuf *mIconPixbuf = gdk_pixbuf_new_from_file("/usr/share/pixmaps/Alacritty.png", NULL);
+  GdkPixbuf *pixbuf = gdk_pixbuf_scale_simple(mIconPixbuf, 24, 24, GDK_INTERP_HYPER);
+  GtkWidget *icon = gtk_image_new_from_pixbuf(pixbuf);
+  gtk_button_set_image(GTK_BUTTON(image_button), icon);
+
+  GtkWidget *img = gtk_button_get_image(GTK_BUTTON(image_button));
+  gtk_widget_set_valign(img, GTK_ALIGN_CENTER);  
+  gtk_button_set_always_show_image(GTK_BUTTON(image_button), true);
+  gtk_container_add(GTK_CONTAINER(container), image_button);
+
+  GdkScreen *gdk_screen = gdk_screen_get_default();
+  GList *windows = gdk_screen_get_window_stack(gdk_screen);	
+  for (; windows != NULL; windows = windows->next) {
+    GdkWindow *gdk_window = GDK_WINDOW(windows->data);
+
+    
+    GdkWindowTypeHint typehint = gdk_window_get_type_hint(gdk_window);
+    if (typehint == GDK_WINDOW_TYPE_HINT_NORMAL) {
+      int x, y, width, height;
+      gdk_window_get_geometry(gdk_window, &x, &y, &width, &height);
+
+      auto id = gdk_x11_window_get_xid(gdk_window);
+      std::cout << "gdk xid:" << id << std::endl;
+      
+      //TODO get xid of wnck window
+      //     get Gdk Window of the given xid
+      
+      
+      auto scale_factor = 0.2;
+      GdkPixbuf *pixbuf = gdk_pixbuf_get_from_window(gdk_window, x, y, width, height);
+      GdkPixbuf *scaled_pixbuf = gdk_pixbuf_scale_simple(pixbuf, scale_factor * width, scale_factor * height, GDK_INTERP_HYPER);
+    
+      GtkWidget *img = gtk_image_new_from_pixbuf(scaled_pixbuf);
+
+      GtkWidget *image_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 10);
+      gtk_container_add(GTK_CONTAINER(image_box), img);
+    
+      gtk_container_add(GTK_CONTAINER(image_container), image_box);
+      
+    }
+  }
+  
+  get_windows(); //Adds windows to container
+  gtk_container_add(GTK_CONTAINER(vertical_container), container);
+  gtk_container_add(GTK_CONTAINER(vertical_container), image_container);  
+  gtk_container_add(GTK_CONTAINER(window), vertical_container);
+
+  gtk_window_set_title(GTK_WINDOW (window), "WnckWindowOverview");
+  gtk_window_set_default_size(GTK_WINDOW (window), 400, 100);
+  gtk_widget_show_all(window);
+}

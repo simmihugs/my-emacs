@@ -1,0 +1,24 @@
+namespace Tint2Tasklist {
+	
+	private class Monitor {
+
+		public Monitor (Gdk.Monitor gdk_monitor) {
+			this.gdk_monitor = gdk_monitor;
+		}
+		
+		private Gdk.Monitor gdk_monitor { get; set; }
+		
+		public bool is_on_monitor (Wnck.Window wnck_window) {
+			Gdk.Rectangle monitor_rectangle = this.gdk_monitor.get_geometry ();
+			int x, y, h, w;
+			wnck_window.get_geometry (out x, out y, out w, out h);
+			var window_rectangle = Gdk.Rectangle() { x=x, y=y, width=w, height=h };
+			var out_rectangle = Gdk.Rectangle();
+			if (monitor_rectangle.intersect(window_rectangle, out out_rectangle)) {
+				return true;
+			}
+			return false;
+		}
+
+	}
+}

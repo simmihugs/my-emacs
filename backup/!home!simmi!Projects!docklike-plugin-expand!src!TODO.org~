@@ -1,0 +1,10 @@
+#+TITLE: Changes for docklike-plugin
+* TODO Dock.cpp
+  Current implementation of window buttons
+* TODO Group.cpp
+  Represents Group of Windows -> Change so that button for each window
+  is possible
+* TODO GroupWindow.cpp
+  Used to group windows -> maybe remove
+* TODO Wnck.cpp
+  Add to window group 

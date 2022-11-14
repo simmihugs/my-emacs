@@ -1,0 +1,7 @@
+#+TITLE: Meson
+
+#+begin_src emacs-lisp 
+  (use-package meson
+    :config
+    (add-hook 'meson-mode-hook 'company-mode))
+#+end_src

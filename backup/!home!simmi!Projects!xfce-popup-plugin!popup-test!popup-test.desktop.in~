@@ -1,0 +1,8 @@
+[Xfce Panel]
+Type=X-XFCE-PanelPlugin
+Encoding=UTF-8
+Name=Popup test
+Comment=Test panel plugin popups
+Icon=gnome-calculator
+X-XFCE-Module=popup-test
+X-XFCE-API=2.0

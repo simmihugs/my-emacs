@@ -1,0 +1,34 @@
+#include <libwnck/libwnck.h>
+#include <gdk/gdk.h>
+
+
+typedef struct Monitor {
+  GdkMonitor *monitor;
+  int id;
+  int x;
+  int y;
+  int width;
+  int height;
+} Monitor;
+
+
+typedef struct MonitorContainer {
+  int monitor_numbers;
+  Monitor **monitors;
+} MonitorContainer;
+
+
+typedef struct Window {
+  WnckWindow *wnck_window;
+  int x;
+  int y;
+  int width;
+  int height;
+} Window;
+
+
+typedef enum Direction {
+  LEFT,
+  RIGHT
+} Direction;
+

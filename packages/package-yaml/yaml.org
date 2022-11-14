@@ -1,0 +1,6 @@
+#+TITLE: yaml-mode
+#+begin_src emacs-lisp
+  (use-package yaml-mode)
+#+end_src
+
+#+RESULTS:

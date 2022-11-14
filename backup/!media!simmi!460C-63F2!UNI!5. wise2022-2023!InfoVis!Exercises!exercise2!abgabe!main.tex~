@@ -1,0 +1,334 @@
+% Created 2022-11-14 Mo 00:09
+% Intended LaTeX compiler: pdflatex
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{listings}
+\usepackage[english]{babel}
+\usepackage{import}
+\usepackage{color}
+\usepackage{hyperref}
+\hypersetup{
+colorlinks=true,
+linkcolor=black,
+filecolor=magenta,
+anchorcolor=red,
+citecolor=blue,
+urlcolor=blue,
+}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{myred}{rgb}{0.82, 0.1, 0.26}
+\usepackage[a4paper, bindingoffset=0.5cm, hmargin={2.5cm, 2.5cm},vmargin={2.5cm, 2.5cm}]{geometry}
+\usepackage[backend=bibtex, style=ieee, citestyle=ieee]{biblatex}
+\addbibresource{./bibliothek/bibliography.bib}
+\lstset{
+commentstyle=\color{mygreen},     % comment style
+basicstyle=\ttfamily,             % the size of the fonts that are used for the code
+firstnumber=1,                % start line enumeration with line 1000
+frame=single,	            % adds a frame around the code
+keywordstyle=\color{blue},        % keyword style
+language=python,                 % the language of the code
+numbers=left,                     % where to put the line-numbers; possible values are (none, left, right)
+numbersep=5pt,                   % how far the line-numbers are from the code
+numberstyle=\ttfamily\color{mygray},  % the style that is used for the line-numbers
+rulecolor=\color{black},          % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+showstringspaces=false,          % underline spaces within strings only
+stringstyle=\color{red},          % string literal style
+}
+\usepackage{fancyhdr}
+\usepackage{pdfpages}
+\graphicspath{{./figures/}}
+\usepackage{siunitx}
+\usepackage{textcomp}
+\usepackage{subcaption}
+\captionsetup[subfigure]{margin=8pt}
+\usepackage{enumitem,amssymb}
+\newlist{checkbox}{itemize}{2}
+\setlist[checkbox]{label=$\square$}
+\renewcommand\thesection{Exercise \arabic{section}.}
+\renewcommand\thesubsection{\alph{subsection})}
+\renewcommand\thesubsubsection{\roman{subsubsection}.}
+\makeatletter
+\renewcommand\l@section{\@dottedtocline{2}{0em}{5.5em}}
+\renewcommand\l@subsection{\@dottedtocline{2}{2em}{1.5em}}
+\renewcommand\l@subsubsection{\@dottedtocline{2}{4em}{1.5em}}
+\makeatother
+\usepackage{gfsartemisia}
+\usepackage[T1]{fontenc}
+\newcommand{\checkedsquare}{\color{blue}\rlap{$\checkmark$}\color{black}\square}
+\author{Simon Grätz}
+\date{\today}
+\title{Informationsvisualisierung \\ Exercise sheet 2}
+\hypersetup{
+ pdfauthor={Simon Grätz},
+ pdftitle={Informationsvisualisierung \\ Exercise sheet 2},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.1 (Org mode 9.5.2)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents \clearpage
+
+\section{Heatmaps 9/20 points}
+\label{sec:org6f772d1}
+Heatmaps are a frequently used visualization technique. In this
+exercise, we work out what heatmaps are and where they are used with
+help from public literature.
+\subsection{Definition Heatmaps}
+\label{sec:org71feba2}
+Give a definition (2-3 sentences) of heatmaps, then explain how to
+classify them.
+
+\noindent \textbf{Answer:}
+
+\noindent A heatmap is a visual representation, which depicts the
+relationship of 2dimensional data. By using color, saturation and
+brightness in order to intutively describe a large amount of data
+to the observer, a heatmap points out the relevant key information,
+in an easy and quick to understand way \cite{HeatMap}.
+
+\noindent Heatmaps can be classified into grid heat maps, which are
+2 or 3 dimensional grids (coordiante systems), where each axis
+represents a trait. Or a spatial heat map, where a literal map is
+used on which a color range from e.g. red to e.g. blue is
+applied. The map functions as the first dimension of the data -
+location. Whereas the color functions as the other dimension of the
+data. 
+
+\subsection{Examples of Heatmaps}
+\label{sec:org02fb315}
+Find at least two different examples of heatmaps and discuss why a
+heatmap is (or is not) suitable for the data that are shown in the
+examples. 
+
+\noindent \textbf{Answer:}
+
+\begin{enumerate}
+\item A heatmap in a heatmap camera
+
+Firefighters and others using a thermographic camera to search a
+missing persons. At night, the contrast of the body temperature
+of the person, is very noticeable against the ground and the
+woods in a forest.
+
+A heatmap is suitable for this, because it highlights the
+important information with a very usefull, high contrast.
+The details are less important - you want to know where the
+missing person is, not which color of hair this individual has.
+
+\item FSME high-risk area
+
+A map, where the areas are colored red, orange, yellow, light
+green, dark green, based on the risk factor for a FSME infection
+in these areas. (Important, I'm aware, that the maps one usually
+finds in a doctors office on this topic are not heat maps but
+choropleth maps where it is based on say Landkreis for instance,
+where a real heat map is not concerned with average per
+landkreis, but rather the actual data, wherever it appears on
+the map.)
+
+The heatmap is suitable, because it gives an observer a quick
+and unmistakable feedback about the risk for an infection, given
+the person knows enough geography to realize wether a risk area
+is close. If the risk is high, better get vaccinated. Also the
+color coding ist intutively understandable - red bad and green
+good.
+\end{enumerate}
+
+\subsubsection{Advantages of Heatmaps}
+\label{sec:orgf687e63}
+Further, what advantages do heatmaps have compared to
+other types of charts? (max. 250 words)
+
+\noindent \textbf{Answer:}
+
+\noindent Heatmaps can represent large amounts of data in a quick
+and intutive form that is easy to unterstand. This is done by
+using visual representations rather than numeric values, which
+means, that a heatmap might be more approachable by a less
+informed person. Heatmaps usually look amazing too, in contrast to
+boring line and bar plots that is. This is infact important,
+because people are lazy, boring things will be avoided, enticing
+things will be studied. 
+
+\subsection{\emph{Rainbow scale}}
+\label{sec:org64127c4}
+A heatmap can be represented by different color scales. Why should
+we not use a rainbow scale?  Justify the answer. Which color scales
+are well-suited for heatmaps? Give an example and explain
+it. (max. 200 words)
+
+\noindent \textbf{Answer:}
+
+\noindent We should not use a rainbow scale, because the order of
+the colors in the rainbow, is not immediately know. Most people
+might have to thing about it. Even if you put a rainbow scale next
+to the visualization, there is a lack in interpretation of the
+heatmap. On top of that the color yellow "may draw too much
+attention" \cite{infoVis2} which is somewhat problematic, as it is in
+the middle of the scale, and the extreme values red and purple are
+less prominent. More well suited for a heatmap are the color scales
+red to green, yellow to blue or red to blue. An example would be a
+neutral white color for 0degree, rising saturation color blue to
+indicate cooling down and a rising saturation with color red to
+indicate warming up.
+\newpage
+\section{Color Scale 7/20 points}
+\label{sec:org0238943}
+Color scales aim to make data values and differences easily
+recognizable.
+\subsection{\emph{grayscale}}
+\label{sec:org351216f}
+\subsubsection{\emph{grayscale} not a color scale}
+\label{sec:org15be119}
+Why is grayscale usually not considered a color scale?
+
+\noindent \textbf{Answer:}
+
+\noindent Grayscale is usually not considered a color scale, as it
+is merely a number of shades gray, which naturally provide a sense
+of order \cite{infoVis2} (light to dark). Because of the advantages
+the grayscale provide, it is still used instead of a real color
+scale today. Grayscale, however comes with the disadvantage, that
+the "number of just-noticeable-differences (JNDs) [ is ] about 60
+to 90" \cite{infoVis2}, so you cannot use many differened shades of
+gray and still distinguis them well. Therefore grayscale is
+limited in comparision to other color scales.
+
+\subsubsection{Advantages of using grayscale}
+\label{sec:org4d026c5}
+Name at least two advantages of using grayscale for data
+visualizations.
+\begin{itemize}
+\item Grayscale visualizations can be used for being photocopying
+processes, as the loss of color is not reducing the meaning of
+the visualization as it might be the case for a colored
+visualization.
+\item Grayscale is in contrast to rainbow for instance naturally
+ordered. Very bright is on on side, very light is on the other
+side. So for visualizations where you need to express order, a
+grayscale could potentially be used. E.g. a plot with lines
+representing years where different shades of gray are used to
+represend different years. The lighter years, might be the
+recend ones, the dark ones are long ago.
+\item In printing grayscale can be used, to reduce costs for
+printing.
+\item Only available option e.g. newspapers.
+\end{itemize}
+\subsection{Examples for single color scale}
+\label{sec:org37dd313}
+Give three examples of the usage of single color scale and briefly
+evaluate them.
+
+\noindent \textbf{Answer}
+
+\begin{enumerate}
+\item Ordered data - bad
+
+Single color is used to represent the geographical height in a
+map of an island. Very high, is represented by very bright, very
+low by very dark. The lowest point is e.g. 300m below the sea
+level, the highest is mountains peak at 1500m above sea
+level.
+
+There are multiple issues here. First because of the extreme
+high mountain an the deep reafs there are either so many shades
+of gray, that the coast line is barely noticeable - ships might
+crash. Or very view shades of gray which results in a effect
+where large chunks of ocean are represented as land mass and
+vice versa. Without a secondary color, it is hard to point out
+points and data of interest in the map.
+\item Ordered data - good
+
+In case of a zombie apocalypse, which hits the USA (where
+else?), a map of the states is drawn, where with a single color
+scale (probably in red) describes the zombie investation. Areas
+are marked for how many zombies per square mile where very dark
+red means a lot of zombies and light red stands for a manageable
+amount of brain eaters.
+
+The immediate usefulness is to know, where not to go and where
+to fly because of the zombies. The problem with this is, that
+eventhough dark red bad, light red less bad, what does it mean
+in detail? Is the categorization linear or logarithmic?
+
+\begin{center}
+\includegraphics[width=5cm]{exercise2bii.png}
+\end{center}
+\item Categorical data
+City map of munich. Every public restroom is marked with a
+single color mark, a circle for instance. The map itself is in
+the same color but as a clearly different brightness then the
+marks and useful information like streets use a third,
+clearly distinguisable shade of the color. If we use our own gps
+location marked in a 4th. and final and still good to distinguis
+mark we are set.
+
+Given the small number of different points of interest, the
+contrast is good enough and we can find a restroom in time. The
+only major issue with this depiction is, that we almost reached
+the max number of different shades of this color, that we can
+use. One way to get away would be to draw borders around the
+marks for the toilets, maybe use a circle for a toilet, a star
+for our own location. Also, if we use the same shade for the
+street as the shade for the border of the toilet cirlces, we
+will still be able to distinguis because a street is a mostly
+straight line - depending on the scale of our map.
+
+\begin{center}
+\includegraphics[width=5cm]{exercise2biii.png}
+\end{center}
+\end{enumerate}
+\newpage
+\section{Multiple Choice: Marks and Channels 4/20 points}
+\label{sec:orgc326718}
+Mark the correct statements below.
+\begin{center}
+\begin{tabular}{ll}
+\(\square\) & The Expressiveness Principle says that the importance of an\\
+ & attribute should match the salience of the visual channel.\\
+\(\checkedsquare\) & The discriminability criterion takes into account i.e. how\\
+ & many colors there are to tell apart in a visualization.\\
+ & What is the mark of a barplot? \(\checkedsquare\quad\) Lines \(\square\quad\) Point \(\square\quad\) Size \(\square\quad\) Axis\\
+\(\square\) & For nominal data, length is an adequate channel to encode information.\\
+\end{tabular}
+\end{center}
+
+\textbf{Reasoning:}
+
+\begin{enumerate}
+\item Expressiveness Principle
+
+\noindent " \uline{Effectiveness} principle: importance of the attribute
+should match the salience of the visual channel" \cite{InfoVis3}.
+
+\item Discriminability
+
+\noindent "Discriminability: How many colors can I tell apart?"
+\cite{InfoVis3}.
+
+\item What is the mark of a barplot?
+
+\noindent "Bar charts encode two attributes using a line mark
+\dots{}" \cite{munzner2015visualization}.
+
+\item Adequate channel to encode nominal data
+
+\noindent Length, area, volume etc. is adequate for ordered
+(ordinal, quantitative) rather then nominal data \cite{InfoVis3}.
+\end{enumerate}
+\printbibliography
+\end{document}
