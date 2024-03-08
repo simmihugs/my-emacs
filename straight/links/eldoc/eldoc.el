@@ -1,0 +1,1 @@
+c:/Users/Simon/AppData/Roaming/.emacs.d/straight/repos/eldoc/eldoc.el

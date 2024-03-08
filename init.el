@@ -1,8 +1,9 @@
 (package-initialize)
-(load-file "~/.emacs.d/org/basics.el")
-(load-file "~/.emacs.d/org/straight-init.el")
-(load-file "~/.emacs.d/org/packages/orgmode.el")
-(load-file "~/.emacs.d/org/packages/github-dark-theme.el")
-(load-file "~/.emacs.d/org/packages/packages.el")
+(load-file "~/.emacs.d/config/basics.el")
+(load-file "~/.emacs.d/config/straight-init.el")
+(load-file "~/.emacs.d/config/packages/orgmode.el")
+(load-file "~/.emacs.d/config/packages/theme.el")
+(load-file "~/.emacs.d/config/packages/packages.el")
+(load-file "~/.emacs.d/config/packages/lsp.el")
 
 
