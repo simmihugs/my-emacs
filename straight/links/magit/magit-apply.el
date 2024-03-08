@@ -1,1 +1,1 @@
-c:/Users/Simon/AppData/Roaming/.emacs.d/straight/repos/magit/lisp/magit-apply.el
+c:/Users/sgraetz/AppData/Roaming/.emacs.d/straight/repos/magit/lisp/magit-apply.el

@@ -1,1 +1,1 @@
-c:/Users/Simon/AppData/Roaming/.emacs.d/straight/repos/git-gutter/git-gutter.el
+c:/Users/sgraetz/AppData/Roaming/.emacs.d/straight/repos/git-gutter/git-gutter.el

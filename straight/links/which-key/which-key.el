@@ -1,1 +1,1 @@
-c:/Users/Simon/AppData/Roaming/.emacs.d/straight/repos/emacs-which-key/which-key.el
+c:/Users/sgraetz/AppData/Roaming/.emacs.d/straight/repos/emacs-which-key/which-key.el

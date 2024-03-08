@@ -1,1 +1,1 @@
-c:/Users/Simon/AppData/Roaming/.emacs.d/straight/repos/org/lisp/ol-bbdb.el
+c:/Users/sgraetz/AppData/Roaming/.emacs.d/straight/repos/org/lisp/ol-bbdb.el

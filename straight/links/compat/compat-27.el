@@ -1,1 +1,1 @@
-c:/Users/Simon/AppData/Roaming/.emacs.d/straight/repos/compat/compat-27.el
+c:/Users/sgraetz/AppData/Roaming/.emacs.d/straight/repos/compat/compat-27.el

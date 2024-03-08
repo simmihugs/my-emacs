@@ -1,1 +1,1 @@
-c:/Users/Simon/AppData/Roaming/.emacs.d/straight/repos/smartparens/smartparens-latex.el
+c:/Users/sgraetz/AppData/Roaming/.emacs.d/straight/repos/smartparens/smartparens-latex.el

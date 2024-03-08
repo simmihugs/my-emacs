@@ -1,1 +1,1 @@
-c:/Users/Simon/AppData/Roaming/.emacs.d/straight/repos/rainbow-mode/rainbow-mode.el
+c:/Users/sgraetz/AppData/Roaming/.emacs.d/straight/repos/rainbow-mode/rainbow-mode.el

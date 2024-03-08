@@ -1,1 +1,1 @@
-c:/Users/Simon/AppData/Roaming/.emacs.d/straight/repos/company-mode/company-yasnippet.el
+c:/Users/sgraetz/AppData/Roaming/.emacs.d/straight/repos/company-mode/company-yasnippet.el

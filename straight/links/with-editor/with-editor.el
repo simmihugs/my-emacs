@@ -1,1 +1,1 @@
-c:/Users/Simon/AppData/Roaming/.emacs.d/straight/repos/with-editor/lisp/with-editor.el
+c:/Users/sgraetz/AppData/Roaming/.emacs.d/straight/repos/with-editor/lisp/with-editor.el

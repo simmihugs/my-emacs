@@ -1,1 +1,1 @@
-c:/Users/Simon/AppData/Roaming/.emacs.d/straight/repos/spinner/.github/PULL_REQUEST_TEMPLATE.md
+c:/Users/sgraetz/AppData/Roaming/.emacs.d/straight/repos/spinner/.github/PULL_REQUEST_TEMPLATE.md

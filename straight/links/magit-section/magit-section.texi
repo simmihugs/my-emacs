@@ -1,1 +1,1 @@
-c:/Users/Simon/AppData/Roaming/.emacs.d/straight/repos/magit/docs/magit-section.texi
+c:/Users/sgraetz/AppData/Roaming/.emacs.d/straight/repos/magit/docs/magit-section.texi

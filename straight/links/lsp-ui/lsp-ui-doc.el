@@ -1,1 +1,1 @@
-c:/Users/Simon/AppData/Roaming/.emacs.d/straight/repos/lsp-ui/lsp-ui-doc.el
+c:/Users/sgraetz/AppData/Roaming/.emacs.d/straight/repos/lsp-ui/lsp-ui-doc.el

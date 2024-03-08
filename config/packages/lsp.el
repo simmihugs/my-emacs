@@ -44,3 +44,12 @@
   (require 'lsp-rust)
   (setq rust-format-on-save t))
 
+;; javascript
+(use-package js2-mode
+  :straight t
+  :config
+  (setq-default js2-basic-offset 2)
+  (setq-default indent-tabs-mode nil))
+
+
+

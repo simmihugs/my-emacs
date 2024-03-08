@@ -1,1 +1,1 @@
-c:/Users/Simon/AppData/Roaming/.emacs.d/straight/repos/org/lisp/ol-w3m.el
+c:/Users/sgraetz/AppData/Roaming/.emacs.d/straight/repos/org/lisp/ol-w3m.el

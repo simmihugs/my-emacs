@@ -1,1 +1,1 @@
-c:/Users/Simon/AppData/Roaming/.emacs.d/straight/repos/company-mode/company-template.el
+c:/Users/sgraetz/AppData/Roaming/.emacs.d/straight/repos/company-mode/company-template.el

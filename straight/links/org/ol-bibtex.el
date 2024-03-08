@@ -1,1 +1,1 @@
-c:/Users/Simon/AppData/Roaming/.emacs.d/straight/repos/org/lisp/ol-bibtex.el
+c:/Users/sgraetz/AppData/Roaming/.emacs.d/straight/repos/org/lisp/ol-bibtex.el

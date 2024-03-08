@@ -38,7 +38,7 @@
 		      :background color4))
 
 (set-highlight "#a71d5d")
-(set-region    "#333")
+(set-region    "#fafaaa")
 
 (use-package doom-modeline
   :straight t

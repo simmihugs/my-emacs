@@ -1,1 +1,1 @@
-c:/Users/Simon/AppData/Roaming/.emacs.d/straight/repos/smartparens/sp-sublimetext-like.el
+c:/Users/sgraetz/AppData/Roaming/.emacs.d/straight/repos/smartparens/sp-sublimetext-like.el

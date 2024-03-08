@@ -1,1 +1,1 @@
-c:/Users/Simon/AppData/Roaming/.emacs.d/straight/repos/straight.el/straight.el
+c:/Users/sgraetz/AppData/Roaming/.emacs.d/straight/repos/straight.el/straight.el

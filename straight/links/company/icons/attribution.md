@@ -1,1 +1,1 @@
-c:/Users/Simon/AppData/Roaming/.emacs.d/straight/repos/company-mode/icons/attribution.md
+c:/Users/sgraetz/AppData/Roaming/.emacs.d/straight/repos/company-mode/icons/attribution.md

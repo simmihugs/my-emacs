@@ -1,1 +1,1 @@
-c:/Users/Simon/AppData/Roaming/.emacs.d/straight/repos/doom-modeline/doom-modeline-core.el
+c:/Users/sgraetz/AppData/Roaming/.emacs.d/straight/repos/doom-modeline/doom-modeline-core.el

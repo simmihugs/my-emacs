@@ -1,1 +1,1 @@
-c:/Users/Simon/AppData/Roaming/.emacs.d/straight/repos/expand-region.el/subword-mode-expansions.el
+c:/Users/sgraetz/AppData/Roaming/.emacs.d/straight/repos/expand-region.el/subword-mode-expansions.el

@@ -1,1 +1,1 @@
-c:/Users/Simon/AppData/Roaming/.emacs.d/straight/repos/company-mode/company-oddmuse.el
+c:/Users/sgraetz/AppData/Roaming/.emacs.d/straight/repos/company-mode/company-oddmuse.el

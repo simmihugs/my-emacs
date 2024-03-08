@@ -1,1 +1,1 @@
-c:/Users/Simon/AppData/Roaming/.emacs.d/straight/repos/magit/lisp/magit-tag.el
+c:/Users/sgraetz/AppData/Roaming/.emacs.d/straight/repos/magit/lisp/magit-tag.el

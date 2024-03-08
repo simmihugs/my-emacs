@@ -1,1 +1,1 @@
-c:/Users/Simon/AppData/Roaming/.emacs.d/straight/repos/lsp-mode/clients/lsp-jq.el
+c:/Users/sgraetz/AppData/Roaming/.emacs.d/straight/repos/lsp-mode/clients/lsp-jq.el

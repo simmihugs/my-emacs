@@ -1,1 +1,1 @@
-c:/Users/Simon/AppData/Roaming/.emacs.d/straight/repos/company-mode/doc/company.texi
+c:/Users/sgraetz/AppData/Roaming/.emacs.d/straight/repos/company-mode/doc/company.texi

@@ -1,1 +1,1 @@
-c:/Users/Simon/AppData/Roaming/.emacs.d/straight/repos/lsp-mode/clients/lsp-zig.el
+c:/Users/sgraetz/AppData/Roaming/.emacs.d/straight/repos/lsp-mode/clients/lsp-zig.el
