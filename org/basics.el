@@ -10,6 +10,19 @@
 (custom-set-variables
  '(display-line-numbers 'absolute))
 
+(cond
+ ((find-font (font-spec :name "IBM Plex mono"))
+  (set-face-attribute 'default nil :font "IBM Plex mono" :height 110))
+ ((find-font (font-spec :name "Chivo Mono"))
+  (set-face-attribute 'default nil :font "Chivo Mono" :height 110))
+ ((find-font (font-spec :name "SomeType Mono"))
+  (set-face-attribute 'default nil :font "SomeType Mono" :height 120))
+ ((find-font (font-spec :name "Iosevka NF"))
+  (set-face-attribute 'default nil :font "Iosevka NF" :height 100))
+ ((find-font (font-spec :name "cascadia code"))
+  (set-face-attribute 'default nil :font "cascadia code" :height 120))
+ (t (set-face-attribute 'default nil :font "consolas" :height 120)))
+
 (define-key emacs-lisp-mode-map "\C-c\C-c" 'eval-buffer)
 (define-key lisp-interaction-mode-map "\C-c\C-c" 'eval-buffer)
 
@@ -46,7 +59,7 @@
   "Kill the `thing-at-point' for the specified kind of THING."
   (let ((bounds (bounds-of-thing-at-point thing)))
     (if bounds
-	(kill-region (car bounds) (cdr bounds))
+      (kill-region (car bounds) (cdr bounds))
       (error "No %s at point" thing))))
 
 (defun my-kill-word-at-point ()
@@ -88,10 +101,10 @@
 		  (looking-at ":")))
 	 (if (not (> (save-excursion (forward-line 1) (point))
 		     calculate-lisp-indent-last-sexp))
-	     (progn (goto-char calculate-lisp-indent-last-sexp)
-		    (beginning-of-line)
-		    (parse-partial-sexp (point)
-					calculate-lisp-indent-last-sexp 0 t)))
+	   (progn (goto-char calculate-lisp-indent-last-sexp)
+		  (beginning-of-line)
+		  (parse-partial-sexp (point)
+				      calculate-lisp-indent-last-sexp 0 t)))
 	 ;; Indent under the list or under the first sexp on the same
 	 ;; line as calculate-lisp-indent-last-sexp.  Note that first
 	 ;; thing on that line has to be complete sexp since we are
@@ -130,19 +143,19 @@
   (interactive "P")
   (let (($fpath
 	 (if (string-equal major-mode 'dired-mode)
-	     (progn
-	       (let (($result (mapconcat 'identity (dired-get-marked-files) "\n")))
-		 (if (equal (length $result) 0)
-		     (progn default-directory )
-		   (progn $result))))
+	   (progn
+	     (let (($result (mapconcat 'identity (dired-get-marked-files) "\n")))
+	       (if (equal (length $result) 0)
+		 (progn default-directory )
+		 (progn $result))))
 	   (if (buffer-file-name)
-	       (buffer-file-name)
+	     (buffer-file-name)
 	     (expand-file-name default-directory)))))
     (kill-new
      (if DirPathOnlyQ
-	 (progn
-	   (message "Directory copied: %s" (file-name-directory $fpath))
-	   (file-name-directory $fpath))
+       (progn
+	 (message "Directory copied: %s" (file-name-directory $fpath))
+	 (file-name-directory $fpath))
        (progn
 	 (message "File path copied: %s" $fpath)
 	 $fpath )))))
