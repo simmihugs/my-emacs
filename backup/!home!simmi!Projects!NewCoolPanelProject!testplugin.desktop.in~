@@ -1,8 +1,0 @@
-[Xfce Panel]
-Type=X-XFCE-PanelPlugin
-Encoding=UTF-8
-Name=Test name
-Comment=This is a test plugin
-Icon=org.xfce.panel.pager
-X-XFCE-Module=testplugin
-X-XFCE-API=2.0

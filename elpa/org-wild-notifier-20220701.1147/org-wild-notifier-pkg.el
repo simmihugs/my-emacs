@@ -1,2 +1,0 @@
-;;; Generated package description from org-wild-notifier.el  -*- no-byte-compile: t -*-
-(define-package "org-wild-notifier" "20220701.1147" "Customizable org-agenda notifications" '((alert "1.2") (async "1.9.3") (dash "2.18.0") (emacs "24.4")) :commit "9392b06d20b2f88e45a41bea17bb2f10f24fd19c" :authors '(("Artem Khramov" . "akhramov+emacs@pm.me")) :maintainer '("Artem Khramov" . "akhramov+emacs@pm.me") :keywords '("notification" "alert" "org" "org-agenda" "agenda") :url "https://github.com/akhramov/org-wild-notifier.el")

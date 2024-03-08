@@ -1,6 +1,0 @@
-#+Title: minions
-#+begin_src emacs-lisp
-  (use-package minions
-    :config
-    (minions-mode 1))
-#+end_src

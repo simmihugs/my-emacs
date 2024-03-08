@@ -1,8 +1,0 @@
-CXX=g++
-CXXFLAGS=-pthread
-
-all: Aufgabe1
-
-Aufgabe1: Aufgabe1.cpp
-	$(CXX) -o $@ $^ -std=c++20 $(CXXFLAGS)
-

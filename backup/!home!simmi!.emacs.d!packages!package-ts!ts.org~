@@ -1,6 +1,0 @@
-#+TITLE: typescript
-#+begin_src emacs-lisp
-  (use-package typescript-mode)
-#+end_src
-
-#+RESULTS:
