@@ -163,3 +163,4 @@
 (eval-after-load "dired"
   '(progn
      (define-key dired-mode-map "\C-c\C-c" 'copy-current-file-path)))
+

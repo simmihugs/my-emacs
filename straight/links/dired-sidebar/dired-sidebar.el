@@ -1,0 +1,1 @@
+c:/Users/Simon/AppData/Roaming/.emacs.d/straight/repos/dired-sidebar/dired-sidebar.el
