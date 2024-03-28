@@ -120,10 +120,10 @@
 
 
 ;; rainbow mode
-(use-package rainbow-mode
-  :straight t
-  :ensure t
-  :hook prog-mode)
+;; (use-package rainbow-mode
+;;   :straight t
+;;   :ensure t
+;;   :hook prog-mode)
 
 
 ;; paren

@@ -9,7 +9,8 @@
 	 (rust-mode   . lsp-deferred)
          (lsp-mode    . lsp-enable-which-key-integration))
   :commands (lsp lsp-deferred)
-  :bind ("C-l" . lsp-find-definition)
+  :bind (("C-c C-f" . lsp-format-buffer)
+         ("C-l" . lsp-find-definition))
   :config
   (setq lsp-clients-clangd-args
 	'("--header-insertion=never")))
