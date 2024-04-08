@@ -1,0 +1,1 @@
+c:/Users/sgraetz/AppData/Roaming/.emacs.d/straight/repos/sqlite-mode-extras/sqlite-mode-extras.el

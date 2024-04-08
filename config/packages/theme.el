@@ -4,6 +4,10 @@
 ;; 				:repo "simmihugs/github-dark-theme")
 ;;   :config (load-theme 'github-dark-vscode t))
 
+(use-package adwaita-dark-theme
+  :straight t
+  :config (load-theme 'adwaita-dark t))
+
 ;; (use-package github-theme
 ;;   :straight t
 ;;   :config (load-theme 'github t))
@@ -38,7 +42,7 @@
 		      :background color4))
 
 (set-highlight "#a71d5d")
-(set-region    "#fafaaa")
+(set-region    "#363636")
 
 (use-package doom-modeline
   :straight t

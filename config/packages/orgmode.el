@@ -108,13 +108,29 @@
 
   (add-hook 'org-mode-hook 'turn-on-auto-fill)
 
-;;   (defun say-hello()
-;;     (interactive)
-;;     (message "hello"))
+  ;;   (defun say-hello()
+  ;;     (interactive)
+  ;;     (message "hello"))
 
-;;   :bind (:map org-mode-map
+  ;;   :bind (:map org-mode-map
   ;; 	 ("<f5>" . say-hello))
+
+
+  (setq org-directory "c:/Users/sgraetz/Documents/org")
+  (setq org-agenda-files (list org-directory))
+  (add-to-list 'default-frame-alist '(fullscreen . maximized))
+  (setq initial-buffer-choice (concat org-directory "/" "todo.org"))
+
+  (defun my-init-hook ()
+    (split-window-right)
+    (let ((org-agenda-window-setup 'other-window))
+      (org-agenda nil "a")))
+
+  (add-hook 'window-setup-hook #'my-init-hook)
+
+  
   )
+
 
 ;; (add-hook 'org-mode-hook 'turn-on-auto-fill)
 ;; (add-hook 'text-mode-hook 'turn-on-auto-fill)

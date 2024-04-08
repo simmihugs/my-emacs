@@ -107,7 +107,7 @@
   :config
   (set-face-attribute 'rainbow-delimiters-depth-1-face    nil :foreground "#f0008b")
   (set-face-attribute 'rainbow-delimiters-depth-2-face    nil :foreground "#00fa9a")
-  (set-face-attribute 'rainbow-delimiters-depth-3-face    nil :foreground "#0000cd")
+  (set-face-attribute 'rainbow-delimiters-depth-3-face    nil :foreground "#ffa500")
   (set-face-attribute 'rainbow-delimiters-depth-4-face    nil :foreground "#f2200b")
   (set-face-attribute 'rainbow-delimiters-depth-5-face    nil :foreground "orange" )
   (set-face-attribute 'rainbow-delimiters-depth-6-face    nil :foreground "#f0008b")
