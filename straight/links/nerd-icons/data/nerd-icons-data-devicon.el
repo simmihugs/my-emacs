@@ -1,1 +1,0 @@
-c:/Users/sgraetz/AppData/Roaming/.emacs.d/straight/repos/nerd-icons.el/data/nerd-icons-data-devicon.el

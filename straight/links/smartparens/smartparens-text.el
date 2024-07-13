@@ -1,1 +1,0 @@
-c:/Users/sgraetz/AppData/Roaming/.emacs.d/straight/repos/smartparens/smartparens-text.el
