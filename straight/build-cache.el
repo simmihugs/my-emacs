@@ -3,7 +3,7 @@
 
 "29.1"
 
-#s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8125 data ("straight" ("2024-04-08 14:59:32" ("emacs") (:type git :host github :repo "radian-software/straight.el" :files ("straight*.el") :branch "master" :package "straight" :local-repo "straight.el")) "org-elpa" ("2024-04-08 14:59:32" nil (:local-repo nil :package "org-elpa" :type git)) "melpa" ("2024-04-08 14:59:32" nil (:type git :host github :repo "melpa/melpa" :build nil :package "melpa" :local-repo "melpa")) "gnu-elpa-mirror" ("2024-04-08 14:59:32" nil (:type git :host github :repo "emacs-straight/gnu-elpa-mirror" :build nil :package "gnu-elpa-mirror" :local-repo "gnu-elpa-mirror")) "nongnu-elpa" ("2024-04-08 14:59:32" nil (:type git :repo "https://git.savannah.gnu.org/git/emacs/nongnu.git" :depth (full single-branch) :local-repo "nongnu-elpa" :build nil :package "nongnu-elpa")) "el-get" ("2024-04-08 14:59:32" nil (:type git :host github :repo "dimitri/el-get" :build nil :files ("*.el" ("recipes" "recipes/el-get.rcp") "methods" "el-get-pkg.el") :flavor melpa :package "el-get" :local-repo "el-get")) "emacsmirror-mirror" ("2024-04-08 14:59:32" nil (:type git :host github :repo "emacs-straight/emacsmirror-mirror" :build nil :package "emacsmirror-mirror" :local-repo "emacsmirror-mirror")) "org" ("2024-04-08 14:59:32" ("emacs") (:type git :repo "https://git.savannah.gnu.org/git/emacs/org-mode.git" :local-repo "org" :depth full :pre-build (straight-recipes-org-elpa--build) :build (:not autoloads) :files (:defaults "lisp/*.el" ("etc/styles/" "etc/styles/*")) :package "org")) "use-package" ("2024-04-08 14:59:32" ("emacs" "bind-key") (:type git :flavor melpa :files (:defaults (:exclude "bind-key.el" "bind-chord.el" "use-package-chords.el" "use-package-ensure-system-package.el") "use-package-pkg.el") :host github :repo "jwiegley/use-package" :package "use-package" :local-repo "use-package")) "bind-key" ("2024-04-08 14:59:32" ("emacs") (:flavor melpa :files ("bind-key.el" "bind-key-pkg.el") :package "bind-key" :local-repo "use-package" :type git :repo "jwiegley/use-package" :host github)) "doom-modeline" ("2024-04-08 14:59:34" ("emacs" "compat" "nerd-icons" "shrink-path") (:type git :flavor melpa :host github :repo "seagle0128/doom-modeline" :package "doom-modeline" :local-repo "doom-modeline")) "compat" ("2024-04-08 14:59:34" ("emacs" "seq") (:type git :host github :repo "emacs-straight/compat" :files ("*" (:exclude ".git")) :package "compat" :local-repo "compat")) "seq" ("2024-04-08 14:59:34" nil (:type git :host github :repo "emacs-straight/seq" :files ("*" (:exclude ".git")) :package "seq" :local-repo "seq")) "nerd-icons" ("2024-04-08 14:59:34" ("emacs") (:type git :flavor melpa :files (:defaults "data" "nerd-icons-pkg.el") :host github :repo "rainstormstudio/nerd-icons.el" :package "nerd-icons" :local-repo "nerd-icons.el")) "shrink-path" ("2024-04-08 14:59:34" ("emacs" "s" "dash" "f") (:type git :flavor melpa :host gitlab :repo "bennya/shrink-path.el" :package "shrink-path" :local-repo "shrink-path.el")) "s" ("2024-04-08 14:59:34" nil (:type git :flavor melpa :host github :repo "magnars/s.el" :package "s" :local-repo "s.el")) "dash" ("2024-04-08 14:59:34" ("emacs") (:type git :flavor melpa :files ("dash.el" "dash.texi" "dash-pkg.el") :host github :repo "magnars/dash.el" :package "dash" :local-repo "dash.el")) "f" ("2024-04-08 14:59:34" ("emacs" "s" "dash") (:type git :flavor melpa :host github :repo "rejeep/f.el" :package "f" :local-repo "f.el")) "ace-window" ("2024-04-08 14:59:34" ("avy") (:type git :flavor melpa :host github :repo "abo-abo/ace-window" :package "ace-window" :local-repo "ace-window")) "avy" ("2024-04-08 14:59:34" ("emacs" "cl-lib") (:type git :flavor melpa :host github :repo "abo-abo/avy" :package "avy" :local-repo "avy")) "yasnippet" ("2024-04-08 14:59:34" ("cl-lib" "emacs") (:type git :flavor melpa :files ("yasnippet.el" "snippets" "yasnippet-pkg.el") :host github :repo "joaotavora/yasnippet" :package "yasnippet" :local-repo "yasnippet")) "company" ("2024-04-08 14:59:34" ("emacs") (:type git :flavor melpa :files (:defaults "icons" ("images/small" "doc/images/small/*.png") "company-pkg.el") :host github :repo "company-mode/company-mode" :package "company" :local-repo "company-mode")) "which-key" ("2024-04-08 14:59:34" ("emacs") (:type git :flavor melpa :host github :repo "justbur/emacs-which-key" :package "which-key" :local-repo "emacs-which-key")) "flycheck" ("2024-04-08 14:59:34" ("emacs") (:type git :flavor melpa :host github :repo "flycheck/flycheck" :package "flycheck" :local-repo "flycheck")) "visual-regexp" ("2024-04-08 14:59:34" ("cl-lib") (:type git :flavor melpa :host github :repo "benma/visual-regexp.el" :package "visual-regexp" :local-repo "visual-regexp.el")) "dired-sidebar" ("2024-04-08 14:59:34" ("emacs" "dired-subtree") (:type git :flavor melpa :host github :repo "jojojames/dired-sidebar" :package "dired-sidebar" :local-repo "dired-sidebar")) "dired-subtree" ("2024-04-08 14:59:34" ("dash" "dired-hacks-utils") (:type git :flavor melpa :files ("dired-subtree.el" "dired-subtree-pkg.el") :host github :repo "Fuco1/dired-hacks" :package "dired-subtree" :local-repo "dired-hacks")) "dired-hacks-utils" ("2024-04-08 14:59:34" ("dash") (:flavor melpa :files ("dired-hacks-utils.el" "dired-hacks-utils-pkg.el") :package "dired-hacks-utils" :local-repo "dired-hacks" :type git :repo "Fuco1/dired-hacks" :host github)) "eshell-toggle" ("2024-04-08 14:59:34" ("emacs" "dash") (:type git :flavor melpa :host github :repo "4DA/eshell-toggle" :package "eshell-toggle" :local-repo "eshell-toggle")) "rainbow-delimiters" ("2024-04-08 14:59:34" nil (:type git :flavor melpa :host github :repo "Fanael/rainbow-delimiters" :package "rainbow-delimiters" :local-repo "rainbow-delimiters")) "rainbow-mode" ("2024-03-09 13:39:50" nil (:type git :host github :repo "emacs-straight/rainbow-mode" :files ("*" (:exclude ".git")) :package "rainbow-mode" :local-repo "rainbow-mode")) "magit" ("2024-04-08 14:59:34" ("emacs" "compat" "dash" "git-commit" "magit-section" "seq" "transient" "with-editor") (:type git :flavor melpa :files ("lisp/magit*.el" "lisp/git-rebase.el" "docs/magit.texi" "docs/AUTHORS.md" "LICENSE" "Documentation/magit.texi" "Documentation/AUTHORS.md" (:exclude "lisp/magit-libgit.el" "lisp/magit-libgit-pkg.el" "lisp/magit-section.el" "lisp/magit-section-pkg.el") "magit-pkg.el") :host github :repo "magit/magit" :package "magit" :local-repo "magit")) "git-commit" ("2024-04-08 14:59:34" ("emacs" "compat" "transient" "with-editor") (:flavor melpa :files ("lisp/git-commit.el" "lisp/git-commit-pkg.el" "git-commit-pkg.el") :package "git-commit" :local-repo "magit" :type git :repo "magit/magit" :host github)) "transient" ("2024-04-08 14:59:34" ("emacs" "compat" "seq") (:type git :flavor melpa :host github :repo "magit/transient" :package "transient" :local-repo "transient")) "with-editor" ("2024-04-08 14:59:34" ("emacs" "compat") (:type git :flavor melpa :host github :repo "magit/with-editor" :package "with-editor" :local-repo "with-editor")) "magit-section" ("2024-04-08 14:59:34" ("emacs" "compat" "dash") (:flavor melpa :files ("lisp/magit-section.el" "lisp/magit-section-pkg.el" "docs/magit-section.texi" "Documentation/magit-section.texi" "magit-section-pkg.el") :package "magit-section" :local-repo "magit" :type git :repo "magit/magit" :host github)) "git-gutter" ("2024-04-08 14:59:38" ("emacs") (:type git :flavor melpa :host github :repo "emacsorphanage/git-gutter" :package "git-gutter" :local-repo "git-gutter")) "nerd-icons-dired" ("2024-04-08 14:59:38" ("emacs" "nerd-icons") (:type git :flavor melpa :host github :repo "rainstormstudio/nerd-icons-dired" :package "nerd-icons-dired" :local-repo "nerd-icons-dired")) "smartparens" ("2024-04-08 14:59:38" ("dash" "cl-lib") (:type git :flavor melpa :host github :repo "Fuco1/smartparens" :package "smartparens" :local-repo "smartparens")) "expand-region" ("2024-04-08 14:59:39" ("emacs") (:type git :flavor melpa :host github :repo "magnars/expand-region.el" :package "expand-region" :local-repo "expand-region.el")) "smooth-scrolling" ("2024-04-08 14:59:39" nil (:type git :flavor melpa :host github :repo "aspiers/smooth-scrolling" :package "smooth-scrolling" :local-repo "smooth-scrolling")) "emmet-mode" ("2024-04-08 14:59:39" nil (:type git :flavor melpa :host github :repo "smihica/emmet-mode" :package "emmet-mode" :local-repo "emmet-mode")) "lsp-mode" ("2024-04-08 14:59:39" ("emacs" "dash" "f" "ht" "spinner" "markdown-mode" "lv" "eldoc") (:type git :flavor melpa :files (:defaults "clients/*.el" "lsp-mode-pkg.el") :host github :repo "emacs-lsp/lsp-mode" :package "lsp-mode" :local-repo "lsp-mode")) "ht" ("2024-04-08 14:59:39" ("dash") (:type git :flavor melpa :host github :repo "Wilfred/ht.el" :package "ht" :local-repo "ht.el")) "spinner" ("2024-04-08 14:59:39" ("emacs") (:type git :host github :repo "emacs-straight/spinner" :files ("*" (:exclude ".git")) :package "spinner" :local-repo "spinner")) "markdown-mode" ("2024-04-08 14:59:39" ("emacs") (:type git :flavor melpa :host github :repo "jrblevin/markdown-mode" :package "markdown-mode" :local-repo "markdown-mode")) "lv" ("2024-04-08 14:59:39" nil (:type git :flavor melpa :files ("lv.el" "lv-pkg.el") :host github :repo "abo-abo/hydra" :package "lv" :local-repo "hydra")) "eldoc" ("2024-04-08 14:59:39" ("emacs") (:type git :host github :repo "emacs-straight/eldoc" :files ("*" (:exclude ".git")) :package "eldoc" :local-repo "eldoc")) "lsp-ui" ("2024-04-08 14:59:39" ("emacs" "dash" "lsp-mode" "markdown-mode") (:type git :flavor melpa :files (:defaults "lsp-ui-doc.html" "resources" "lsp-ui-pkg.el") :host github :repo "emacs-lsp/lsp-ui" :package "lsp-ui" :local-repo "lsp-ui")) "rust-mode" ("2024-04-08 14:59:39" ("emacs") (:type git :flavor melpa :host github :repo "rust-lang/rust-mode" :package "rust-mode" :local-repo "rust-mode")) "js2-mode" ("2024-04-08 14:59:40" ("emacs" "cl-lib") (:type git :flavor melpa :host github :repo "mooz/js2-mode" :package "js2-mode" :local-repo "js2-mode")) "github-dark-vscode" ("2024-03-28 02:15:29" nil (:type git :host github :repo "simmihugs/github-dark-theme" :package "github-dark-vscode" :local-repo "github-dark-theme")) "adwaita-dark-theme" ("2024-04-08 14:59:34" ("emacs") (:type git :flavor melpa :host gitlab :repo "jessieh/adwaita-dark-theme" :package "adwaita-dark-theme" :local-repo "adwaita-dark-theme")) "sqlite-mode-extras" ("2024-03-28 02:41:36" ("emacs") (:type git :host github :repo "xenodium/sqlite-mode-extras" :package "sqlite-mode-extras" :local-repo "sqlite-mode-extras"))))
+#s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8125 data ("straight" ("2024-09-14 13:07:46" ("emacs") (:type git :host github :repo "radian-software/straight.el" :files ("straight*.el") :branch "master" :package "straight" :local-repo "straight.el")) "org-elpa" ("2024-09-14 13:07:46" nil (:local-repo nil :package "org-elpa" :type git)) "melpa" ("2024-09-14 13:07:46" nil (:type git :host github :repo "melpa/melpa" :build nil :package "melpa" :local-repo "melpa")) "gnu-elpa-mirror" ("2024-09-14 13:07:46" nil (:type git :host github :repo "emacs-straight/gnu-elpa-mirror" :build nil :package "gnu-elpa-mirror" :local-repo "gnu-elpa-mirror")) "nongnu-elpa" ("2024-09-14 13:07:46" nil (:type git :repo "https://git.savannah.gnu.org/git/emacs/nongnu.git" :depth (full single-branch) :local-repo "nongnu-elpa" :build nil :package "nongnu-elpa")) "el-get" ("2024-09-14 13:07:46" nil (:type git :host github :repo "dimitri/el-get" :build nil :files ("*.el" ("recipes" "recipes/el-get.rcp") "methods" "el-get-pkg.el") :flavor melpa :package "el-get" :local-repo "el-get")) "emacsmirror-mirror" ("2024-09-14 13:07:46" nil (:type git :host github :repo "emacs-straight/emacsmirror-mirror" :build nil :package "emacsmirror-mirror" :local-repo "emacsmirror-mirror")) "org" ("2024-09-14 13:07:46" ("emacs") (:type git :repo "https://git.savannah.gnu.org/git/emacs/org-mode.git" :local-repo "org" :depth full :pre-build (straight-recipes-org-elpa--build) :build (:not autoloads) :files (:defaults "lisp/*.el" ("etc/styles/" "etc/styles/*")) :package "org")) "use-package" ("2024-09-14 13:07:47" ("emacs" "bind-key") (:type git :flavor melpa :files (:defaults (:exclude "bind-key.el" "bind-chord.el" "use-package-chords.el" "use-package-ensure-system-package.el") "use-package-pkg.el") :host github :repo "jwiegley/use-package" :package "use-package" :local-repo "use-package")) "bind-key" ("2024-09-14 13:07:47" ("emacs") (:flavor melpa :files ("bind-key.el" "bind-key-pkg.el") :package "bind-key" :local-repo "use-package" :type git :repo "jwiegley/use-package" :host github)) "doom-modeline" ("2024-09-14 13:07:59" ("emacs" "compat" "nerd-icons" "shrink-path") (:type git :flavor melpa :host github :repo "seagle0128/doom-modeline" :package "doom-modeline" :local-repo "doom-modeline")) "compat" ("2024-09-14 13:07:50" ("emacs" "seq") (:type git :host github :repo "emacs-straight/compat" :files ("*" (:exclude ".git")) :package "compat" :local-repo "compat")) "seq" ("2024-09-14 13:07:50" nil (:type git :host github :repo "emacs-straight/seq" :files ("*" (:exclude ".git")) :package "seq" :local-repo "seq")) "nerd-icons" ("2024-09-14 13:07:55" ("emacs") (:type git :flavor melpa :files (:defaults "data" "nerd-icons-pkg.el") :host github :repo "rainstormstudio/nerd-icons.el" :package "nerd-icons" :local-repo "nerd-icons.el")) "shrink-path" ("2024-09-14 13:07:59" ("emacs" "s" "dash" "f") (:type git :flavor melpa :host gitlab :repo "bennya/shrink-path.el" :package "shrink-path" :local-repo "shrink-path.el")) "s" ("2024-09-14 13:07:56" nil (:type git :flavor melpa :host github :repo "magnars/s.el" :package "s" :local-repo "s.el")) "dash" ("2024-09-14 13:07:50" ("emacs") (:type git :flavor melpa :files ("dash.el" "dash.texi" "dash-pkg.el") :host github :repo "magnars/dash.el" :package "dash" :local-repo "dash.el")) "f" ("2024-09-14 13:07:56" ("emacs" "s" "dash") (:type git :flavor melpa :host github :repo "rejeep/f.el" :package "f" :local-repo "f.el")) "ace-window" ("2024-09-14 13:07:49" ("avy") (:type git :flavor melpa :host github :repo "abo-abo/ace-window" :package "ace-window" :local-repo "ace-window")) "avy" ("2024-09-14 13:07:49" ("emacs" "cl-lib") (:type git :flavor melpa :host github :repo "abo-abo/avy" :package "avy" :local-repo "avy")) "yasnippet" ("2024-09-14 13:07:49" ("cl-lib" "emacs") (:type git :flavor melpa :files ("yasnippet.el" "snippets" "yasnippet-pkg.el") :host github :repo "joaotavora/yasnippet" :package "yasnippet" :local-repo "yasnippet")) "company" ("2024-09-14 13:07:50" ("emacs") (:type git :flavor melpa :files (:defaults "icons" ("images/small" "doc/images/small/*.png") "company-pkg.el") :host github :repo "company-mode/company-mode" :package "company" :local-repo "company-mode")) "which-key" ("2024-09-14 13:07:50" ("emacs") (:type git :flavor melpa :host github :repo "justbur/emacs-which-key" :package "which-key" :local-repo "emacs-which-key")) "flycheck" ("2024-09-14 13:07:50" ("emacs") (:type git :flavor melpa :host github :repo "flycheck/flycheck" :package "flycheck" :local-repo "flycheck")) "visual-regexp" ("2024-09-14 13:07:50" ("cl-lib") (:type git :flavor melpa :host github :repo "benma/visual-regexp.el" :package "visual-regexp" :local-repo "visual-regexp.el")) "dired-sidebar" ("2024-09-14 13:07:50" ("emacs" "dired-subtree") (:type git :flavor melpa :host github :repo "jojojames/dired-sidebar" :package "dired-sidebar" :local-repo "dired-sidebar")) "dired-subtree" ("2024-09-14 13:07:50" ("dash" "dired-hacks-utils") (:type git :flavor melpa :files ("dired-subtree.el" "dired-subtree-pkg.el") :host github :repo "Fuco1/dired-hacks" :package "dired-subtree" :local-repo "dired-hacks")) "dired-hacks-utils" ("2024-09-14 13:07:50" ("dash") (:flavor melpa :files ("dired-hacks-utils.el" "dired-hacks-utils-pkg.el") :package "dired-hacks-utils" :local-repo "dired-hacks" :type git :repo "Fuco1/dired-hacks" :host github)) "eshell-toggle" ("2024-09-14 13:07:50" ("emacs" "dash") (:type git :flavor melpa :host github :repo "4DA/eshell-toggle" :package "eshell-toggle" :local-repo "eshell-toggle")) "rainbow-delimiters" ("2024-09-14 13:07:50" nil (:type git :flavor melpa :host github :repo "Fanael/rainbow-delimiters" :package "rainbow-delimiters" :local-repo "rainbow-delimiters")) "rainbow-mode" ("2024-03-09 13:39:50" nil (:type git :host github :repo "emacs-straight/rainbow-mode" :files ("*" (:exclude ".git")) :package "rainbow-mode" :local-repo "rainbow-mode")) "magit" ("2024-09-14 13:07:50" ("emacs" "compat" "dash" "git-commit" "magit-section" "seq" "transient" "with-editor") (:type git :flavor melpa :files ("lisp/magit*.el" "lisp/git-rebase.el" "docs/magit.texi" "docs/AUTHORS.md" "LICENSE" "Documentation/magit.texi" "Documentation/AUTHORS.md" (:exclude "lisp/magit-libgit.el" "lisp/magit-libgit-pkg.el" "lisp/magit-section.el" "lisp/magit-section-pkg.el") "magit-pkg.el") :host github :repo "magit/magit" :package "magit" :local-repo "magit")) "git-commit" ("2024-09-14 13:07:50" ("emacs" "compat" "transient" "with-editor") (:flavor melpa :files ("lisp/git-commit.el" "lisp/git-commit-pkg.el" "git-commit-pkg.el") :package "git-commit" :local-repo "magit" :type git :repo "magit/magit" :host github)) "transient" ("2024-09-14 13:07:50" ("emacs" "compat" "seq") (:type git :flavor melpa :host github :repo "magit/transient" :package "transient" :local-repo "transient")) "with-editor" ("2024-09-14 13:07:50" ("emacs" "compat") (:type git :flavor melpa :host github :repo "magit/with-editor" :package "with-editor" :local-repo "with-editor")) "magit-section" ("2024-09-14 13:07:50" ("emacs" "compat" "dash") (:flavor melpa :files ("lisp/magit-section.el" "lisp/magit-section-pkg.el" "docs/magit-section.texi" "Documentation/magit-section.texi" "magit-section-pkg.el") :package "magit-section" :local-repo "magit" :type git :repo "magit/magit" :host github)) "git-gutter" ("2024-09-14 13:07:55" ("emacs") (:type git :flavor melpa :host github :repo "emacsorphanage/git-gutter" :package "git-gutter" :local-repo "git-gutter")) "nerd-icons-dired" ("2024-09-14 13:07:55" ("emacs" "nerd-icons") (:type git :flavor melpa :host github :repo "rainstormstudio/nerd-icons-dired" :package "nerd-icons-dired" :local-repo "nerd-icons-dired")) "smartparens" ("2024-09-14 13:07:55" ("dash" "cl-lib") (:type git :flavor melpa :host github :repo "Fuco1/smartparens" :package "smartparens" :local-repo "smartparens")) "expand-region" ("2024-09-14 13:07:55" ("emacs") (:type git :flavor melpa :host github :repo "magnars/expand-region.el" :package "expand-region" :local-repo "expand-region.el")) "smooth-scrolling" ("2024-09-14 13:07:55" nil (:type git :flavor melpa :host github :repo "aspiers/smooth-scrolling" :package "smooth-scrolling" :local-repo "smooth-scrolling")) "emmet-mode" ("2024-09-14 13:07:55" nil (:type git :flavor melpa :host github :repo "smihica/emmet-mode" :package "emmet-mode" :local-repo "emmet-mode")) "lsp-mode" ("2024-09-14 13:07:56" ("emacs" "dash" "f" "ht" "spinner" "markdown-mode" "lv" "eldoc") (:type git :flavor melpa :files (:defaults "clients/*.el" "lsp-mode-pkg.el") :host github :repo "emacs-lsp/lsp-mode" :package "lsp-mode" :local-repo "lsp-mode")) "ht" ("2024-09-14 13:07:56" ("dash") (:type git :flavor melpa :host github :repo "Wilfred/ht.el" :package "ht" :local-repo "ht.el")) "spinner" ("2024-09-14 13:07:56" ("emacs") (:type git :host github :repo "emacs-straight/spinner" :files ("*" (:exclude ".git")) :package "spinner" :local-repo "spinner")) "markdown-mode" ("2024-09-14 13:07:56" ("emacs") (:type git :flavor melpa :host github :repo "jrblevin/markdown-mode" :package "markdown-mode" :local-repo "markdown-mode")) "lv" ("2024-09-14 13:07:56" nil (:type git :flavor melpa :files ("lv.el" "lv-pkg.el") :host github :repo "abo-abo/hydra" :package "lv" :local-repo "hydra")) "eldoc" ("2024-09-14 13:07:56" ("emacs") (:type git :host github :repo "emacs-straight/eldoc" :files ("*" (:exclude ".git")) :package "eldoc" :local-repo "eldoc")) "lsp-ui" ("2024-09-14 13:07:56" ("emacs" "dash" "lsp-mode" "markdown-mode") (:type git :flavor melpa :files (:defaults "lsp-ui-doc.html" "resources" "lsp-ui-pkg.el") :host github :repo "emacs-lsp/lsp-ui" :package "lsp-ui" :local-repo "lsp-ui")) "rust-mode" ("2024-09-14 13:07:56" ("emacs") (:type git :flavor melpa :host github :repo "rust-lang/rust-mode" :package "rust-mode" :local-repo "rust-mode")) "js2-mode" ("2024-09-14 13:07:58" ("emacs" "cl-lib") (:type git :flavor melpa :host github :repo "mooz/js2-mode" :package "js2-mode" :local-repo "js2-mode")) "github-dark-vscode" ("2024-05-23 21:16:48" nil (:type git :host github :repo "simmihugs/github-dark-theme" :package "github-dark-vscode" :local-repo "github-dark-theme")) "adwaita-dark-theme" ("2024-05-22 14:20:37" ("emacs") (:type git :flavor melpa :host gitlab :repo "jessieh/adwaita-dark-theme" :package "adwaita-dark-theme" :local-repo "adwaita-dark-theme")) "sqlite-mode-extras" ("2024-03-28 02:41:36" ("emacs") (:type git :host github :repo "xenodium/sqlite-mode-extras" :package "sqlite-mode-extras" :local-repo "sqlite-mode-extras")) "haskell-mode" ("2024-09-14 13:07:58" ("emacs") (:type git :flavor melpa :files (:defaults "NEWS" "logo.svg" "haskell-mode-pkg.el") :host github :repo "haskell/haskell-mode" :package "haskell-mode" :local-repo "haskell-mode")) "lsp-haskell" ("2024-09-14 13:07:58" ("emacs" "lsp-mode" "haskell-mode") (:type git :flavor melpa :host github :repo "emacs-lsp/lsp-haskell" :package "lsp-haskell" :local-repo "lsp-haskell")) "cmake-mode" ("2024-09-14 13:07:59" nil (:type git :flavor melpa :files ("Auxiliary/*.el" "cmake-mode-pkg.el") :repo "https://gitlab.kitware.com/cmake/cmake.git" :package "cmake-mode" :local-repo "cmake")) "lean4-mode" ("2024-09-14 13:07:59" ("emacs" "dash" "flycheck" "magit-section" "lsp-mode") (:type git :host github :repo "leanprover/lean4-mode" :files ("*.el" "data") :package "lean4-mode" :local-repo "lean4-mode")) "github-dark-vscode-theme" ("2024-05-23 20:10:41" ("emacs") (:type git :flavor melpa :host github :repo "Justintime50/github-dark-vscode-emacs-theme" :package "github-dark-vscode-theme" :local-repo "github-dark-vscode-emacs-theme")) "github-theme" ("2024-05-22 14:42:04" nil (:type git :flavor melpa :host github :repo "philiparvidsson/GitHub-Theme-for-Emacs" :package "github-theme" :local-repo "GitHub-Theme-for-Emacs")) "dracula-theme" ("2024-05-23 21:06:41" ("emacs") (:type git :flavor melpa :host github :repo "dracula/emacs" :package "dracula-theme" :local-repo "emacs")) "adwaita-dark" ("2024-08-17 09:00:26" nil (:type git :host gitlab :repo "jessieh/adwaita-dark-theme" :package "adwaita-dark" :local-repo "adwaita-dark-theme")) "typescript-mode" ("2024-09-14 13:07:56" ("emacs") (:type git :flavor melpa :host github :repo "emacs-typescript/typescript.el" :package "typescript-mode" :local-repo "typescript.el"))))
 
 #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8125 data ("straight" ((straight straight-x straight-ert-print-hack straight-autoloads) (autoload 'straight-remove-unused-repos "straight" "Remove unused repositories from the repos and build directories.
 A repo is considered \"unused\" if it was not explicitly requested via
@@ -3729,10 +3729,466 @@ variables (`sgml-basic-offset' et al) locally, like so:
     (setq-local sgml-basic-offset js2-basic-offset))
   (add-hook \\='js2-jsx-mode-hook #\\='set-jsx-indentation)
 
-(fn)" t) (register-definition-prefixes "js2-mode" '("js2-")) (register-definition-prefixes "js2-old-indent" '("js2-")) (provide 'js2-mode-autoloads)) "github-dark-vscode" ((github-dark-vscode-theme github-dark-vscode-autoloads) (when load-file-name (add-to-list 'custom-theme-load-path (file-name-as-directory (file-name-directory load-file-name)))) (provide 'github-dark-vscode-autoloads)) "adwaita-dark-theme" ((adwaita-dark-theme adwaita-dark-theme-autoloads) (autoload 'adwaita-dark-theme-neotree-configuration-enable "adwaita-dark-theme" "Enable custom adwaita-dark configuration for use with neotree.") (autoload 'adwaita-dark-theme-eldoc-frame-configuration-enable "adwaita-dark-theme" "Enable custom adwaita-dark configuration for use with eldoc-frame.") (autoload 'adwaita-dark-theme-arrow-fringe-bmp-enable "adwaita-dark-theme" "Replace the default line continuation and line wrap arrows with custom bitmaps.") (autoload 'adwaita-dark-theme-diff-hl-fringe-bmp-enable "adwaita-dark-theme" "Enable custom adwaita-dark fringe bitmaps for use with flymake.") (autoload 'adwaita-dark-theme-flycheck-fringe-bmp-enable "adwaita-dark-theme" "Enable custom adwaita-dark fringe bitmaps for use with flycheck.") (autoload 'adwaita-dark-theme-flymake-fringe-bmp-enable "adwaita-dark-theme" "Enable custom adwaita-dark fringe bitmaps for use with flymake.") (when (and (boundp 'custom-theme-load-path) load-file-name) (add-to-list 'custom-theme-load-path (file-name-as-directory (file-name-directory load-file-name)))) (register-definition-prefixes "adwaita-dark-theme" '("adwaita-dark")) (provide 'adwaita-dark-theme-autoloads)) "sqlite-mode-extras" ((sqlite-mode-extras sqlite-mode-extras-autoloads) (register-definition-prefixes "sqlite-mode-extras" '("sqlite-")) (provide 'sqlite-mode-extras-autoloads))))
+(fn)" t) (register-definition-prefixes "js2-mode" '("js2-")) (register-definition-prefixes "js2-old-indent" '("js2-")) (provide 'js2-mode-autoloads)) "github-dark-vscode" ((github-dark-vscode-theme github-dark-vscode-autoloads) (when load-file-name (add-to-list 'custom-theme-load-path (file-name-as-directory (file-name-directory load-file-name)))) (provide 'github-dark-vscode-autoloads)) "adwaita-dark-theme" ((adwaita-dark-theme adwaita-dark-theme-autoloads) (autoload 'adwaita-dark-theme-neotree-configuration-enable "adwaita-dark-theme" "Enable custom adwaita-dark configuration for use with neotree.") (autoload 'adwaita-dark-theme-eldoc-frame-configuration-enable "adwaita-dark-theme" "Enable custom adwaita-dark configuration for use with eldoc-frame.") (autoload 'adwaita-dark-theme-arrow-fringe-bmp-enable "adwaita-dark-theme" "Replace the default line continuation and line wrap arrows with custom bitmaps.") (autoload 'adwaita-dark-theme-diff-hl-fringe-bmp-enable "adwaita-dark-theme" "Enable custom adwaita-dark fringe bitmaps for use with flymake.") (autoload 'adwaita-dark-theme-flycheck-fringe-bmp-enable "adwaita-dark-theme" "Enable custom adwaita-dark fringe bitmaps for use with flycheck.") (autoload 'adwaita-dark-theme-flymake-fringe-bmp-enable "adwaita-dark-theme" "Enable custom adwaita-dark fringe bitmaps for use with flymake.") (when (and (boundp 'custom-theme-load-path) load-file-name) (add-to-list 'custom-theme-load-path (file-name-as-directory (file-name-directory load-file-name)))) (register-definition-prefixes "adwaita-dark-theme" '("adwaita-dark")) (provide 'adwaita-dark-theme-autoloads)) "sqlite-mode-extras" ((sqlite-mode-extras sqlite-mode-extras-autoloads) (register-definition-prefixes "sqlite-mode-extras" '("sqlite-")) (provide 'sqlite-mode-extras-autoloads)) "haskell-mode" ((w3m-haddock inf-haskell highlight-uses-mode haskell haskell-utils haskell-unicode-input-method haskell-svg haskell-string haskell-sort-imports haskell-session haskell-sandbox haskell-repl haskell-process haskell-presentation-mode haskell-navigate-imports haskell-move-nested haskell-modules haskell-mode haskell-mode-autoloads haskell-menu haskell-load haskell-lexeme haskell-interactive-mode haskell-indentation haskell-indent haskell-hoogle haskell-ghc-support haskell-font-lock haskell-doc haskell-decl-scan haskell-debug haskell-customize haskell-completions haskell-complete-module haskell-compile haskell-commands haskell-collapse haskell-cabal haskell-c2hs haskell-align-imports ghci-script-mode ghc-core) (autoload 'ghc-core-create-core "ghc-core" "Compile and load the current buffer as tidy core." t) (add-to-list 'auto-mode-alist '("\\.hcr\\'" . ghc-core-mode)) (add-to-list 'auto-mode-alist '("\\.dump-simpl\\'" . ghc-core-mode)) (autoload 'ghc-core-mode "ghc-core" "Major mode for GHC Core files.
 
-#s(hash-table size 65 test eq rehash-size 1.5 rehash-threshold 0.8125 data (org-elpa #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8125 data (version 15 "melpa" nil "gnu-elpa-mirror" nil "nongnu-elpa" nil "el-get" nil "emacsmirror-mirror" nil "straight" nil "org" (org :type git :repo "https://git.savannah.gnu.org/git/emacs/org-mode.git" :local-repo "org" :depth full :pre-build (straight-recipes-org-elpa--build) :build (:not autoloads) :files (:defaults "lisp/*.el" ("etc/styles/" "etc/styles/*"))) "use-package" nil "bind-key" nil "doom-modeline" nil "compat" nil "seq" nil "nerd-icons" nil "shrink-path" nil "s" nil "dash" nil "f" nil "ace-window" nil "avy" nil "cl-lib" nil "yasnippet" nil "company" nil "which-key" nil "flycheck" nil "visual-regexp" nil "dired-sidebar" nil "dired-subtree" nil "dired-hacks-utils" nil "eshell-toggle" nil "rainbow-delimiters" nil "rainbow-mode" nil "paren" nil "magit" nil "git-commit" nil "transient" nil "with-editor" nil "magit-section" nil "git-gutter" nil "nerd-icons-dired" nil "smartparens" nil "expand-region" nil "smooth-scrolling" nil "emmet-mode" nil "lsp-mode" nil "ht" nil "spinner" nil "markdown-mode" nil "lv" nil "eldoc" nil "lsp-ui" nil "rust-mode" nil "js-mode" nil "js2-mode" nil "github-dark-vscode" nil "adwaita-dark-theme" nil "sqlite-mode-extras" nil "cmake-mode" nil)) melpa #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8125 data (version 2 "gnu-elpa-mirror" nil "nongnu-elpa" nil "el-get" (el-get :type git :flavor melpa :files ("*.el" ("recipes" "recipes/el-get.rcp") "methods" "el-get-pkg.el") :host github :repo "dimitri/el-get") "emacsmirror-mirror" nil "straight" nil "use-package" (use-package :type git :flavor melpa :files (:defaults (:exclude "bind-key.el" "bind-chord.el" "use-package-chords.el" "use-package-ensure-system-package.el") "use-package-pkg.el") :host github :repo "jwiegley/use-package") "bind-key" (bind-key :type git :flavor melpa :files ("bind-key.el" "bind-key-pkg.el") :host github :repo "jwiegley/use-package") "doom-modeline" (doom-modeline :type git :flavor melpa :host github :repo "seagle0128/doom-modeline") "compat" nil "seq" nil "nerd-icons" (nerd-icons :type git :flavor melpa :files (:defaults "data" "nerd-icons-pkg.el") :host github :repo "rainstormstudio/nerd-icons.el") "shrink-path" (shrink-path :type git :flavor melpa :host gitlab :repo "bennya/shrink-path.el") "s" (s :type git :flavor melpa :host github :repo "magnars/s.el") "dash" (dash :type git :flavor melpa :files ("dash.el" "dash.texi" "dash-pkg.el") :host github :repo "magnars/dash.el") "f" (f :type git :flavor melpa :host github :repo "rejeep/f.el") "ace-window" (ace-window :type git :flavor melpa :host github :repo "abo-abo/ace-window") "avy" (avy :type git :flavor melpa :host github :repo "abo-abo/avy") "cl-lib" nil "yasnippet" (yasnippet :type git :flavor melpa :files ("yasnippet.el" "snippets" "yasnippet-pkg.el") :host github :repo "joaotavora/yasnippet") "company" (company :type git :flavor melpa :files (:defaults "icons" ("images/small" "doc/images/small/*.png") "company-pkg.el") :host github :repo "company-mode/company-mode") "which-key" (which-key :type git :flavor melpa :host github :repo "justbur/emacs-which-key") "flycheck" (flycheck :type git :flavor melpa :host github :repo "flycheck/flycheck") "visual-regexp" (visual-regexp :type git :flavor melpa :host github :repo "benma/visual-regexp.el") "dired-sidebar" (dired-sidebar :type git :flavor melpa :host github :repo "jojojames/dired-sidebar") "dired-subtree" (dired-subtree :type git :flavor melpa :files ("dired-subtree.el" "dired-subtree-pkg.el") :host github :repo "Fuco1/dired-hacks") "dired-hacks-utils" (dired-hacks-utils :type git :flavor melpa :files ("dired-hacks-utils.el" "dired-hacks-utils-pkg.el") :host github :repo "Fuco1/dired-hacks") "eshell-toggle" (eshell-toggle :type git :flavor melpa :host github :repo "4DA/eshell-toggle") "rainbow-delimiters" (rainbow-delimiters :type git :flavor melpa :host github :repo "Fanael/rainbow-delimiters") "rainbow-mode" nil "paren" nil "magit" (magit :type git :flavor melpa :files ("lisp/magit*.el" "lisp/git-rebase.el" "docs/magit.texi" "docs/AUTHORS.md" "LICENSE" "Documentation/magit.texi" "Documentation/AUTHORS.md" (:exclude "lisp/magit-libgit.el" "lisp/magit-libgit-pkg.el" "lisp/magit-section.el" "lisp/magit-section-pkg.el") "magit-pkg.el") :host github :repo "magit/magit") "git-commit" (git-commit :type git :flavor melpa :files ("lisp/git-commit.el" "lisp/git-commit-pkg.el" "git-commit-pkg.el") :host github :repo "magit/magit") "transient" (transient :type git :flavor melpa :host github :repo "magit/transient") "with-editor" (with-editor :type git :flavor melpa :host github :repo "magit/with-editor") "magit-section" (magit-section :type git :flavor melpa :files ("lisp/magit-section.el" "lisp/magit-section-pkg.el" "docs/magit-section.texi" "Documentation/magit-section.texi" "magit-section-pkg.el") :host github :repo "magit/magit") "git-gutter" (git-gutter :type git :flavor melpa :host github :repo "emacsorphanage/git-gutter") "nerd-icons-dired" (nerd-icons-dired :type git :flavor melpa :host github :repo "rainstormstudio/nerd-icons-dired") "smartparens" (smartparens :type git :flavor melpa :host github :repo "Fuco1/smartparens") "expand-region" (expand-region :type git :flavor melpa :host github :repo "magnars/expand-region.el") "smooth-scrolling" (smooth-scrolling :type git :flavor melpa :host github :repo "aspiers/smooth-scrolling") "emmet-mode" (emmet-mode :type git :flavor melpa :host github :repo "smihica/emmet-mode") "lsp-mode" (lsp-mode :type git :flavor melpa :files (:defaults "clients/*.el" "lsp-mode-pkg.el") :host github :repo "emacs-lsp/lsp-mode") "ht" (ht :type git :flavor melpa :host github :repo "Wilfred/ht.el") "spinner" nil "markdown-mode" (markdown-mode :type git :flavor melpa :host github :repo "jrblevin/markdown-mode") "lv" (lv :type git :flavor melpa :files ("lv.el" "lv-pkg.el") :host github :repo "abo-abo/hydra") "eldoc" nil "lsp-ui" (lsp-ui :type git :flavor melpa :files (:defaults "lsp-ui-doc.html" "resources" "lsp-ui-pkg.el") :host github :repo "emacs-lsp/lsp-ui") "rust-mode" (rust-mode :type git :flavor melpa :host github :repo "rust-lang/rust-mode") "js-mode" nil "js2-mode" (js2-mode :type git :flavor melpa :host github :repo "mooz/js2-mode") "github-dark-vscode" nil "adwaita-dark-theme" (adwaita-dark-theme :type git :flavor melpa :host gitlab :repo "jessieh/adwaita-dark-theme") "sqlite-mode-extras" nil "cmake-mode" (cmake-mode :type git :flavor melpa :files ("Auxiliary/*.el" "cmake-mode-pkg.el") :repo "https://gitlab.kitware.com/cmake/cmake.git"))) gnu-elpa-mirror #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8125 data (version 3 "nongnu-elpa" nil "emacsmirror-mirror" nil "straight" nil "compat" (compat :type git :host github :repo "emacs-straight/compat" :files ("*" (:exclude ".git"))) "seq" (seq :type git :host github :repo "emacs-straight/seq" :files ("*" (:exclude ".git"))) "cl-lib" nil "rainbow-mode" (rainbow-mode :type git :host github :repo "emacs-straight/rainbow-mode" :files ("*" (:exclude ".git"))) "paren" nil "spinner" (spinner :type git :host github :repo "emacs-straight/spinner" :files ("*" (:exclude ".git"))) "eldoc" (eldoc :type git :host github :repo "emacs-straight/eldoc" :files ("*" (:exclude ".git"))) "js-mode" nil "github-dark-vscode" nil "sqlite-mode-extras" nil)) nongnu-elpa #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8125 data (version 4 "emacsmirror-mirror" nil "straight" nil "cl-lib" nil "paren" nil "js-mode" nil "github-dark-vscode" nil "sqlite-mode-extras" nil)) el-get #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8125 data (version 2 "emacsmirror-mirror" nil "straight" nil "cl-lib" nil "paren" nil "js-mode" nil "github-dark-vscode" nil "sqlite-mode-extras" nil)) emacsmirror-mirror #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8125 data (version 2 "straight" (straight :type git :host github :repo "emacsmirror/straight") "cl-lib" nil "paren" nil "js-mode" nil "github-dark-vscode" nil "sqlite-mode-extras" nil))))
+(fn)" t) (register-definition-prefixes "ghc-core" '("ghc-core-")) (autoload 'ghci-script-mode "ghci-script-mode" "Major mode for working with .ghci files.
 
-("js2-mode" "rust-mode" "lsp-ui" "eldoc" "lv" "markdown-mode" "spinner" "ht" "lsp-mode" "emmet-mode" "smooth-scrolling" "expand-region" "smartparens" "nerd-icons-dired" "git-gutter" "magit-section" "with-editor" "transient" "git-commit" "magit" "paren" "rainbow-delimiters" "eshell-toggle" "dired-hacks-utils" "dired-subtree" "dired-sidebar" "visual-regexp" "flycheck" "which-key" "company" "yasnippet" "cl-lib" "avy" "ace-window" "f" "dash" "s" "shrink-path" "nerd-icons" "seq" "compat" "doom-modeline" "adwaita-dark-theme" "bind-key" "use-package" "org" "emacs" "straight" "emacsmirror-mirror" "el-get" "nongnu-elpa" "gnu-elpa-mirror" "melpa" "org-elpa")
+(fn)" t) (add-to-list 'auto-mode-alist '("\\.ghci\\'" . ghci-script-mode)) (register-definition-prefixes "ghci-script-mode" '("ghci-script-mode-")) (autoload 'interactive-haskell-mode "haskell" "Minor mode for enabling haskell-process interaction.
+
+This is a minor mode.  If called interactively, toggle the
+`Interactive-Haskell mode' mode.  If the prefix argument is
+positive, enable the mode, and if it is zero or negative, disable
+the mode.
+
+If called from Lisp, toggle the mode if ARG is `toggle'.  Enable
+the mode if ARG is nil, omitted, or is a positive number.
+Disable the mode if ARG is a negative number.
+
+To check whether the minor mode is enabled in the current buffer,
+evaluate `interactive-haskell-mode'.
+
+The mode's hook is called both when the mode is enabled and when
+it is disabled.
+
+(fn &optional ARG)" t) (autoload 'haskell-interactive-mode-return "haskell" "Handle the return key." t) (autoload 'haskell-session-kill "haskell" "Kill the session process and buffer, delete the session.
+1. Kill the process.
+2. Kill the interactive buffer unless LEAVE-INTERACTIVE-BUFFER is not given.
+3. Walk through all the related buffers and set their haskell-session to nil.
+4. Remove the session from the sessions list.
+
+(fn &optional LEAVE-INTERACTIVE-BUFFER)" t) (autoload 'haskell-interactive-kill "haskell" "Kill the buffer and (maybe) the session." t) (autoload 'haskell-session "haskell" "Get the Haskell session, prompt if there isn't one or fail.") (autoload 'haskell-interactive-switch "haskell" "Switch to the interactive mode for this session." t) (autoload 'haskell-session-change "haskell" "Change the session for the current buffer." t) (autoload 'haskell-kill-session-process "haskell" "Kill the process.
+
+(fn &optional SESSION)" t) (autoload 'haskell-interactive-mode-visit-error "haskell" "Visit the buffer of the current (or last) error message." t) (autoload 'haskell-mode-jump-to-tag "haskell" "Jump to the tag of the given identifier.
+
+Give optional NEXT-P parameter to override value of
+`xref-prompt-for-identifier' during definition search.
+
+(fn &optional NEXT-P)" t) (autoload 'haskell-mode-after-save-handler "haskell" "Function that will be called after buffer's saving.") (autoload 'haskell-mode-tag-find "haskell" "The tag find function, specific for the particular session.
+
+(fn &optional NEXT-P)" t) (autoload 'haskell-interactive-bring "haskell" "Bring up the interactive mode for this session." t) (autoload 'haskell-process-load-file "haskell" "Load the current buffer file." t) (autoload 'haskell-process-reload "haskell" "Re-load the current buffer file." t) (autoload 'haskell-process-reload-file "haskell") (autoload 'haskell-process-load-or-reload "haskell" "Load or reload. Universal argument toggles which.
+
+(fn &optional TOGGLE)" t) (autoload 'haskell-process-cabal-build "haskell" "Build the Cabal project." t) (autoload 'haskell-process-cabal "haskell" "Prompts for a Cabal command to run.
+
+(fn P)" t) (autoload 'haskell-process-minimal-imports "haskell" "Dump minimal imports." t) (register-definition-prefixes "haskell" '("haskell-" "interactive-haskell-mode-map" "xref-prompt-for-identifier")) (autoload 'haskell-align-imports "haskell-align-imports" "Align all the imports in the buffer." t) (register-definition-prefixes "haskell-align-imports" '("haskell-align-imports-")) (add-to-list 'auto-mode-alist '("\\.chs\\'" . haskell-c2hs-mode)) (autoload 'haskell-c2hs-mode "haskell-c2hs" "Mode for editing *.chs files of the c2hs haskell tool.
+
+(fn)" t) (register-definition-prefixes "haskell-c2hs" '("haskell-c2hs-font-lock-keywords")) (add-to-list 'auto-mode-alist '("\\.cabal\\'\\|/cabal\\.project\\|/\\.cabal/config\\'" . haskell-cabal-mode)) (autoload 'haskell-cabal-mode "haskell-cabal" "Major mode for Cabal package description files.
+
+(fn)" t) (autoload 'haskell-cabal-get-field "haskell-cabal" "Read the value of field with NAME from project's cabal file.
+If there is no valid .cabal file to get the setting from (or
+there is no corresponding setting with that name in the .cabal
+file), then this function returns nil.
+
+(fn NAME)" t) (autoload 'haskell-cabal-get-dir "haskell-cabal" "Get the Cabal dir for a new project.
+Various ways of figuring this out, and indeed just prompting the user.  Do them
+all.
+
+(fn &optional USE-DEFAULTS)") (autoload 'haskell-cabal-visit-file "haskell-cabal" "Locate and visit package description file for file visited by current buffer.
+This uses `haskell-cabal-find-file' to locate the closest
+\".cabal\" file and open it.  This command assumes a common Cabal
+project structure where the \".cabal\" file is in the top-folder
+of the project, and all files related to the project are in or
+below the top-folder.  If called with non-nil prefix argument
+OTHER-WINDOW use `find-file-other-window'.
+
+(fn OTHER-WINDOW)" t) (register-definition-prefixes "haskell-cabal" '("haskell-")) (autoload 'haskell-collapse-mode "haskell-collapse" "Minor mode to collapse and expand haskell expressions
+
+This is a minor mode.  If called interactively, toggle the
+`Haskell-Collapse mode' mode.  If the prefix argument is
+positive, enable the mode, and if it is zero or negative, disable
+the mode.
+
+If called from Lisp, toggle the mode if ARG is `toggle'.  Enable
+the mode if ARG is nil, omitted, or is a positive number.
+Disable the mode if ARG is a negative number.
+
+To check whether the minor mode is enabled in the current buffer,
+evaluate `haskell-collapse-mode'.
+
+The mode's hook is called both when the mode is enabled and when
+it is disabled.
+
+(fn &optional ARG)" t) (register-definition-prefixes "haskell-collapse" '("haskell-")) (autoload 'haskell-process-restart "haskell-commands" "Restart the inferior Haskell process." t) (autoload 'haskell-process-clear "haskell-commands" "Clear the current process." t) (autoload 'haskell-process-interrupt "haskell-commands" "Interrupt the process (SIGINT)." t) (autoload 'haskell-describe "haskell-commands" "Describe the given identifier IDENT.
+
+(fn IDENT)" t) (autoload 'haskell-rgrep "haskell-commands" "Grep the effective project for the symbol at point.
+Very useful for codebase navigation.
+
+Prompts for an arbitrary regexp given a prefix arg PROMPT.
+
+(fn &optional PROMPT)" t) (autoload 'haskell-process-do-info "haskell-commands" "Print info on the identifier at point.
+If PROMPT-VALUE is non-nil, request identifier via mini-buffer.
+
+(fn &optional PROMPT-VALUE)" t) (autoload 'haskell-process-do-type "haskell-commands" "Print the type of the given expression.
+
+Given INSERT-VALUE prefix indicates that result type signature
+should be inserted.
+
+(fn &optional INSERT-VALUE)" t) (autoload 'haskell-mode-jump-to-def-or-tag "haskell-commands" "Jump to the definition.
+Jump to definition of identifier at point by consulting GHCi, or
+tag table as fallback.
+
+Remember: If GHCi is busy doing something, this will delay, but
+it will always be accurate, in contrast to tags, which always
+work but are not always accurate.
+If the definition or tag is found, the location from which you jumped
+will be pushed onto `xref--marker-ring', so you can return to that
+position with `xref-pop-marker-stack'.
+
+(fn &optional NEXT-P)" t) (autoload 'haskell-mode-goto-loc "haskell-commands" "Go to the location of the thing at point.
+Requires the :loc-at command from GHCi." t) (autoload 'haskell-mode-jump-to-def "haskell-commands" "Jump to definition of identifier IDENT at point.
+
+(fn IDENT)" t) (autoload 'haskell-process-cd "haskell-commands" "Change directory.
+
+(fn &optional NOT-INTERACTIVE)" t) (autoload 'haskell-process-cabal-macros "haskell-commands" "Send the cabal macros string." t) (autoload 'haskell-mode-show-type-at "haskell-commands" "Show type of the thing at point or within active region asynchronously.
+This function requires GHCi 8+ or GHCi-ng.
+
+\\<haskell-interactive-mode-map>
+To make this function works sometimes you need to load the file in REPL
+first using command `haskell-process-load-file' bound to
+\\[haskell-process-load-file].
+
+Optional argument INSERT-VALUE indicates that
+recieved type signature should be inserted (but only if nothing
+happened since function invocation).
+
+(fn &optional INSERT-VALUE)" t) (autoload 'haskell-process-unignore "haskell-commands" "Unignore any ignored files.
+Do not ignore files that were specified as being ignored by the
+inferior GHCi process." t) (autoload 'haskell-session-change-target "haskell-commands" "Set the build TARGET for cabal REPL.
+
+(fn TARGET)" t) (autoload 'haskell-mode-stylish-buffer "haskell-commands" "Apply stylish-haskell to the current buffer.
+
+Use `haskell-mode-stylish-haskell-path' to know where to find
+stylish-haskell executable.  This function tries to preserve
+cursor position and markers by using
+`haskell-mode-buffer-apply-command'." t) (autoload 'haskell-mode-find-uses "haskell-commands" "Find use cases of the identifier at point and highlight them all." t) (register-definition-prefixes "haskell-commands" '("haskell-")) (autoload 'haskell-compile "haskell-compile" "Run a compile command for the current Haskell buffer.
+Obeys haskell-compiler-type to choose the appropriate build command.
+
+If prefix argument EDIT-COMMAND is non-nil (and not a negative
+prefix `-'), prompt for a custom compile command.
+
+If EDIT-COMMAND contains the negative prefix argument `-', call
+the alternative command defined in
+`haskell-compile-stack-build-alt-command' /
+`haskell-compile-cabal-build-alt-command'.
+
+If there is no prefix argument, the most recent custom compile
+command is used, falling back to
+`haskell-compile-stack-build-command' for stack builds
+`haskell-compile-cabal-build-command' for cabal builds, and
+`haskell-compile-command' otherwise.
+
+'% characters in the `-command' templates are replaced by the
+base directory for build tools, or the current buffer for
+`haskell-compile-command'.
+
+(fn &optional EDIT-COMMAND)" t) (register-definition-prefixes "haskell-compile" '("haskell-")) (register-definition-prefixes "haskell-complete-module" '("haskell-complete-module")) (autoload 'haskell-completions-completion-at-point "haskell-completions" "Provide completion list for thing at point.
+This function is used in non-interactive `haskell-mode'.  It
+provides completions for haskell keywords, language pragmas,
+GHC's options, and language extensions, but not identifiers.") (register-definition-prefixes "haskell-completions" '("haskell-completions-")) (register-definition-prefixes "haskell-customize" '("haskell-" "inferior-haskell-root-dir")) (register-definition-prefixes "haskell-debug" '("haskell-debug")) (autoload 'haskell-ds-create-imenu-index "haskell-decl-scan" "Function for finding `imenu' declarations in Haskell mode.
+Finds all declarations (classes, variables, imports, instances and
+datatypes) in a Haskell file for the `imenu' package.") (autoload 'turn-on-haskell-decl-scan "haskell-decl-scan" "Unconditionally activate `haskell-decl-scan-mode'." t) (autoload 'haskell-decl-scan-mode "haskell-decl-scan" "Toggle Haskell declaration scanning minor mode on or off.
+With a prefix argument ARG, enable minor mode if ARG is
+positive, and disable it otherwise.  If called from Lisp, enable
+the mode if ARG is omitted or nil, and toggle it if ARG is `toggle'.
+
+See also info node `(haskell-mode)haskell-decl-scan-mode' for
+more details about this minor mode.
+
+Top-level declarations are scanned and listed in the menu item
+\"Declarations\" (if enabled via option
+`haskell-decl-scan-add-to-menubar').  Selecting an item from this
+menu will take point to the start of the declaration.
+
+\\[beginning-of-defun] and \\[end-of-defun] move forward and backward to the start of a declaration.
+
+This may link with `haskell-doc-mode'.
+
+For non-literate and LaTeX-style literate scripts, we assume the
+common convention that top-level declarations start at the first
+column.  For Bird-style literate scripts, we assume the common
+convention that top-level declarations start at the third column,
+ie. after \"> \".
+
+Anything in `font-lock-comment-face' is not considered for a
+declaration.  Therefore, using Haskell font locking with comments
+coloured in `font-lock-comment-face' improves declaration scanning.
+
+Literate Haskell scripts are supported: If the value of
+`haskell-literate' (set automatically by `haskell-literate-mode')
+is `bird', a Bird-style literate script is assumed.  If it is nil
+or `tex', a non-literate or LaTeX-style literate script is
+assumed, respectively.
+
+Invokes `haskell-decl-scan-mode-hook' on activation.
+
+(fn &optional ARG)" t) (register-definition-prefixes "haskell-decl-scan" '("haskell-d" "literate-haskell-ds-")) (autoload 'haskell-doc-mode "haskell-doc" "Enter `haskell-doc-mode' for showing fct types in the echo area.
+
+When enabled, shows the type of the function near point or a related comment.
+
+If the identifier near point is a Haskell keyword and the variable
+`haskell-doc-show-reserved' is non-nil show a one line summary
+of the syntax.
+
+If the identifier near point is a Prelude or one of the standard library
+functions and `haskell-doc-show-prelude' is non-nil show its type.
+
+If the identifier near point is local (i.e. defined in this module) check
+the `imenu' list of functions for the type.  This obviously requires that
+your language mode uses `imenu'.
+
+If the identifier near point is global (i.e. defined in an imported module)
+and the variable `haskell-doc-show-global-types' is non-nil show the type of its
+function.
+
+If the identifier near point is a standard strategy or a function, type related
+related to strategies and `haskell-doc-show-strategy' is non-nil show the type
+of the function.  Strategies are special to the parallel execution of Haskell.
+If you're not interested in that just turn it off.
+
+If the identifier near point is a user defined function that occurs as key
+in the alist `haskell-doc-user-defined-ids' and the variable
+`haskell-doc-show-user-defined' is non-nil show the type of the function.
+
+This variable is buffer-local.
+
+This is a minor mode.  If called interactively, toggle the
+`Haskell-Doc mode' mode.  If the prefix argument is positive,
+enable the mode, and if it is zero or negative, disable the mode.
+
+If called from Lisp, toggle the mode if ARG is `toggle'.  Enable
+the mode if ARG is nil, omitted, or is a positive number.
+Disable the mode if ARG is a negative number.
+
+To check whether the minor mode is enabled in the current buffer,
+evaluate `haskell-doc-mode'.
+
+The mode's hook is called both when the mode is enabled and when
+it is disabled.
+
+(fn &optional ARG)" t) (defalias 'turn-on-haskell-doc-mode 'haskell-doc-mode) (defalias 'turn-on-haskell-doc 'haskell-doc-mode) (autoload 'haskell-doc-eldoc-function "haskell-doc" "Function for use by eldoc.
+
+By accepting CALLBACK, it is designed to be used in
+`eldoc-documentation-functions' in Emacs >= 28.1, but by making
+that argument optional it can also be set directly as
+`eldoc-documentation-function' in older Emacsen.
+
+(fn &optional CALLBACK)") (autoload 'haskell-doc-current-info "haskell-doc" "Return the info about symbol at point.
+Meant for `eldoc-documentation-function'.") (autoload 'haskell-doc-show-type "haskell-doc" "Show the type of the function near point or given symbol SYM.
+For the function under point, show the type in the echo area.
+This information is extracted from the `haskell-doc-prelude-types' alist
+of prelude functions and their types, or from the local functions in the
+current buffer.
+
+(fn &optional SYM)" t) (register-definition-prefixes "haskell-doc" '("haskell-" "inferior-haskell-" "turn-off-haskell-doc")) (register-definition-prefixes "haskell-font-lock" '("haskell-")) (register-definition-prefixes "haskell-ghc-support" '("haskell-")) (autoload 'haskell-hoogle "haskell-hoogle" "Do a Hoogle search for QUERY.
+
+If prefix argument INFO is given, then `haskell-hoogle-command'
+is asked to show extra info for the items matching QUERY..
+
+(fn QUERY &optional INFO)" t) (defalias 'hoogle 'haskell-hoogle) (autoload 'haskell-hoogle-lookup-from-website "haskell-hoogle" "Lookup QUERY at `haskell-hoogle-url'.
+
+(fn QUERY)" t) (autoload 'haskell-hoogle-lookup-from-local "haskell-hoogle" "Lookup QUERY on local hoogle server." t) (register-definition-prefixes "haskell-hoogle" '("haskell-hoogle-" "hoogle-prompt")) (autoload 'turn-on-haskell-indent "haskell-indent" "Turn on ``intelligent'' Haskell indentation mode.") (autoload 'haskell-indent-mode "haskell-indent" "``Intelligent'' Haskell indentation mode.
+This deals with the layout rule of Haskell.
+\\[haskell-indent-cycle] starts the cycle which proposes new
+possibilities as long as the TAB key is pressed.  Any other key
+or mouse click terminates the cycle and is interpreted except for
+RET which merely exits the cycle.
+Other special keys are:
+    \\[haskell-indent-insert-equal]
+      inserts an =
+    \\[haskell-indent-insert-guard]
+      inserts an |
+    \\[haskell-indent-insert-otherwise]
+      inserts an | otherwise =
+these functions also align the guards and rhs of the current definition
+    \\[haskell-indent-insert-where]
+      inserts a where keyword
+    \\[haskell-indent-align-guards-and-rhs]
+      aligns the guards and rhs of the region
+    \\[haskell-indent-put-region-in-literate]
+      makes the region a piece of literate code in a literate script
+
+If `ARG' is falsey, toggle `haskell-indent-mode'.  Else sets
+`haskell-indent-mode' to whether `ARG' is greater than 0.
+
+Invokes `haskell-indent-hook' if not nil.
+
+(fn &optional ARG)" t) (register-definition-prefixes "haskell-indent" '("haskell-indent-" "turn-off-haskell-indent")) (autoload 'haskell-indentation-mode "haskell-indentation" "Haskell indentation mode that deals with the layout rule.
+
+It rebinds RET, DEL and BACKSPACE, so that indentations can be
+set and deleted as if they were real tabs.
+
+This is a minor mode.  If called interactively, toggle the
+`Haskell-Indentation mode' mode.  If the prefix argument is
+positive, enable the mode, and if it is zero or negative, disable
+the mode.
+
+If called from Lisp, toggle the mode if ARG is `toggle'.  Enable
+the mode if ARG is nil, omitted, or is a positive number.
+Disable the mode if ARG is a negative number.
+
+To check whether the minor mode is enabled in the current buffer,
+evaluate `haskell-indentation-mode'.
+
+The mode's hook is called both when the mode is enabled and when
+it is disabled.
+
+(fn &optional ARG)" t) (autoload 'turn-on-haskell-indentation "haskell-indentation" "Turn on the haskell-indentation minor mode." t) (register-definition-prefixes "haskell-indentation" '("haskell-indentation-")) (autoload 'haskell-interactive-mode-reset-error "haskell-interactive-mode" "Reset the error cursor position.
+
+(fn SESSION)" t) (autoload 'haskell-interactive-mode-echo "haskell-interactive-mode" "Echo a read only piece of text before the prompt.
+
+(fn SESSION MESSAGE &optional MODE)") (autoload 'haskell-process-show-repl-response "haskell-interactive-mode" "Send LINE to the GHCi process and echo the result in some fashion.
+Result will be printed in the minibuffer or presented using
+function `haskell-presentation-present', depending on variable
+`haskell-process-use-presentation-mode'.
+
+(fn LINE)") (register-definition-prefixes "haskell-interactive-mode" '("haskell-")) (register-definition-prefixes "haskell-lexeme" '("haskell-lexeme-")) (autoload 'haskell-process-reload-devel-main "haskell-load" "Reload the module `DevelMain' and then run `DevelMain.update'.
+
+This is for doing live update of the code of servers or GUI
+applications.  Put your development version of the program in
+`DevelMain', and define `update' to auto-start the program on a
+new thread, and use the `foreign-store' package to access the
+running context across :load/:reloads in GHCi." t) (register-definition-prefixes "haskell-load" '("haskell-")) (autoload 'haskell-menu "haskell-menu" "Launch the Haskell sessions menu." t) (register-definition-prefixes "haskell-menu" '("haskell-menu-")) (autoload 'haskell-version "haskell-mode" "Show the `haskell-mode` version in the echo area.
+With prefix argument HERE, insert it at point.
+
+(fn &optional HERE)" t) (autoload 'haskell-mode-view-news "haskell-mode" "Display information on recent changes to haskell-mode." t) (autoload 'haskell-mode "haskell-mode" "Major mode for editing Haskell programs.
+
+\\<haskell-mode-map>
+
+Literate Haskell scripts are supported via `haskell-literate-mode'.
+The variable `haskell-literate' indicates the style of the script in the
+current buffer.  See the documentation on this variable for more details.
+
+Use `haskell-version' to find out what version of Haskell mode you are
+currently using.
+
+Additional Haskell mode modules can be hooked in via `haskell-mode-hook'.
+
+Indentation modes:
+
+    `haskell-indentation-mode', Kristof Bastiaensen, Gergely Risko
+      Intelligent semi-automatic indentation Mk2
+
+    `haskell-indent-mode', Guy Lapalme
+      Intelligent semi-automatic indentation.
+
+Interaction modes:
+
+    `interactive-haskell-mode'
+      Interact with per-project GHCi processes through a REPL and
+      directory-aware sessions.
+
+Other modes:
+
+    `haskell-decl-scan-mode', Graeme E Moss
+      Scans top-level declarations, and places them in a menu.
+
+    `haskell-doc-mode', Hans-Wolfgang Loidl
+      Sets up eldoc to echo types of functions or syntax of keywords
+      when the cursor is idle.
+
+To activate a minor-mode, simply run the interactive command. For
+example, `M-x haskell-doc-mode'. Run it again to disable it.
+
+To enable a mode for every `haskell-mode' buffer, add a hook in
+your Emacs configuration. To do that you can customize
+`haskell-mode-hook' or add lines to your .emacs file. For
+example, to enable `interactive-haskell-mode', use the following:
+
+    (add-hook \\='haskell-mode-hook \\='interactive-haskell-mode)
+
+Minor modes that work well with `haskell-mode':
+
+- `smerge-mode': show and work with diff3 conflict markers used
+  by git, svn and other version control systems.
+
+(fn)" t) (autoload 'haskell-forward-sexp "haskell-mode" "Haskell specific version of `forward-sexp'.
+
+Move forward across one balanced expression (sexp).  With ARG, do
+it that many times.  Negative arg -N means move backward across N
+balanced expressions.  This command assumes point is not in a
+string or comment.
+
+If unable to move over a sexp, signal `scan-error' with three
+arguments: a message, the start of the obstacle (a parenthesis or
+list marker of some kind), and end of the obstacle.
+
+(fn &optional ARG)" t) (autoload 'haskell-literate-mode "haskell-mode" "As `haskell-mode' but for literate scripts.
+
+(fn)" t) (define-obsolete-function-alias 'literate-haskell-mode 'haskell-literate-mode "2020-04") (add-to-list 'auto-mode-alist '("\\.[gh]s\\'" . haskell-mode)) (add-to-list 'auto-mode-alist '("\\.hsig\\'" . haskell-mode)) (add-to-list 'auto-mode-alist '("\\.l[gh]s\\'" . haskell-literate-mode)) (add-to-list 'auto-mode-alist '("\\.hsc\\'" . haskell-mode)) (add-to-list 'interpreter-mode-alist '("runghc" . haskell-mode)) (add-to-list 'interpreter-mode-alist '("runhaskell" . haskell-mode)) (add-to-list 'completion-ignored-extensions ".hi") (autoload 'haskell-mode-generate-tags "haskell-mode" "Generate tags using Hasktags.  This is synchronous function.
+
+If optional AND-THEN-FIND-THIS-TAG argument is present it is used
+with function `xref-find-definitions' after new table was
+generated.
+
+(fn &optional AND-THEN-FIND-THIS-TAG)" t) (register-definition-prefixes "haskell-mode" '("haskell-")) (autoload 'haskell-session-installed-modules "haskell-modules" "Get the modules installed in the current package set.
+
+(fn SESSION &optional DONTCREATE)") (autoload 'haskell-session-all-modules "haskell-modules" "Get all modules -- installed or in the current project.
+If DONTCREATE is non-nil don't create a new session.
+
+(fn SESSION &optional DONTCREATE)") (autoload 'haskell-session-project-modules "haskell-modules" "Get the modules of the current project.
+If DONTCREATE is non-nil don't create a new session.
+
+(fn SESSION &optional DONTCREATE)") (register-definition-prefixes "haskell-modules" '("haskell-")) (autoload 'haskell-move-nested "haskell-move-nested" "Shift the nested off-side-rule block adjacent to point.
+It shift the nested off-side-rule block adjacent to point by COLS
+columns to the right.
+
+In Transient Mark mode, if the mark is active, operate on the contents
+of the region instead.
+
+(fn COLS)") (autoload 'haskell-move-nested-right "haskell-move-nested" "Increase indentation of the following off-side-rule block adjacent to point.
+
+Use a numeric prefix argument to indicate amount of indentation to apply.
+
+In Transient Mark mode, if the mark is active, operate on the contents
+of the region instead.
+
+(fn COLS)" t) (autoload 'haskell-move-nested-left "haskell-move-nested" "Decrease indentation of the following off-side-rule block adjacent to point.
+
+Use a numeric prefix argument to indicate amount of indentation to apply.
+
+In Transient Mark mode, if the mark is active, operate on the contents
+of the region instead.
+
+(fn COLS)" t) (register-definition-prefixes "haskell-move-nested" '("haskell-")) (autoload 'haskell-navigate-imports "haskell-navigate-imports" "Cycle the Haskell import lines or return to point (with prefix arg).
+
+(fn &optional RETURN)" t) (autoload 'haskell-navigate-imports-go "haskell-navigate-imports" "Go to the first line of a list of consecutive import lines. Cycles." t) (autoload 'haskell-navigate-imports-return "haskell-navigate-imports" "Return to the non-import point we were at before going to the module list.
+   If we were originally at an import list, we can just cycle through easily." t) (register-definition-prefixes "haskell-navigate-imports" '("haskell-navigate-imports-")) (register-definition-prefixes "haskell-presentation-mode" '("haskell-presentation-")) (register-definition-prefixes "haskell-process" '("haskell-")) (register-definition-prefixes "haskell-repl" '("haskell-interactive-")) (register-definition-prefixes "haskell-sandbox" '("haskell-sandbox-")) (autoload 'haskell-session-maybe "haskell-session" "Maybe get the Haskell session, return nil if there isn't one.") (autoload 'haskell-session-process "haskell-session" "Get the session process.
+
+(fn S)") (register-definition-prefixes "haskell-session" '("haskell-session")) (autoload 'haskell-sort-imports "haskell-sort-imports" "Sort the import list at point. It sorts the current group
+i.e. an import list separated by blank lines on either side.
+
+If the region is active, it will restrict the imports to sort
+within that region." t) (register-definition-prefixes "haskell-sort-imports" '("haskell-sort-imports-")) (register-definition-prefixes "haskell-string" '("haskell-")) (register-definition-prefixes "haskell-svg" '("haskell-svg-")) (autoload 'haskell-unicode-input-method-enable "haskell-unicode-input-method" "Set input method `haskell-unicode'." t) (define-obsolete-function-alias 'turn-on-haskell-unicode-input-method 'haskell-unicode-input-method-enable "2020-04") (register-definition-prefixes "haskell-utils" '("haskell-")) (autoload 'highlight-uses-mode "highlight-uses-mode" "Minor mode for highlighting and jumping between uses.
+
+This is a minor mode.  If called interactively, toggle the
+`Highlight-Uses mode' mode.  If the prefix argument is positive,
+enable the mode, and if it is zero or negative, disable the mode.
+
+If called from Lisp, toggle the mode if ARG is `toggle'.  Enable
+the mode if ARG is nil, omitted, or is a positive number.
+Disable the mode if ARG is a negative number.
+
+To check whether the minor mode is enabled in the current buffer,
+evaluate `highlight-uses-mode'.
+
+The mode's hook is called both when the mode is enabled and when
+it is disabled.
+
+(fn &optional ARG)" t) (register-definition-prefixes "highlight-uses-mode" '("highlight-uses-mode-")) (autoload 'run-haskell "inf-haskell" "Show the inferior-haskell buffer.  Start the process if needed." t) (register-definition-prefixes "inf-haskell" '("haskell-" "inf")) (register-definition-prefixes "w3m-haddock" '("haskell-w3m-" "w3m-haddock-")) (provide 'haskell-mode-autoloads)) "lsp-haskell" ((lsp-haskell lsp-haskell-autoloads) (register-definition-prefixes "lsp-haskell" '("lsp-haskell-")) (provide 'lsp-haskell-autoloads)) "cmake-mode" (nil) "lean4-mode" ((lean4-util lean4-syntax lean4-settings lean4-mode lean4-mode-autoloads lean4-lake lean4-input lean4-info lean4-fringe lean4-eri lean4-dev lean4-debug) (register-definition-prefixes "lean4-debug" '("lean4-")) (register-definition-prefixes "lean4-dev" '("lean4-diff-test-file")) (register-definition-prefixes "lean4-eri" '("lean4-eri-")) (register-definition-prefixes "lean4-fringe" '("lean4-fringe-")) (autoload 'lean4-info-mode "lean4-info" "Major mode for Lean Info Buffer.
+
+(fn)" t) (register-definition-prefixes "lean4-info" '("lean4-")) (register-definition-prefixes "lean4-input" '("lean4-input-")) (register-definition-prefixes "lean4-lake" '("lean4-lake-")) (autoload 'lean4-mode "lean4-mode" "Major mode for Lean.
+\\{lean4-mode-map}
+Invokes `lean4-mode-hook'.
+
+(fn)" t) (autoload 'lean4-select-mode "lean4-mode" "Automatically select mode (Lean 3 vs Lean 4).") (push '("\\.lean$" . lean4-select-mode) auto-mode-alist) (with-eval-after-load 'markdown-mode (add-to-list 'markdown-code-lang-modes '("lean" . lean4-select-mode))) (register-definition-prefixes "lean4-mode" '("lean4-")) (register-definition-prefixes "lean4-settings" '("lean4-")) (register-definition-prefixes "lean4-syntax" '("lean4-")) (register-definition-prefixes "lean4-util" '("lean4-")) (provide 'lean4-mode-autoloads)) "github-dark-vscode-theme" ((github-dark-vscode-theme github-dark-vscode-theme-autoloads) (when load-file-name (add-to-list 'custom-theme-load-path (file-name-as-directory (file-name-directory load-file-name)))) (provide 'github-dark-vscode-theme-autoloads)) "github-theme" ((github-theme github-theme-autoloads) (and load-file-name (boundp 'custom-theme-load-path) (add-to-list 'custom-theme-load-path (file-name-as-directory (file-name-directory load-file-name)))) (register-definition-prefixes "github-theme" '("github")) (provide 'github-theme-autoloads)) "dracula-theme" ((dracula-theme dracula-theme-autoloads) (when load-file-name (add-to-list 'custom-theme-load-path (file-name-as-directory (file-name-directory load-file-name)))) (register-definition-prefixes "dracula-theme" '("dracula-")) (provide 'dracula-theme-autoloads)) "adwaita-dark" ((adwaita-dark-theme adwaita-dark-autoloads) (autoload 'adwaita-dark-theme-neotree-configuration-enable "adwaita-dark-theme" "Enable custom adwaita-dark configuration for use with neotree.") (autoload 'adwaita-dark-theme-eldoc-frame-configuration-enable "adwaita-dark-theme" "Enable custom adwaita-dark configuration for use with eldoc-frame.") (autoload 'adwaita-dark-theme-arrow-fringe-bmp-enable "adwaita-dark-theme" "Replace the default line continuation and line wrap arrows with custom bitmaps.") (autoload 'adwaita-dark-theme-diff-hl-fringe-bmp-enable "adwaita-dark-theme" "Enable custom adwaita-dark fringe bitmaps for use with flymake.") (autoload 'adwaita-dark-theme-flycheck-fringe-bmp-enable "adwaita-dark-theme" "Enable custom adwaita-dark fringe bitmaps for use with flycheck.") (autoload 'adwaita-dark-theme-flymake-fringe-bmp-enable "adwaita-dark-theme" "Enable custom adwaita-dark fringe bitmaps for use with flymake.") (when (and (boundp 'custom-theme-load-path) load-file-name) (add-to-list 'custom-theme-load-path (file-name-as-directory (file-name-directory load-file-name)))) (register-definition-prefixes "adwaita-dark-theme" '("adwaita-dark")) (provide 'adwaita-dark-autoloads)) "typescript-mode" ((typescript-mode typescript-mode-test-utilities typescript-mode-autoloads) (put 'typescript-indent-level 'safe-local-variable #'integerp) (autoload 'typescript-mode "typescript-mode" "Major mode for editing typescript.
+
+Key bindings:
+
+\\{typescript-mode-map}
+
+(fn)" t) (eval-after-load 'folding '(when (fboundp 'folding-add-to-marks-list) (folding-add-to-marks-list 'typescript-mode "// {{{" "// }}}"))) (add-to-list 'auto-mode-alist '("\\.tsx?\\'" . typescript-mode)) (register-definition-prefixes "typescript-mode" '("typescript-")) (register-definition-prefixes "typescript-mode-test-utilities" '("font-lock-test" "get-face-at" "test-with-")) (provide 'typescript-mode-autoloads))))
+
+#s(hash-table size 65 test eq rehash-size 1.5 rehash-threshold 0.8125 data (org-elpa #s(hash-table size 97 test equal rehash-size 1.5 rehash-threshold 0.8125 data (version 15 "melpa" nil "gnu-elpa-mirror" nil "nongnu-elpa" nil "el-get" nil "emacsmirror-mirror" nil "straight" nil "org" (org :type git :repo "https://git.savannah.gnu.org/git/emacs/org-mode.git" :local-repo "org" :depth full :pre-build (straight-recipes-org-elpa--build) :build (:not autoloads) :files (:defaults "lisp/*.el" ("etc/styles/" "etc/styles/*"))) "use-package" nil "bind-key" nil "doom-modeline" nil "compat" nil "seq" nil "nerd-icons" nil "shrink-path" nil "s" nil "dash" nil "f" nil "ace-window" nil "avy" nil "cl-lib" nil "yasnippet" nil "company" nil "which-key" nil "flycheck" nil "visual-regexp" nil "dired-sidebar" nil "dired-subtree" nil "dired-hacks-utils" nil "eshell-toggle" nil "rainbow-delimiters" nil "rainbow-mode" nil "paren" nil "magit" nil "git-commit" nil "transient" nil "with-editor" nil "magit-section" nil "git-gutter" nil "nerd-icons-dired" nil "smartparens" nil "expand-region" nil "smooth-scrolling" nil "emmet-mode" nil "lsp-mode" nil "ht" nil "spinner" nil "markdown-mode" nil "lv" nil "eldoc" nil "lsp-ui" nil "rust-mode" nil "js-mode" nil "js2-mode" nil "github-dark-vscode" nil "adwaita-dark-theme" nil "sqlite-mode-extras" nil "cmake-mode" nil "haskel-mode" nil "haskell-mode" nil "lsp-haskell" nil "lean4-mode" nil "github-dark-vscode-theme" nil "github-theme" nil "dracula-theme" nil "adwaita-dark" nil "typescript-mode" nil)) melpa #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8125 data (version 2 "gnu-elpa-mirror" nil "nongnu-elpa" nil "el-get" (el-get :type git :flavor melpa :files ("*.el" ("recipes" "recipes/el-get.rcp") "methods" "el-get-pkg.el") :host github :repo "dimitri/el-get") "emacsmirror-mirror" nil "straight" nil "use-package" (use-package :type git :flavor melpa :files (:defaults (:exclude "bind-key.el" "bind-chord.el" "use-package-chords.el" "use-package-ensure-system-package.el") "use-package-pkg.el") :host github :repo "jwiegley/use-package") "bind-key" (bind-key :type git :flavor melpa :files ("bind-key.el" "bind-key-pkg.el") :host github :repo "jwiegley/use-package") "doom-modeline" (doom-modeline :type git :flavor melpa :host github :repo "seagle0128/doom-modeline") "compat" nil "seq" nil "nerd-icons" (nerd-icons :type git :flavor melpa :files (:defaults "data" "nerd-icons-pkg.el") :host github :repo "rainstormstudio/nerd-icons.el") "shrink-path" (shrink-path :type git :flavor melpa :host gitlab :repo "bennya/shrink-path.el") "s" (s :type git :flavor melpa :host github :repo "magnars/s.el") "dash" (dash :type git :flavor melpa :files ("dash.el" "dash.texi" "dash-pkg.el") :host github :repo "magnars/dash.el") "f" (f :type git :flavor melpa :host github :repo "rejeep/f.el") "ace-window" (ace-window :type git :flavor melpa :host github :repo "abo-abo/ace-window") "avy" (avy :type git :flavor melpa :host github :repo "abo-abo/avy") "cl-lib" nil "yasnippet" (yasnippet :type git :flavor melpa :files ("yasnippet.el" "snippets" "yasnippet-pkg.el") :host github :repo "joaotavora/yasnippet") "company" (company :type git :flavor melpa :files (:defaults "icons" ("images/small" "doc/images/small/*.png") "company-pkg.el") :host github :repo "company-mode/company-mode") "which-key" (which-key :type git :flavor melpa :host github :repo "justbur/emacs-which-key") "flycheck" (flycheck :type git :flavor melpa :host github :repo "flycheck/flycheck") "visual-regexp" (visual-regexp :type git :flavor melpa :host github :repo "benma/visual-regexp.el") "dired-sidebar" (dired-sidebar :type git :flavor melpa :host github :repo "jojojames/dired-sidebar") "dired-subtree" (dired-subtree :type git :flavor melpa :files ("dired-subtree.el" "dired-subtree-pkg.el") :host github :repo "Fuco1/dired-hacks") "dired-hacks-utils" (dired-hacks-utils :type git :flavor melpa :files ("dired-hacks-utils.el" "dired-hacks-utils-pkg.el") :host github :repo "Fuco1/dired-hacks") "eshell-toggle" (eshell-toggle :type git :flavor melpa :host github :repo "4DA/eshell-toggle") "rainbow-delimiters" (rainbow-delimiters :type git :flavor melpa :host github :repo "Fanael/rainbow-delimiters") "rainbow-mode" nil "paren" nil "magit" (magit :type git :flavor melpa :files ("lisp/magit*.el" "lisp/git-rebase.el" "docs/magit.texi" "docs/AUTHORS.md" "LICENSE" "Documentation/magit.texi" "Documentation/AUTHORS.md" (:exclude "lisp/magit-libgit.el" "lisp/magit-libgit-pkg.el" "lisp/magit-section.el" "lisp/magit-section-pkg.el") "magit-pkg.el") :host github :repo "magit/magit") "git-commit" (git-commit :type git :flavor melpa :files ("lisp/git-commit.el" "lisp/git-commit-pkg.el" "git-commit-pkg.el") :host github :repo "magit/magit") "transient" (transient :type git :flavor melpa :host github :repo "magit/transient") "with-editor" (with-editor :type git :flavor melpa :host github :repo "magit/with-editor") "magit-section" (magit-section :type git :flavor melpa :files ("lisp/magit-section.el" "lisp/magit-section-pkg.el" "docs/magit-section.texi" "Documentation/magit-section.texi" "magit-section-pkg.el") :host github :repo "magit/magit") "git-gutter" (git-gutter :type git :flavor melpa :host github :repo "emacsorphanage/git-gutter") "nerd-icons-dired" (nerd-icons-dired :type git :flavor melpa :host github :repo "rainstormstudio/nerd-icons-dired") "smartparens" (smartparens :type git :flavor melpa :host github :repo "Fuco1/smartparens") "expand-region" (expand-region :type git :flavor melpa :host github :repo "magnars/expand-region.el") "smooth-scrolling" (smooth-scrolling :type git :flavor melpa :host github :repo "aspiers/smooth-scrolling") "emmet-mode" (emmet-mode :type git :flavor melpa :host github :repo "smihica/emmet-mode") "lsp-mode" (lsp-mode :type git :flavor melpa :files (:defaults "clients/*.el" "lsp-mode-pkg.el") :host github :repo "emacs-lsp/lsp-mode") "ht" (ht :type git :flavor melpa :host github :repo "Wilfred/ht.el") "spinner" nil "markdown-mode" (markdown-mode :type git :flavor melpa :host github :repo "jrblevin/markdown-mode") "lv" (lv :type git :flavor melpa :files ("lv.el" "lv-pkg.el") :host github :repo "abo-abo/hydra") "eldoc" nil "lsp-ui" (lsp-ui :type git :flavor melpa :files (:defaults "lsp-ui-doc.html" "resources" "lsp-ui-pkg.el") :host github :repo "emacs-lsp/lsp-ui") "rust-mode" (rust-mode :type git :flavor melpa :host github :repo "rust-lang/rust-mode") "js-mode" nil "js2-mode" (js2-mode :type git :flavor melpa :host github :repo "mooz/js2-mode") "github-dark-vscode" nil "adwaita-dark-theme" (adwaita-dark-theme :type git :flavor melpa :host gitlab :repo "jessieh/adwaita-dark-theme") "sqlite-mode-extras" nil "cmake-mode" (cmake-mode :type git :flavor melpa :files ("Auxiliary/*.el" "cmake-mode-pkg.el") :repo "https://gitlab.kitware.com/cmake/cmake.git") "haskel-mode" nil "haskell-mode" (haskell-mode :type git :flavor melpa :files (:defaults "NEWS" "logo.svg" "haskell-mode-pkg.el") :host github :repo "haskell/haskell-mode") "lsp-haskell" (lsp-haskell :type git :flavor melpa :host github :repo "emacs-lsp/lsp-haskell") "lean4-mode" nil "github-dark-vscode-theme" (github-dark-vscode-theme :type git :flavor melpa :host github :repo "Justintime50/github-dark-vscode-emacs-theme") "github-theme" (github-theme :type git :flavor melpa :host github :repo "philiparvidsson/GitHub-Theme-for-Emacs") "dracula-theme" (dracula-theme :type git :flavor melpa :host github :repo "dracula/emacs") "adwaita-dark" nil "typescript-mode" (typescript-mode :type git :flavor melpa :host github :repo "emacs-typescript/typescript.el"))) gnu-elpa-mirror #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8125 data (version 3 "nongnu-elpa" nil "emacsmirror-mirror" nil "straight" nil "compat" (compat :type git :host github :repo "emacs-straight/compat" :files ("*" (:exclude ".git"))) "seq" (seq :type git :host github :repo "emacs-straight/seq" :files ("*" (:exclude ".git"))) "cl-lib" nil "rainbow-mode" (rainbow-mode :type git :host github :repo "emacs-straight/rainbow-mode" :files ("*" (:exclude ".git"))) "paren" nil "spinner" (spinner :type git :host github :repo "emacs-straight/spinner" :files ("*" (:exclude ".git"))) "eldoc" (eldoc :type git :host github :repo "emacs-straight/eldoc" :files ("*" (:exclude ".git"))) "js-mode" nil "github-dark-vscode" nil "sqlite-mode-extras" nil "haskel-mode" nil "lean4-mode" nil "adwaita-dark" nil)) nongnu-elpa #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8125 data (version 4 "emacsmirror-mirror" nil "straight" nil "cl-lib" nil "paren" nil "js-mode" nil "github-dark-vscode" nil "sqlite-mode-extras" nil "haskel-mode" nil "lean4-mode" nil "adwaita-dark" nil)) el-get #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8125 data (version 2 "emacsmirror-mirror" nil "straight" nil "cl-lib" nil "paren" nil "js-mode" nil "github-dark-vscode" nil "sqlite-mode-extras" nil "haskel-mode" nil "lean4-mode" nil "adwaita-dark" nil)) emacsmirror-mirror #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8125 data (version 2 "straight" (straight :type git :host github :repo "emacsmirror/straight") "cl-lib" nil "paren" nil "js-mode" nil "github-dark-vscode" nil "sqlite-mode-extras" nil "haskel-mode" nil "lean4-mode" nil "adwaita-dark" nil))))
+
+("shrink-path" "doom-modeline" "cmake-mode" "lean4-mode" "haskell-mode" "lsp-haskell" "js2-mode" "rust-mode" "lsp-ui" "typescript-mode" "eldoc" "lv" "markdown-mode" "spinner" "ht" "s" "f" "lsp-mode" "emmet-mode" "smooth-scrolling" "expand-region" "smartparens" "nerd-icons-dired" "nerd-icons" "git-gutter" "magit-section" "with-editor" "transient" "git-commit" "seq" "compat" "magit" "paren" "rainbow-delimiters" "eshell-toggle" "dired-hacks-utils" "dash" "dired-subtree" "dired-sidebar" "visual-regexp" "flycheck" "which-key" "company" "yasnippet" "cl-lib" "avy" "ace-window" "bind-key" "use-package" "org" "emacs" "straight" "emacsmirror-mirror" "el-get" "nongnu-elpa" "gnu-elpa-mirror" "melpa" "org-elpa")
 
 nil

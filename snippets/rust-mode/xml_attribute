@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: xml_attribute
+# key: <attr
+# --
+#[serde(rename = "@$1")]
+pub $2: $3,
+$4

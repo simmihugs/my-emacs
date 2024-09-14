@@ -7,79 +7,7 @@
   (setq fill-column 80 auto-fill-mode t)
   (setq org-adapt-indentation t)
 
-  ;; (setq org-cite-export-processors
-  ;; 	'((latex biblatex)
-  ;; 	  (t csl)))
-
-  ;; (setq org-cite-global-bibliography
-  ;; 	'("~/.config/emacs/bibliography/literature.bib"))
-
-  ;; (setq org-image-actual-width '(300)
-  ;; 	org-display-inline-images t
-  ;; 	org-redisplay-inline-images t
-  ;; 	org-startup-with-inline-images t
-  ;; 	org-startup-with-inline-images "inlineimages")
-
-  ;; (require 'ox-latex)
-  ;; (require 'ox-html)  
-  ;; (setq org-latex-listings t)
-  ;; (add-to-list 'org-latex-packages-alist '("" "listings"))
-  ;; (add-to-list 'org-latex-packages-alist '("" "color"))
-  ;; (add-to-list 'org-latex-classes
-  ;; 	       '("llncs"
-  ;; 		 "\\documentclass{llncs}"
-  ;; 		 ("\\section{%s}" . "\\section*{%s}")
-  ;; 		 ("\\subsection{%s}" . "\\subsection*{%s}")
-  ;; 		 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")))
-  ;; (add-to-list 'org-latex-classes
-  ;; 	       '("standalone"
-  ;; 		 "\\documentclass{standalone}"
-  ;; 		 ("\\section{%s}" . "\\section*{%s}")
-  ;; 		 ("\\subsection{%s}" . "\\subsection*{%s}")
-  ;; 		 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")))
-  ;; (add-to-list 'org-latex-classes
-  ;; 	       '("lmu-beamer"
-  ;; 		 "\\documentclass[fleqn,compress,utf8,aspectratio=169,t,handout]{beamer}
-  ;; 		  \\usetheme{LMU}
-  ;; 		  \\input{recommended-settings}
-  ;; 		  \\usepackage[style=ieee]{biblatex}
-  ;; 		  \\usepackage[T1]{fontenc}
-  ;; 		  \\usepackage{lmodern}
-  ;; 		  \\usepackage{amsthm}
-  ;; 		  \\usepackage{pict2e}
-  ;; 		  \\usepackage{graphicx}
-  ;; 		  \\usepackage[english]{babel}
-  ;; 		  \\usepackage{fancyhdr}
-  ;; 		  \\usepackage{color}
-  ;; 		  \\usepackage{mathtools}
-  ;; 		  \\usepackage{datetime}
-  ;; 		  \\usepackage{ulem}
-  ;; 		  \\usepackage{fancybox}
-  ;; 		  \\usepackage{tikz}
-  ;; 		  \\usetikzlibrary{shadows}
-  ;; 		  \\usetikzlibrary {arrows.meta}
-  ;; 		  \\usetikzlibrary{shapes.geometric}
-  ;; 		  \\usepackage{subcaption}
-  ;; 		  \\usepackage{microtype}
-  ;; 		  \\usepackage{enumitem}
-  ;; 		  \\usepackage{nicefrac}
-  ;; 		  \\institute{LMU Munich}"
-  ;; 		 ("\\section{%s}" . "\\section*{%s}")
-  ;; 		 ("\\begin{frame}[c]\\frametitle{%s}"
-  ;; 		  "\\end{frame}"
-  ;; 		  "\\begin{frame}[c]\\frametitle{%s}"
-  ;; 		  "\\end{frame}")))
-
-  ;; ;;open pdf in evince
-  ;; (add-hook 'org-mode-hook
-  ;; 	    #'(lambda ()
-  ;; 		(setq org-file-apps
-  ;; 		      '((auto-mode . emacs)
-  ;; 			("\\.mm\\'" . default)
-  ;; 			("\\.x?html?\\'" . default)
-  ;; 			("\\.pdf\\'" . "evince %s")))))
-
-  ;; org-babel
+   ;; org-babel
   (setq org-babel-python-command "python3")
   (advice-remove #'org-babel-do-load-languages #'ignore)
   (org-babel-do-load-languages
@@ -108,30 +36,22 @@
 
   (add-hook 'org-mode-hook 'turn-on-auto-fill)
 
-  ;;   (defun say-hello()
-  ;;     (interactive)
-  ;;     (message "hello"))
-
-  ;;   :bind (:map org-mode-map
-  ;; 	 ("<f5>" . say-hello))
-
-
-  (setq org-directory "c:/Users/sgraetz/Documents/org")
+   (setq org-directory "c:/Users/sgraetz/Documents/org")
   (setq org-agenda-files (list org-directory))
   (add-to-list 'default-frame-alist '(fullscreen . maximized))
-  (setq initial-buffer-choice (concat org-directory "/" "todo.org"))
-
+  ;;(setq initial-buffer-choice (concat org-directory "/" "todo.org"))
+  (setq initial-buffer-choice (concat org-directory "/" "week.org"))
+  
   (defun my-init-hook ()
     (split-window-right)
     (let ((org-agenda-window-setup 'other-window))
       (org-agenda nil "a")))
 
-  (add-hook 'window-setup-hook #'my-init-hook)
+  ;; "|" ist wichtig damit es funktioniert. alle davor sind todos, alle danach sind dones
+  (setq org-todo-keywords
+      '((sequence "TODO" "SUPPORT_ANFRAGEN" "SUPPORT_TICKET" "CLICKUP_ANLEGEN" "CLICKUP" "|" "DONE")))
 
-  
-  )
+  (add-hook 'window-setup-hook #'my-init-hook))
 
 
-;; (add-hook 'org-mode-hook 'turn-on-auto-fill)
-;; (add-hook 'text-mode-hook 'turn-on-auto-fill)
-;; (add-hook 'tex-mode-hook 'turn-on-auto-fill)
+

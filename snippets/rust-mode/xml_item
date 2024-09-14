@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: xml_item
+# key: <itm
+# --
+#[serde(rename = "$1")]
+pub $2: $3,
+$4

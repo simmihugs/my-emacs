@@ -1,0 +1,1 @@
+c:/Users/sgraetz/AppData/Roaming/.emacs.d/straight/repos/GitHub-Theme-for-Emacs/github-theme.el

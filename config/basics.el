@@ -1,4 +1,3 @@
-
 (set-language-environment "UTF-8")
 
 (setq ring-bell-function 'ignore visible-bell nil)
@@ -14,6 +13,9 @@
  '(display-line-numbers 'absolute))
 
 (cond
+ ((find-font (font-spec :name "Roboto Mono"))
+  ;;(set-face-attribute 'default nil :font "Roboto mono light" :height 110))
+  (set-face-attribute 'default nil :font "Roboto mono" :height 110))
  ((find-font (font-spec :name "IBM Plex mono"))
   (set-face-attribute 'default nil :font "IBM Plex mono" :height 110))
  ((find-font (font-spec :name "Chivo Mono"))

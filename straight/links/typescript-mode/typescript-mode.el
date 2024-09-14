@@ -1,0 +1,1 @@
+c:/Users/sgraetz/AppData/Roaming/.emacs.d/straight/repos/typescript.el/typescript-mode.el

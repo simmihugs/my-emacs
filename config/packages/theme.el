@@ -1,16 +1,8 @@
-;; (use-package github-dark-vscode-theme
-;;   :straight (github-dark-vscode :type git
-;; 				:host github
-;; 				:repo "simmihugs/github-dark-theme")
-;;   :config (load-theme 'github-dark-vscode t))
-
 (use-package adwaita-dark-theme
-  :straight t
+  :straight (adwaita-dark :type git
+			  :host gitlab
+			  :repo "jessieh/adwaita-dark-theme")
   :config (load-theme 'adwaita-dark t))
-
-;; (use-package github-theme
-;;   :straight t
-;;   :config (load-theme 'github t))
 
 (defun set-highlight(color)
   (progn
