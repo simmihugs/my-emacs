@@ -1,0 +1,1 @@
+/home/simmi/.config/emacs/straight/repos/themes/themes/doom-oceanic-next-theme.el

@@ -58,4 +58,4 @@ site-lisp/package/
 /projects
 /forge-*.sqlite
 /projectile.cache
-straight/.
+/straight/

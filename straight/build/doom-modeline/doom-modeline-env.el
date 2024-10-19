@@ -1,0 +1,1 @@
+/home/simmi/.config/emacs/straight/repos/doom-modeline/doom-modeline-env.el

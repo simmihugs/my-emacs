@@ -1,0 +1,1 @@
+/home/simmi/.config/emacs/straight/repos/visual-regexp.el/visual-regexp.el

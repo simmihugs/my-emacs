@@ -1,0 +1,1 @@
+/home/simmi/.config/emacs/straight/repos/spinner/.github/PULL_REQUEST_TEMPLATE.md

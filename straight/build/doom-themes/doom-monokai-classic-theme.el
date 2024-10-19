@@ -1,0 +1,1 @@
+/home/simmi/.config/emacs/straight/repos/themes/themes/doom-monokai-classic-theme.el

@@ -1,0 +1,1 @@
+/home/simmi/.config/emacs/straight/repos/git-gutter/git-gutter.el
