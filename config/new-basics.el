@@ -1,3 +1,4 @@
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
 ;;(set-language-environment "UTF-8")
 
 (setq ring-bell-function 'ignore visible-bell nil)

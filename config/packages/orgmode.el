@@ -36,22 +36,23 @@
 
   (add-hook 'org-mode-hook 'turn-on-auto-fill)
 
-   (setq org-directory "c:/Users/sgraetz/Documents/org")
+  (setq org-directory "c:/Users/sgraetz/Documents/org")
   (setq org-agenda-files (list org-directory))
-  (add-to-list 'default-frame-alist '(fullscreen . maximized))
+  ;; (add-to-list 'default-frame-alist '(fullscreen . maximized))
   ;;(setq initial-buffer-choice (concat org-directory "/" "todo.org"))
-  (setq initial-buffer-choice (concat org-directory "/" "week.org"))
+  ;; (setq initial-buffer-choice (concat org-directory "/" "week.org"))
   
-  (defun my-init-hook ()
-    (split-window-right)
-    (let ((org-agenda-window-setup 'other-window))
-      (org-agenda nil "a")))
+  ;; (defun my-init-hook ()
+  ;;   (split-window-right)
+  ;;   (let ((org-agenda-window-setup 'other-window))
+  ;;     (org-agenda nil "a")))
 
   ;; "|" ist wichtig damit es funktioniert. alle davor sind todos, alle danach sind dones
   (setq org-todo-keywords
       '((sequence "TODO" "SUPPORT_ANFRAGEN" "SUPPORT_TICKET" "CLICKUP_ANLEGEN" "CLICKUP" "|" "DONE")))
 
-  (add-hook 'window-setup-hook #'my-init-hook))
+;;  (add-hook 'window-setup-hook #'my-init-hook)
+  )
 
 
 
