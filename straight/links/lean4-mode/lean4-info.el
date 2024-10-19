@@ -1,1 +1,0 @@
-c:/Users/sgraetz/AppData/Roaming/.emacs.d/straight/repos/lean4-mode/lean4-info.el

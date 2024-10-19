@@ -1,1 +1,0 @@
-c:/Users/sgraetz/AppData/Roaming/.emacs.d/straight/repos/git-gutter/git-gutter.el

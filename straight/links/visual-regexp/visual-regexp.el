@@ -1,1 +1,0 @@
-c:/Users/sgraetz/AppData/Roaming/.emacs.d/straight/repos/visual-regexp.el/visual-regexp.el
