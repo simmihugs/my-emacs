@@ -1,1 +1,0 @@
-/home/simmi/.config/emacs/straight/repos/js2-mode/js2-old-indent.el

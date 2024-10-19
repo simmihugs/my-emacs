@@ -1,1 +1,0 @@
-/home/simmi/.config/emacs/straight/repos/smooth-scrolling/smooth-scrolling.el

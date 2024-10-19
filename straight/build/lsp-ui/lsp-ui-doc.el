@@ -1,1 +1,0 @@
-/home/simmi/.config/emacs/straight/repos/lsp-ui/lsp-ui-doc.el

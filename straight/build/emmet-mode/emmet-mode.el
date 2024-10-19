@@ -1,1 +1,0 @@
-/home/simmi/.config/emacs/straight/repos/emmet-mode/emmet-mode.el

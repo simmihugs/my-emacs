@@ -1,1 +1,0 @@
-/home/simmi/.config/emacs/straight/repos/haskell-mode/ghc-core.el

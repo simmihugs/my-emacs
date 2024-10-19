@@ -1,1 +1,0 @@
-/home/simmi/.config/emacs/straight/repos/dired-hacks/dired-hacks-utils.el

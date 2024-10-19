@@ -1,1 +1,0 @@
-/home/simmi/.config/emacs/straight/repos/lsp-haskell/lsp-haskell.el
