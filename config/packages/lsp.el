@@ -16,6 +16,14 @@
   (setq lsp-clients-clangd-args
 	'("--header-insertion=never")))
 
+
+(use-package python-mode
+  :mode "\\.py\\'"
+  :config
+  (setq python-indent-guess-indent-offset t)  
+  (setq python-indent-guess-indent-offset-verbose nil))
+
+
 (use-package typescript-mode
   :straight t)
 
