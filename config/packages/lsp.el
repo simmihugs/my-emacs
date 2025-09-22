@@ -1,28 +1,42 @@
+(use-package exec-path-from-shell
+  ;;nessecary for emacsclient and lsp.
+  :straight t
+  :config (exec-path-from-shell-initialize))
+
+(use-package go-mode
+  :straight t
+  :init
+  (setenv "PATH" (concat (getenv "PATH") ":" (expand-file-name "~/go/bin")))
+  (setq exec-path (append exec-path (list (expand-file-name "~/go/bin"))))
+  :hook
+  (go-mode . (lambda ()
+               (setq tab-width 4)))
+  (go-mode . (lambda ()
+               (add-hook 'before-save-hook #'lsp-format-buffer nil t))))
+
 (use-package lsp-mode
   :straight t
   :init
+  (setq lsp-format-on-save t)
   :hook ((python-mode     . lsp-deferred)
 	 (c-mode          . lsp-deferred)
-	 ;;(js-mode         . lsp-deferred)
-	 ;;(typescript-mode . lsp-deferred)
+	 (js-mode         . lsp-deferred)
+	 (typescript-mode . lsp-deferred)
 	 (html-mode       . lsp-deferred)
 	 (css-mode        . lsp-deferred)
 	 (rust-mode       . lsp-deferred)
+         (go-mode         . lsp-deferred)
          (lsp-mode        . lsp-enable-which-key-integration))
   :commands (lsp lsp-deferred)
   :bind (("C-c C-f" . lsp-format-buffer)
          ("C-l" . lsp-find-definition))
   :config
   (setq lsp-clients-clangd-args
-	'("--header-insertion=never")))
+	'("--header-insertion=never"))
+  (setq lsp-enable-file-watchers nil)
 
-
-(use-package python-mode
-  :mode "\\.py\\'"
-  :config
-  (setq python-indent-guess-indent-offset t)  
-  (setq python-indent-guess-indent-offset-verbose nil))
-
+  ;; (setq lsp-format-backend "black")
+  )
 
 (use-package typescript-mode
   :straight t)
@@ -49,10 +63,75 @@
   (lsp-ui-imenu--custom-mode-line-format nil)
   :hook (lsp-mode . lsp-ui-mode))
 
+;; python
+(setq python-indent-guess-indent-offset nil)
+(setq python-indent-offset 4)
+
+(use-package pyvenv
+  :straight t
+  :init
+  (pyvenv-mode 1))
+
+(add-hook
+ 'inferior-python-mode-hook
+ (lambda ()
+   (define-key inferior-python-mode-map (kbd "C-l") 'comint-clear-buffer)))
+
+
+(use-package lsp-pyright
+  :straight t
+  :custom (lsp-pyright-langserver-command "pyright")
+  :hook (python-mode . (lambda ()
+                         (require 'lsp-pyright)
+                         (lsp))))
+
+
+(use-package flymake-python-pyflakes
+  :straight t
+  :config
+  (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
+  (setq flymake-python-pyflakes-executable "python3")
+  ;;(setq flycheck-flake8-executable "python3")
+  (setq flycheck-flake8-error-format '("%s:%l:%c: %t%n %s"))
+  (setq flycheck-flake8-args '("-m" "flake8")))
+
+(use-package format-all
+  :straight t
+  :commands format-all-mode
+  :hook (prog-mode . format-all-mode)
+  :config
+  (setq-default format-all-formatters
+                '(("C"     (astyle "--mode=c"))
+                  ("Shell" (shfmt "-i" "4" "-ci"))
+                  ("Python" (black)))))
+
+(defun my/set-python-venv ()
+  "Set the python environment."
+  (interactive)
+  (let ((default-venv-path (expand-file-name "venv" default-directory))
+        venv-path
+        (python-buffer (get-buffer "*Python*")))
+    (if (file-directory-p default-venv-path)
+      (setq venv-path default-venv-path)
+      (setq venv-path (expand-file-name "venv" (read-directory-name "Path to virtual environment root: "))))
+    (when (not (file-directory-p venv-path))
+      (error "Invalid virtual environment directory: %s" venv-path))
+    (setenv "VIRTUAL_ENV" venv-path)
+    (setenv "PATH" (concat (expand-file-name "bin" venv-path) ":" (getenv "PATH")))
+    (setq exec-path (cons (expand-file-name "bin" venv-path) exec-path))
+    (setq python-shell-virtualenv venv-path)
+    (message (format "Set Python venv: %s" venv-path))
+    (when python-buffer
+      (with-current-buffer python-buffer
+        (python-shell-restart)))))
+
+(global-set-key (kbd "C-c s v") 'my/set-python-venv)
+
+
 ;; rust
 (use-package rust-mode
   :straight t
-   :config
+  :config
   (require 'rust-rustfmt)
   (require 'lsp-rust)
   (setq rust-format-on-save t))
@@ -64,6 +143,16 @@
   (setq-default js2-basic-offset 2)
   (setq-default indent-tabs-mode nil))
 
+(use-package prettier-js
+  :straight t
+  :hook ((js-mode . prettier-js-mode)
+         (web-mode . prettier-js-mode))
+  :config
+  (add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js-mode))
+  (add-hook 'js-mode-hook 'js2-minor-mode)  
+  (add-hook 'before-save-hook 'prettier-js-mode))
+
+
 ;; haskell
 (use-package lsp-haskell
   :straight t)
@@ -71,7 +160,8 @@
 (use-package haskell-mode
   :straight t
   :hook (haskell-mode . lsp-deferred)
-  :bind ("C-l" . haskell-interactive-mode-clear))
+  :bind (:map haskell-mode-map
+         ("C-l" . haskell-interactive-mode-clear)))
 
 ;; lean4
 (use-package lean4-mode

@@ -12,8 +12,8 @@
 ;; Highlight current line
 (global-hl-line-mode +1)
 ;; linenumbers
-(custom-set-variables
- '(display-line-numbers 'absolute))
+;;(custom-set-variables
+;; '(display-line-numbers 'absolute))
 
 (define-key emacs-lisp-mode-map "\C-c\C-c" 'eval-buffer)
 (define-key lisp-interaction-mode-map "\C-c\C-c" 'eval-buffer)

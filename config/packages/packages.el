@@ -1,3 +1,8 @@
+(use-package elisp-autofmt
+  :straight t
+  :config
+  (add-hook 'emacs-lisp-mode-hook 'elisp-autofmt-mode))
+
 ;; ace-window
 (use-package ace-window
   :straight t
@@ -6,6 +11,13 @@
   :bind
   ("M-o" . ace-window))
 
+
+;;aibot
+(use-package ellama
+  :straight t
+  :init
+  ;; setup key bindings  
+  (setopt ellama-keymap-prefix "C-c e"))
 
 ;; yasnippet
 (use-package yasnippet
@@ -212,3 +224,15 @@
 	 (emmet-mode . (lambda () (setq emmet-indentation 2)))
 	 (emmet-mode . (lambda () (setq emmet-indent-after-insert nil))))
   :config (setq emmet-move-cursor-between-quotes t))
+
+
+(use-package json-mode
+  :straight t)
+
+(use-package yaml-mode
+  :straight t
+  :config (setq yaml-indent-offset 2)
+  (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode)))
+
+(use-package dockerfile-mode
+  :straight t)
