@@ -29,7 +29,8 @@
          (lsp-mode        . lsp-enable-which-key-integration))
   :commands (lsp lsp-deferred)
   :bind (("C-c C-f" . lsp-format-buffer)
-         ("C-l" . lsp-find-definition))
+         ;; ("C-l" . lsp-find-definition)
+	 )
   :config
   (setq lsp-clients-clangd-args
 	'("--header-insertion=never"))

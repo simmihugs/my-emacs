@@ -236,3 +236,27 @@
 
 (use-package dockerfile-mode
   :straight t)
+
+;; (setq completion-ignore-case t
+;;       read-buffer-completion-ignore-case t
+;;       read-file-name-completion-ignore-case t)
+
+;; (use-package orderless
+;;   :straight t
+;;   :init
+;;   (setq completion-styles '(flex basic)
+;;         completion-category-defaults nil
+;;         completion-category-overrides
+;;         '((file (styles basic partial-completion)))))
+
+;; (use-package orderless
+;;   :straight t
+;;   :init
+;;   (setq completion-styles '(orderless flex basic)
+;;         orderless-style-dispatch '(orderless-prefixes
+;; 				   orderless-flex
+;; 				   orderless-literal)
+;;         completion-category-defaults nil
+;;         completion-category-overrides
+;;         '((file (styles basic partial-completion)))))
+

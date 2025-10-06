@@ -6,7 +6,6 @@
   (setq fill-column 80 auto-fill-mode t)
   (setq org-adapt-indentation t)
 
-  ;; org-babel
   (setq org-babel-python-command "python3")
   (advice-remove #'org-babel-do-load-languages #'ignore)
   (org-babel-do-load-languages
@@ -37,43 +36,14 @@
 
   (setq org-directory "c:/Users/sgraetz/Documents/org")
   (setq org-agenda-files (list org-directory))
-  ;; (add-to-list 'default-frame-alist '(fullscreen . maximized))
-  ;;(setq initial-buffer-choice (concat org-directory "/" "todo.org"))
-  ;; (setq initial-buffer-choice (concat org-directory "/" "week.org"))
-  
-  ;; (defun my-init-hook ()
-  ;;   (split-window-right)
-  ;;   (let ((org-agenda-window-setup 'other-window))
-  ;;     (org-agenda nil "a")))
-
-  ;; "|" ist wichtig damit es funktioniert. alle davor sind todos, alle danach sind dones
   (setq org-todo-keywords
-        '((sequence "TODO" "SUPPORT_ANFRAGEN" "SUPPORT_TICKET" "CLICKUP_ANLEGEN" "CLICKUP" "|" "DONE")))
-
-  ;;  (add-hook 'window-setup-hook #'my-init-hook)
-
-  ;; (setq org-preview-latex-process-alist
-  ;;       '((lualatex :programs ("lualatex" "dvisvgm")
-  ;;                   :description "dvi > svg"
-  ;;                   :message "you need to install the programs: lualatex and dvisvgm."
-  ;;                   :image-input-type "dvi"
-  ;;                   :image-output-type "svg"
-  ;;                   :image-size-adjust (1.0 . 1.0)
-  ;;                   :latex-compiler
-  ;;           ("lualatex --interaction=nonstopmode --shell-escape --output-format=dvi --output-directory=%o %f")
-  ;;           :image-converter
-  ;;           ("dvisvgm %f -n -b min -c %S -o %O"))))
-  ;; (setq org-preview-latex-process 'lualatex)
+        '((sequence "TODO" "|" "DONE")))
 
   (add-to-list 'org-latex-packages-alist '("" "minted" nil))
   (setq org-latex-src-block-backend 'minted)
 
-  ;;(require 'org-cite)
   (setq org-cite-export-processors '((latex biblatex)))
   (setq org-latex-pdf-process '("latexmk -gg -lualatex --shell-escape %f"))
-  ;;(setq org-latex-pdf-process
-  ;;      '("latexmk -lualatex='lualatex -interaction nonstopmode' -pdf -f %f"))
-  ;; (setq org-latex-pdf-process '("latexmk -lualatex='lualatex --shell-escape -interaction nonstopmode' -pdf -f %f"))
 
   (with-eval-after-load "ox-latex"
     (add-to-list 'org-latex-classes
@@ -89,38 +59,110 @@
                    ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
                    ("\\paragraph{%s}" . "\\paragraph*{%s}")
                    ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
-  )
+
+  (defun org-export-latex-pdf-and-save ()
+    (interactive)
+    (save-buffer)
+    (org-latex-export-to-pdf))
+
+  (setq org-cite-global-bibliography
+        '("~/Documents/org/thesis/bib-refs.bib"))
 
 
-(use-package org-ref
-  :straight t
-  :config
-  (setq bibtex-completion-bibliography '("./bib-refs.bib"))
-  (define-key org-mode-map (kbd "C-c ]") 'org-ref-insert-link)
-  (setq org-ref-insert-cite-function
-        (lambda ()
-	  (org-cite-insert nil))))
+  :hook
+  (org-mode . (lambda ()
+                (local-set-key (kbd "<f5>") 'org-export-latex-pdf-and-save))))
 
 
+
+
+;; (use-package ivy-bibtex
+;;   :straight t
+;;   :init
+;;   (setq bibtex-completion-bibliography '("~/Dropbox/emacs/bibliography/references.bib"
+;; 					 "~/Dropbox/emacs/bibliography/dei.bib"
+;; 					 "~/Dropbox/emacs/bibliography/master.bib"
+;; 					 "~/Dropbox/emacs/bibliography/archive.bib")
+;; 	bibtex-completion-library-path '("~/Dropbox/emacs/bibliography/bibtex-pdfs/")
+;; 	bibtex-completion-notes-path "~/Dropbox/emacs/bibliography/notes/"
+;; 	bibtex-completion-notes-template-multiple-files "* ${author-or-editor}, ${title}, ${journal}, (${year}) :${=type=}: \n\nSee [[cite:&${=key=}]]\n"
+
+;; 	bibtex-completion-additional-search-fields '(keywords)
+;; 	bibtex-completion-display-formats
+;; 	'((article       . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}")
+;; 	  (inbook        . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}")
+;; 	  (incollection  . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+;; 	  (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+;; 	  (t             . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}"))
+;; 	bibtex-completion-pdf-open-function
+;; 	(lambda (fpath)
+;; 	  (call-process "open" nil 0 nil fpath))))
+
+
+;; (use-package org-ref
+;;   :straight t
+;;   :config
+;;   (require 'org-ref-ivy)
+;;   ;; (require 'org-ref-ivy)
+;;   ;; (setq bibtex-completion-bibliography '("./bib-refs.bib"))
+;;   (setq bibtex-completion-bibliography
+;;         '("~/Documents/org/thesis/bib-refs.bib")
+;;         ;; bibtex-completion-library-path '("~/path/to/pdfs/")
+;;         ;; bibtex-completion-notes-path "~/path/to/notes/"
+;;         bibtex-completion-additional-search-fields '(keywords)
+;;         bibtex-completion-display-formats
+;;         '((article . "${year:4} ${author:36} ${title:*} ${journal:40}")
+;;           (t      . "${year:4} ${author:36} ${title:*}")))
+;;   (define-key org-mode-map (kbd "C-c ]") 'org-ref-insert-link)
+;;   (setq org-ref-insert-cite-function
+;;         (lambda ()
+;; 	  (org-cite-insert nil))))
+
+
+;; (require 'org-ref)
+;; (require 'org-ref-ivy)
+
+;; (setq bibtex-completion-bibliography
+;;       '("~/Documents/org/thesis/bib-refs.bib")
+;;       ;; bibtex-completion-library-path '("~/path/to/pdfs/")
+;;       ;; bibtex-completion-notes-path "~/path/to/notes/"
+;;       bibtex-completion-additional-search-fields '(keywords)
+;;       bibtex-completion-display-formats
+;;       '((article . "${year:4} ${author:36} ${title:*} ${journal:40}")
+;;         (t      . "${year:4} ${author:36} ${title:*}")))
+
+
+;; Install and configure ivy-bibtex with straight
 (use-package ivy-bibtex
   :straight t
-  :init
-  (setq bibtex-completion-bibliography '("~/Dropbox/emacs/bibliography/references.bib"
-					 "~/Dropbox/emacs/bibliography/dei.bib"
-					 "~/Dropbox/emacs/bibliography/master.bib"
-					 "~/Dropbox/emacs/bibliography/archive.bib")
-	bibtex-completion-library-path '("~/Dropbox/emacs/bibliography/bibtex-pdfs/")
-	bibtex-completion-notes-path "~/Dropbox/emacs/bibliography/notes/"
-	bibtex-completion-notes-template-multiple-files "* ${author-or-editor}, ${title}, ${journal}, (${year}) :${=type=}: \n\nSee [[cite:&${=key=}]]\n"
+  :defer t
+  :custom
+  (bibtex-completion-bibliography
+   '("~/Documents/org/thesis/bib-refs.bib"))
+  ;; (bibtex-completion-library-path
+  ;;  '("~/Dropbox/emacs/bibliography/bibtex-pdfs/"))
+  ;; (bibtex-completion-notes-path
+  ;;  "~/Dropbox/emacs/bibliography/notes/")
+  (bibtex-completion-notes-template-multiple-files
+   "* ${author-or-editor}, ${title}, ${journal}, (${year}) :${=type=}: \n\nSee [[cite:&${=key=}]]\n")
+  (bibtex-completion-additional-search-fields '(keywords))
+  (bibtex-completion-display-formats
+   '((article       . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}")
+     (inbook        . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}")
+     (incollection  . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+     (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+     (t             . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}")))
+  (bibtex-completion-pdf-open-function
+   (lambda (fpath)
+     (call-process "open" nil 0 nil fpath))))
 
-	bibtex-completion-additional-search-fields '(keywords)
-	bibtex-completion-display-formats
-	'((article       . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}")
-	  (inbook        . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}")
-	  (incollection  . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
-	  (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
-	  (t             . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}"))
-	bibtex-completion-pdf-open-function
-	(lambda (fpath)
-	  (call-process "open" nil 0 nil fpath))))
+;; Install and configure org-ref, set up org-mode keybinding
+(use-package org-ref
+  :straight t
+  :after ivy-bibtex ;; org-ref-ivy uses ivy-bibtex backend
+  :config
+  (require 'org-ref-ivy)
+  ;; Set up keybinding ONLY in org-mode
+  (with-eval-after-load 'org
+    (define-key org-mode-map (kbd "C-c ]") #'org-ref-cite-insert-ivy)))
 

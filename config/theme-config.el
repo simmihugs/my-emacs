@@ -22,20 +22,20 @@
         doom-themes-enable-italic t) 
   ;;(load-theme 'doom-dark+ t)
   ;; (load-theme 'doom-ir-black t)
-  (load-theme 'deeper-blue t)
+  (load-theme 'doom-1337 t)
 
   (doom-themes-visual-bell-config)
   (doom-themes-neotree-config)
   ;;(setq doom-themes-treemacs-theme "doom-dark+")
   ;; (setq doom-themes-treemacs-theme "doom-ir-black")
-  (setq doom-themes-treemacs-theme "deeper-blue")
+  (setq doom-themes-treemacs-theme "doom-monokai-classic")
   (doom-themes-treemacs-config)
   (doom-themes-org-config))
 
-(use-package catppuccin-theme
-  :straight t
-  :config
-  (load-theme 'catppuccin t))
+;; (use-package catppuccin-theme
+;;   :straight t
+;;   :config
+;;   (load-theme 'catppuccin t))
 
 (set-face-attribute 'hl-line nil
                     :foreground nil
