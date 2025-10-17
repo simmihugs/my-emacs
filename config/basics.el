@@ -1,19 +1,23 @@
-(set-language-environment "UTF-8")
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+;;(set-language-environment "UTF-8")
 
 (setq ring-bell-function 'ignore visible-bell nil)
 
 (scroll-bar-mode 0)
 (menu-bar-mode 0)
 (tool-bar-mode 0)
+
+(defun my/recenter-top-only ()
+  "Recenter the current line to the top of the window, bypassing the centering step."
+  (interactive)
+  (recenter-top-bottom -1))
+
 (setq inhibit-startup-screen t)
 ;; Highlight current line
 (global-hl-line-mode +1)
 ;; linenumbers
-(custom-set-variables
- '(display-line-numbers 'absolute))
-
-
-
+;;(custom-set-variables
+;; '(display-line-numbers 'absolute))
 
 (define-key emacs-lisp-mode-map "\C-c\C-c" 'eval-buffer)
 (define-key lisp-interaction-mode-map "\C-c\C-c" 'eval-buffer)
@@ -29,23 +33,23 @@
 (global-set-key (kbd "C-+") 'hs-show-block)
 (global-set-key (kbd "C--") 'hs-hide-block)
 
-(defun my-hide-all()
-  (interactive)
-  (hs-minor-mode)
-  (hs-hide-all))
-(add-hook 'c-mode-hook 'my-hide-all)
-(add-hook 'emacs-lisp-mode-hook 'my-hide-all)
+;; (defun my-hide-all()
+;;   (interactive)
+;;   (hs-minor-mode)
+;;   (hs-hide-all))
+;; (add-hook 'c-mode-hook 'my-hide-all)
+;; (add-hook 'emacs-lisp-mode-hook 'my-hide-all)
 
 (global-set-key (kbd "C-z") 'yank)
 (global-set-key (kbd "C-?") 'undo)
 
-(defadvice isearch-search (after isearch-no-fail activate)
-  (unless isearch-success
-    (ad-disable-advice 'isearch-search 'after 'isearch-no-fail)
-    (ad-activate 'isearch-search)
-    (isearch-repeat (if isearch-forward 'forward))
-    (ad-enable-advice 'isearch-search 'after 'isearch-no-fail)
-    (ad-activate 'isearch-search)))
+;; (defadvice isearch-search (after isearch-no-fail activate)
+;;   (unless isearch-success
+;;     (ad-disable-advice 'isearch-search 'after 'isearch-no-fail)
+;;     (ad-activate 'isearch-search)
+;;     (isearch-repeat (if isearch-forward 'forward))
+;;     (ad-enable-advice 'isearch-search 'after 'isearch-no-fail)
+;;     (ad-activate 'isearch-search)))
 
 (defun my-kill-thing-at-point (thing)
   "Kill the `thing-at-point' for the specified kind of THING."
@@ -65,10 +69,34 @@
 			       ("." . "~/.config/emacs/backup")))
 
 ;;(setq scroll-preserve-screen-position 1)
-(global-set-key (kbd "M-n") (kbd "C-u 1 C-v"))
-(global-set-key (kbd "M-p") (kbd "C-u 1 M-v"))
+;;(setq scroll-preserve-screen-position nil)
+;;(setq scroll-conservatively 101)
+;; (global-set-key (kbd "M-n") (kbd "C-u 1 C-v"))
+;; (global-set-key (kbd "M-p") (kbd "C-u 1 M-v"))
 ;; (setq scroll-step            1
 ;;       scroll-conservatively  10000)
+
+
+(setq scroll-preserve-screen-position nil) 
+(setq scroll-conservatively 10000) 
+(setq scroll-margin 3)
+
+
+(global-set-key (kbd "M-p") 'scroll-down-line)
+(global-set-key (kbd "M-n") 'scroll-up-line)
+
+;; (defun glass()
+;;   (interactive)
+;;   (funcall-interactively #'goto-line 353)
+;;   (funcall-interactively #'scroll-up-line)
+;;   (funcall-interactively #'scroll-up-line)
+;;   (funcall-interactively #'scroll-up-line)
+;;   (funcall-interactively #'scroll-up-line)
+;;   (funcall-interactively #'scroll-up-line)
+;;   (funcall-interactively #'scroll-up-line)
+;;   (funcall-interactively #'scroll-up-line)
+;;   (funcall-interactively #'scroll-up-line))
+;; (global-set-key (kbd "M-g g") 'glass)
 
 (put 'if 'lisp-indent-function 'defun)
 (put 'format 'lisp-indent-function 'defun)
