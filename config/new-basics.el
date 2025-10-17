@@ -7,6 +7,10 @@
 (menu-bar-mode 0)
 (tool-bar-mode 0)
 
+(defun my/recenter-top-only ()
+  "Recenter the current line to the top of the window, bypassing the centering step."
+  (interactive)
+  (recenter-top-bottom -1))
 
 (setq inhibit-startup-screen t)
 ;; Highlight current line
@@ -64,13 +68,20 @@
 (setq backup-directory-alist '(("*\\.gpg\\'")
 			       ("." . "~/.config/emacs/backup")))
 
-(setq scroll-preserve-screen-position 1)
+;;(setq scroll-preserve-screen-position 1)
 ;;(setq scroll-preserve-screen-position nil)
-(setq scroll-conservatively 101)
+;;(setq scroll-conservatively 101)
 ;; (global-set-key (kbd "M-n") (kbd "C-u 1 C-v"))
 ;; (global-set-key (kbd "M-p") (kbd "C-u 1 M-v"))
 ;; (setq scroll-step            1
 ;;       scroll-conservatively  10000)
+
+
+(setq scroll-preserve-screen-position nil) 
+(setq scroll-conservatively 10000) 
+(setq scroll-margin 3)
+
+
 (global-set-key (kbd "M-p") 'scroll-down-line)
 (global-set-key (kbd "M-n") 'scroll-up-line)
 

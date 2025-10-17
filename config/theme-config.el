@@ -8,38 +8,35 @@
   (setq doom-modeline-github-interval (* 30 60)))
 
 
-(use-package autothemer
-  :straight t)
-(use-package github-dark-theme
-  :straight (github-dark-theme :type git :host github :repo "ladroid/github-emacs-theme")
-  :config
-  (load-theme 'github-dark t))
+;; (use-package autothemer
+;;   :straight t)
+;; (use-package github-dark-theme
+;;   :straight (github-dark-theme :type git
+;;                                :host github
+;;                                :repo "ladroid/github-emacs-theme")
+;;   :config
+;;   (load-theme 'github-dark t))
 
 (use-package doom-themes
   :straight t
   :config
   (setq doom-themes-enable-bold t    
         doom-themes-enable-italic t) 
-  ;;(load-theme 'doom-dark+ t)
-  ;; (load-theme 'doom-ir-black t)
-  (load-theme 'doom-1337 t)
+  (load-theme 'doom-bluloco-light t)
 
   (doom-themes-visual-bell-config)
   (doom-themes-neotree-config)
-  ;;(setq doom-themes-treemacs-theme "doom-dark+")
-  ;; (setq doom-themes-treemacs-theme "doom-ir-black")
-  (setq doom-themes-treemacs-theme "doom-monokai-classic")
+  (setq doom-themes-treemacs-theme "doom-bluloco-light")
   (doom-themes-treemacs-config)
   (doom-themes-org-config))
 
-;; (use-package catppuccin-theme
-;;   :straight t
-;;   :config
-;;   (load-theme 'catppuccin t))
+;; (use-package kanagawa-theme
+;;   :straight (:host github :repo "zikajk/emacs-kanagawa-theme")
+;;   :init (load-theme 'kanagawa t))
+
 
 (set-face-attribute 'hl-line nil
                     :foreground nil
-                                        ;:background "#6b6b6b"
                     :underline nil
                     :box '(:line-width (-1 . -1) :color "#a7da1e"))
 

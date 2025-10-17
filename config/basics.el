@@ -64,11 +64,11 @@
 (setq backup-directory-alist '(("*\\.gpg\\'")
 			       ("." . "~/.config/emacs/backup")))
 
-(setq scroll-preserve-screen-position 1)
+;;(setq scroll-preserve-screen-position 1)
 (global-set-key (kbd "M-n") (kbd "C-u 1 C-v"))
 (global-set-key (kbd "M-p") (kbd "C-u 1 M-v"))
-(setq scroll-step            1
-      scroll-conservatively  10000)
+;; (setq scroll-step            1
+;;       scroll-conservatively  10000)
 
 (put 'if 'lisp-indent-function 'defun)
 (put 'format 'lisp-indent-function 'defun)
