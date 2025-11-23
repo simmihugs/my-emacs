@@ -1,6 +1,49 @@
+(use-package ivy-bibtex
+  :straight t
+  :defer t
+  :custom
+  (bibtex-completion-bibliography
+   '("~/Documents/org/thesis/bib-refs.bib"))
+  (bibtex-completion-notes-template-multiple-files
+   "* ${author-or-editor}, ${title}, ${journal}, (${year}) :${=type=}: \n\nSee [[cite:&${=key=}]]\n")
+  (bibtex-completion-additional-search-fields '(keywords))
+  (bibtex-completion-display-formats
+   '((article       . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}")
+     (inbook        . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}")
+     (incollection  . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+     (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
+     (t             . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}")))
+  (bibtex-completion-pdf-open-function
+   (lambda (fpath)
+     (call-process "open" nil 0 nil fpath))))
+
+
+(use-package org-ref
+  :straight t
+  :after ivy-bibtex
+  )
+
+
 (use-package org
   :straight (:type built-in)
+  :init
+  (require 'org-ref-ivy)
   :config 
+  (defun org-insert-img-with-attrs ()
+    "Prompt for image file from ./img/, insert ATTR lines and image link for org export."
+    (interactive)
+    (let* ((img-dir (expand-file-name "img/" default-directory))
+           (img-file (read-file-name "Select image: " img-dir nil t nil
+                                     (lambda (f) (string-match-p (image-file-name-regexp) f))))
+           (rel-link (concat "img/" (file-name-nondirectory img-file))))
+      (insert "#+ATTR_LATEX: :width 0.5\\textwidth :center t\n")
+      (insert "#+ATTR_HTML: :style width:50%;display:block;margin-left:auto;margin-right:auto;\n")
+      (insert (format "[[file:%s]]\n" rel-link))))
+
+  ;; Example key binding (you can change to your preference)
+  (define-key org-mode-map (kbd "C-c i") #'org-insert-img-with-attrs)
+
+
   (require 'org-tempo)
   (setq org-startup-folded t)
   (setq fill-column 80 auto-fill-mode t)
@@ -68,101 +111,14 @@
   (setq org-cite-global-bibliography
         '("~/Documents/org/thesis/bib-refs.bib"))
 
+  (setq org-file-apps
+        '(("\\.pdf\\'" . "evince %s")
+          (auto-mode . emacs)))
+
 
   :hook
   (org-mode . (lambda ()
-                (local-set-key (kbd "<f5>") 'org-export-latex-pdf-and-save))))
-
-
-
-
-;; (use-package ivy-bibtex
-;;   :straight t
-;;   :init
-;;   (setq bibtex-completion-bibliography '("~/Dropbox/emacs/bibliography/references.bib"
-;; 					 "~/Dropbox/emacs/bibliography/dei.bib"
-;; 					 "~/Dropbox/emacs/bibliography/master.bib"
-;; 					 "~/Dropbox/emacs/bibliography/archive.bib")
-;; 	bibtex-completion-library-path '("~/Dropbox/emacs/bibliography/bibtex-pdfs/")
-;; 	bibtex-completion-notes-path "~/Dropbox/emacs/bibliography/notes/"
-;; 	bibtex-completion-notes-template-multiple-files "* ${author-or-editor}, ${title}, ${journal}, (${year}) :${=type=}: \n\nSee [[cite:&${=key=}]]\n"
-
-;; 	bibtex-completion-additional-search-fields '(keywords)
-;; 	bibtex-completion-display-formats
-;; 	'((article       . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}")
-;; 	  (inbook        . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}")
-;; 	  (incollection  . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
-;; 	  (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
-;; 	  (t             . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}"))
-;; 	bibtex-completion-pdf-open-function
-;; 	(lambda (fpath)
-;; 	  (call-process "open" nil 0 nil fpath))))
-
-
-;; (use-package org-ref
-;;   :straight t
-;;   :config
-;;   (require 'org-ref-ivy)
-;;   ;; (require 'org-ref-ivy)
-;;   ;; (setq bibtex-completion-bibliography '("./bib-refs.bib"))
-;;   (setq bibtex-completion-bibliography
-;;         '("~/Documents/org/thesis/bib-refs.bib")
-;;         ;; bibtex-completion-library-path '("~/path/to/pdfs/")
-;;         ;; bibtex-completion-notes-path "~/path/to/notes/"
-;;         bibtex-completion-additional-search-fields '(keywords)
-;;         bibtex-completion-display-formats
-;;         '((article . "${year:4} ${author:36} ${title:*} ${journal:40}")
-;;           (t      . "${year:4} ${author:36} ${title:*}")))
-;;   (define-key org-mode-map (kbd "C-c ]") 'org-ref-insert-link)
-;;   (setq org-ref-insert-cite-function
-;;         (lambda ()
-;; 	  (org-cite-insert nil))))
-
-
-;; (require 'org-ref)
-;; (require 'org-ref-ivy)
-
-;; (setq bibtex-completion-bibliography
-;;       '("~/Documents/org/thesis/bib-refs.bib")
-;;       ;; bibtex-completion-library-path '("~/path/to/pdfs/")
-;;       ;; bibtex-completion-notes-path "~/path/to/notes/"
-;;       bibtex-completion-additional-search-fields '(keywords)
-;;       bibtex-completion-display-formats
-;;       '((article . "${year:4} ${author:36} ${title:*} ${journal:40}")
-;;         (t      . "${year:4} ${author:36} ${title:*}")))
-
-
-;; Install and configure ivy-bibtex with straight
-(use-package ivy-bibtex
-  :straight t
-  :defer t
-  :custom
-  (bibtex-completion-bibliography
-   '("~/Documents/org/thesis/bib-refs.bib"))
-  ;; (bibtex-completion-library-path
-  ;;  '("~/Dropbox/emacs/bibliography/bibtex-pdfs/"))
-  ;; (bibtex-completion-notes-path
-  ;;  "~/Dropbox/emacs/bibliography/notes/")
-  (bibtex-completion-notes-template-multiple-files
-   "* ${author-or-editor}, ${title}, ${journal}, (${year}) :${=type=}: \n\nSee [[cite:&${=key=}]]\n")
-  (bibtex-completion-additional-search-fields '(keywords))
-  (bibtex-completion-display-formats
-   '((article       . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${journal:40}")
-     (inbook        . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} Chapter ${chapter:32}")
-     (incollection  . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
-     (inproceedings . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*} ${booktitle:40}")
-     (t             . "${=has-pdf=:1}${=has-note=:1} ${year:4} ${author:36} ${title:*}")))
-  (bibtex-completion-pdf-open-function
-   (lambda (fpath)
-     (call-process "open" nil 0 nil fpath))))
-
-;; Install and configure org-ref, set up org-mode keybinding
-(use-package org-ref
-  :straight t
-  :after ivy-bibtex ;; org-ref-ivy uses ivy-bibtex backend
-  :config
-  (require 'org-ref-ivy)
-  ;; Set up keybinding ONLY in org-mode
-  (with-eval-after-load 'org
-    (define-key org-mode-map (kbd "C-c ]") #'org-ref-cite-insert-ivy)))
+                (local-set-key (kbd "<f5>") 'org-export-latex-pdf-and-save)))
+  (org-mode . (lambda ()
+                (local-set-key (kbd "C-c ]") 'org-ref-cite-insert-ivy))))
 

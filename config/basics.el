@@ -33,49 +33,25 @@
 (global-set-key (kbd "C-+") 'hs-show-block)
 (global-set-key (kbd "C--") 'hs-hide-block)
 
-;; (defun my-hide-all()
-;;   (interactive)
-;;   (hs-minor-mode)
-;;   (hs-hide-all))
-;; (add-hook 'c-mode-hook 'my-hide-all)
-;; (add-hook 'emacs-lisp-mode-hook 'my-hide-all)
-
 (global-set-key (kbd "C-z") 'yank)
 (global-set-key (kbd "C-?") 'undo)
 
-;; (defadvice isearch-search (after isearch-no-fail activate)
-;;   (unless isearch-success
-;;     (ad-disable-advice 'isearch-search 'after 'isearch-no-fail)
-;;     (ad-activate 'isearch-search)
-;;     (isearch-repeat (if isearch-forward 'forward))
-;;     (ad-enable-advice 'isearch-search 'after 'isearch-no-fail)
-;;     (ad-activate 'isearch-search)))
-
-(defun my-kill-thing-at-point (thing)
+(defun my/kill-thing-at-point (thing)
   "Kill the `thing-at-point' for the specified kind of THING."
   (let ((bounds (bounds-of-thing-at-point thing)))
     (if bounds
       (kill-region (car bounds) (cdr bounds))
       (error "No %s at point" thing))))
 
-(defun my-kill-word-at-point ()
+(defun my/kill-word-at-point ()
   "Kill the word at point."
   (interactive)
-  (my-kill-thing-at-point 'word))
+  (my/kill-thing-at-point 'word))
 
-(global-set-key (kbd "M-s") 'my-kill-word-at-point)
+(global-set-key (kbd "M-s") 'my/kill-word-at-point)
 
 (setq backup-directory-alist '(("*\\.gpg\\'")
 			       ("." . "~/.config/emacs/backup")))
-
-;;(setq scroll-preserve-screen-position 1)
-;;(setq scroll-preserve-screen-position nil)
-;;(setq scroll-conservatively 101)
-;; (global-set-key (kbd "M-n") (kbd "C-u 1 C-v"))
-;; (global-set-key (kbd "M-p") (kbd "C-u 1 M-v"))
-;; (setq scroll-step            1
-;;       scroll-conservatively  10000)
-
 
 (setq scroll-preserve-screen-position nil) 
 (setq scroll-conservatively 10000) 
@@ -85,29 +61,10 @@
 (global-set-key (kbd "M-p") 'scroll-down-line)
 (global-set-key (kbd "M-n") 'scroll-up-line)
 
-;; (defun glass()
-;;   (interactive)
-;;   (funcall-interactively #'goto-line 353)
-;;   (funcall-interactively #'scroll-up-line)
-;;   (funcall-interactively #'scroll-up-line)
-;;   (funcall-interactively #'scroll-up-line)
-;;   (funcall-interactively #'scroll-up-line)
-;;   (funcall-interactively #'scroll-up-line)
-;;   (funcall-interactively #'scroll-up-line)
-;;   (funcall-interactively #'scroll-up-line)
-;;   (funcall-interactively #'scroll-up-line))
-;; (global-set-key (kbd "M-g g") 'glass)
-
 (put 'if 'lisp-indent-function 'defun)
 (put 'format 'lisp-indent-function 'defun)
 (put 'cl-loop 'lisp-indent-function 'defun)
 
-;; before
-;;   (:foo bar
-;;         :baz qux)
-;; after
-;;   (:foo bar
-;;    :baz qux)
 (eval-after-load "lisp-mode"
   '(defun lisp-indent-function (indent-point state)
      (let ((normal-indent (current-column))
@@ -125,10 +82,6 @@
 		  (beginning-of-line)
 		  (parse-partial-sexp (point)
 				      calculate-lisp-indent-last-sexp 0 t)))
-	 ;; Indent under the list or under the first sexp on the same
-	 ;; line as calculate-lisp-indent-last-sexp.  Note that first
-	 ;; thing on that line has to be complete sexp since we are
-	 ;; inside the innermost containing sexp.
 	 (backward-prefix-chars)
 	 (current-column))
 	((and (save-excursion
@@ -184,3 +137,78 @@
   '(progn
      (define-key dired-mode-map "\C-c\C-c" 'copy-current-file-path)))
 
+
+
+(defun my/upcase-region-or-char ()
+  "Uppercase the character at point without moving the cursor."
+  (interactive)
+  (let ((pos (point)))
+    (when (characterp (char-after))
+      (let ((char (char-after)))
+        (unless (eq char (upcase char))
+          (save-excursion
+            (goto-char pos)
+            (delete-char 1)
+            (insert-char (upcase char))))))))
+
+(defun my/downcase-region-or-char ()
+  "Lowercase the character at point without moving the cursor."
+  (interactive)
+  (let ((pos (point)))
+    (when (characterp (char-after))
+      (let ((char (char-after)))
+        (unless (eq char (downcase char))
+          (save-excursion
+            (goto-char pos)
+            (delete-char 1)
+            (insert-char (downcase char))))))))
+
+(global-set-key (kbd "C-x C-u") 'my/upcase-region-or-char)
+(global-set-key (kbd "C-x C-l") 'my/downcase-region-or-char)
+
+(defvar my/select-cycle-state 0
+  "State for cycling through word, line, paragraph selection.")
+
+(defvar my/select-cycle-orig-point nil
+  "Original point before cycling selection started.")
+
+(defun my/select-current-word ()
+  "Select the word at point."
+  (let ((bounds (bounds-of-thing-at-point 'word)))
+    (when bounds
+      (goto-char (car bounds))
+      (set-mark (cdr bounds)))))
+
+(defun my/select-current-line ()
+  "Select the current line."
+  (beginning-of-line)
+  (set-mark (line-end-position)))
+
+(defun my/select-current-paragraph ()
+  "Select the current paragraph."
+  (let ((start (save-excursion (backward-paragraph) (point)))
+        (end (save-excursion (forward-paragraph) (point))))
+    (goto-char start)
+    (set-mark end)))
+
+(defun my/cycle-select-region ()
+  "Cycle selection: word -> line -> paragraph -> none."
+  (interactive)
+  (cond
+   ((equal my/select-cycle-state 0)
+    (setq my/select-cycle-orig-point (point))
+    (my/select-current-word)
+    (setq my/select-cycle-state 1))
+   ((equal my/select-cycle-state 1)
+    (my/select-current-line)
+    (setq my/select-cycle-state 2))
+   ((equal my/select-cycle-state 2)
+    (my/select-current-paragraph)
+    (setq my/select-cycle-state 3))
+   ((equal my/select-cycle-state 3)
+    (deactivate-mark)
+    (goto-char my/select-cycle-orig-point)
+    (setq my/select-cycle-state 0))))
+
+
+(global-set-key (kbd "C-c s") 'my/cycle-select-region)

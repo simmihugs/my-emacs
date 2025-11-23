@@ -3,7 +3,6 @@
   :config
   (add-hook 'emacs-lisp-mode-hook 'elisp-autofmt-mode))
 
-;; ace-window
 (use-package ace-window
   :straight t
   :config
@@ -12,14 +11,6 @@
   ("M-o" . ace-window))
 
 
-;;aibot
-(use-package ellama
-  :straight t
-  :init
-  ;; setup key bindings  
-  (setopt ellama-keymap-prefix "C-c e"))
-
-;; yasnippet
 (use-package yasnippet
   :straight t
   :init
@@ -28,14 +19,12 @@
   (add-to-list 'yas-snippet-dirs (locate-user-emacs-file "snippets")))
 
 
-;; company
 (use-package company
   :straight t
   :hook
   (after-init . global-company-mode))
 
 
-;; which-key
 (use-package which-key
   :straight t
   :config
@@ -46,7 +35,6 @@
   :straight t)
 
 
-;; visual regexp
 (defun replace-from-top ()
   (interactive)
   (let ((orig-point (point)))
@@ -57,7 +45,6 @@
     (goto-char orig-point)))
 
 
-;; visual-regexp
 (use-package visual-regexp
   :straight t
   :config
@@ -67,7 +54,6 @@
   (global-set-key (kbd "C-c R") 'replace-from-top))
 
 
-;; dired
 (use-package dired-sidebar
   :straight t
   :bind (("C-x C-n" . dired-sidebar-toggle-sidebar))
@@ -84,11 +70,11 @@
   (setq dired-sidebar-theme 'all-the-icons)
   (setq dired-sidebar-use-term-integration t))
 
-;; flycheck
+
 (use-package flycheck
   :straight t)
 
-;; eshell
+
 (use-package eshell-toggle
   :straight t
   :bind ("C-M-'" . eshell-toggle)
@@ -96,11 +82,13 @@
   (eshell-toggle-size-fraction 3)
   (eshell-toggle-run-command nil))
 
+
 (defun eshell/clear () 
   (interactive)
   (let ((eshell-buffer-maximum-lines 0)) (eshell-truncate-buffer)))
 
-(defun my-eshell-clear ()
+
+(defun my/eshell-clear ()
   "Clear `eshell' buffer, comint-style."
   (interactive)
   (let ((input (eshell-get-old-input)))
@@ -111,9 +99,9 @@
 (add-hook
  'eshell-mode-hook
  (lambda ()
-   (define-key eshell-mode-map (kbd "C-l") 'my-eshell-clear)))
+   (define-key eshell-mode-map (kbd "C-l") 'my/eshell-clear)))
 
-;; rainbow delimiters
+
 (use-package rainbow-delimiters
   :straight t
   :config
@@ -131,14 +119,6 @@
   :hook (prog-mode . rainbow-delimiters-mode))
 
 
-;; rainbow mode
-;; (use-package rainbow-mode
-;;   :straight t
-;;   :ensure t
-;;   :hook prog-mode)
-
-
-;; paren
 (use-package paren
   :straight t
   :config
@@ -149,13 +129,13 @@
 		      :background nil
 		      :slant 'italic))
 
-;; magit
+
 (use-package magit
   :straight t
   :config
   (add-hook 'after-save-hook 'magit-after-save-refresh-status t))
 
-;;  git-gutter
+
 (use-package git-gutter
   :straight t
   :diminish
@@ -164,39 +144,24 @@
   (setq git-gutter:update-interval 0.5))
 
 
-;; nerd-icons
 (use-package nerd-icons
   :straight t)
 
-;; nerd-icons-dired
 (use-package nerd-icons-dired
   :straight t
   :hook
   (dired-mode . nerd-icons-dired-mode))
 
-;; smartparens
 (use-package smartparens
   :straight t
   :config
   (smartparens-global-mode t)
-
-  ;; pair "`" with "'" in emacs-lisp-mode
   (sp-local-pair 'emacs-lisp-mode "`" "'")
-  ;; no '' pair in emacs-lisp-mode
   (sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
-
-  ;; pair "`" with "'" in emacs-lisp-mode
   (sp-local-pair 'scheme-mode "`" "'")
-  ;; no '' pair in emacs-lisp-mode
   (sp-local-pair 'scheme-mode "'" nil :actions nil)
-
-  ;; pair "`" with "'" in emacs-lisp-mode
   (sp-local-pair 'geiser-repl-mode "`" "'")
-  ;; no '' pair in emacs-lisp-mode
   (sp-local-pair 'geiser-repl-mode "'" nil :actions nil)
-
-  ;; don't pair "'" if we're at the end of a word (like when typing an
-  ;; apostrophe)
   (sp-pair "'" nil :unless '(sp-point-after-word-p))
   (sp-local-pair 'css-mode "{" nil :post-handlers '(("||\n[i]" "RET")))
   (sp-local-pair 'js-mode "{" nil :post-handlers '(("||\n[i]" "RET")))
@@ -204,19 +169,13 @@
   (sp-local-pair 'rust-mode "{" nil :post-handlers '(("||\n[i]" "RET")))
   (sp-local-pair 'c++-mode "{" nil :post-handlers '(("||\n[i]" "RET"))))
 
-;; expand-region
+
 (use-package expand-region
   :straight t
   :bind
   (("C-0" . er/expand-region)))
 
-;; smooth-scrolling
-(use-package smooth-scrolling
-  :straight t
-  :config
-  (smooth-scrolling-mode 1))
 
-;; emmet
 (use-package emmet-mode
   :straight t
   :hook ((sqml-mode .  emmet-mode)
@@ -237,26 +196,4 @@
 (use-package dockerfile-mode
   :straight t)
 
-;; (setq completion-ignore-case t
-;;       read-buffer-completion-ignore-case t
-;;       read-file-name-completion-ignore-case t)
-
-;; (use-package orderless
-;;   :straight t
-;;   :init
-;;   (setq completion-styles '(flex basic)
-;;         completion-category-defaults nil
-;;         completion-category-overrides
-;;         '((file (styles basic partial-completion)))))
-
-;; (use-package orderless
-;;   :straight t
-;;   :init
-;;   (setq completion-styles '(orderless flex basic)
-;;         orderless-style-dispatch '(orderless-prefixes
-;; 				   orderless-flex
-;; 				   orderless-literal)
-;;         completion-category-defaults nil
-;;         completion-category-overrides
-;;         '((file (styles basic partial-completion)))))
 

@@ -1,5 +1,4 @@
 (use-package exec-path-from-shell
-  ;;nessecary for emacsclient and lsp.
   :straight t
   :config (exec-path-from-shell-initialize))
 
@@ -29,14 +28,22 @@
          (lsp-mode        . lsp-enable-which-key-integration))
   :commands (lsp lsp-deferred)
   :bind (("C-c C-f" . lsp-format-buffer)
-         ;; ("C-l" . lsp-find-definition)
 	 )
   :config
   (setq lsp-clients-clangd-args
 	'("--header-insertion=never"))
   (setq lsp-enable-file-watchers nil)
 
-  ;; (setq lsp-format-backend "black")
+  ;;; Like this?
+
+  (setq lsp-prefer-capf t)
+  (setq company-backends '(company-capf))
+  (setq company-idle-delay 0.1)
+  (setq company-minimum-prefix-length 1)
+
+
+  ;; (setq lsp-rust-analyzer-linked-projects
+  ;;       '("/home/simmi/Projects/pomodoro_player_gtk/Cargo.toml"))
   )
 
 (use-package typescript-mode
@@ -46,25 +53,20 @@
   :straight t
   :commands (lsp-ui-mode)
   :custom
-  ;; Sideline
   (lsp-ui-sideline-show-diagnostics t)
   (lsp-ui-sideline-show-hover nil)
   (lsp-ui-sideline-show-code-actions nil)
   (lsp-ui-sideline-update-mode 'line)
   (lsp-ui-sideline-delay 0)
-  ;; Peek
   (lsp-ui-peek-enable t)
   (lsp-ui-peek-show-directory nil)
-  ;; Documentation
   (lsp-ui-doc-enable t)
   (lsp-ui-doc-position 'at-point)
   (lsp-ui-doc-delay 0.2)
-  ;; IMenu
   (lsp-ui-imenu-window-width 0)
   (lsp-ui-imenu--custom-mode-line-format nil)
   :hook (lsp-mode . lsp-ui-mode))
 
-;; python
 (setq python-indent-guess-indent-offset nil)
 (setq python-indent-offset 4)
 
@@ -86,13 +88,23 @@
                          (require 'lsp-pyright)
                          (lsp))))
 
+(use-package lsp-java
+  :straight t
+  :after lsp-mode
+  :hook (java-mode . lsp)
+  :config
+  (setq lsp-java-java-path "/usr/lib/jvm/java-21-openjdk-amd64/bin/java")
+  ;; Example of setting workspace dir if needed
+  ;; (setq lsp-java-workspace-dir "~/.emacs.d/workspace/")
+  )
+
+
 
 (use-package flymake-python-pyflakes
   :straight t
   :config
   (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
   (setq flymake-python-pyflakes-executable "python3")
-  ;;(setq flycheck-flake8-executable "python3")
   (setq flycheck-flake8-error-format '("%s:%l:%c: %t%n %s"))
   (setq flycheck-flake8-args '("-m" "flake8")))
 
@@ -114,7 +126,10 @@
         (python-buffer (get-buffer "*Python*")))
     (if (file-directory-p default-venv-path)
       (setq venv-path default-venv-path)
-      (setq venv-path (expand-file-name "venv" (read-directory-name "Path to virtual environment root: "))))
+      (setq venv-path
+	    (expand-file-name
+	     "venv"
+	     (read-directory-name "Path to virtual environment root: "))))
     (when (not (file-directory-p venv-path))
       (error "Invalid virtual environment directory: %s" venv-path))
     (setenv "VIRTUAL_ENV" venv-path)
@@ -126,10 +141,9 @@
       (with-current-buffer python-buffer
         (python-shell-restart)))))
 
-(global-set-key (kbd "C-c s v") 'my/set-python-venv)
+;(global-set-key (kbd "C-c s v") 'my/set-python-venv)
 
 
-;; rust
 (use-package rust-mode
   :straight t
   :config
@@ -137,7 +151,6 @@
   (require 'lsp-rust)
   (setq rust-format-on-save t))
 
-;; javascript
 (use-package js2-mode
   :straight t
   :config
@@ -154,7 +167,6 @@
   (add-hook 'before-save-hook 'prettier-js-mode))
 
 
-;; haskell
 (use-package lsp-haskell
   :straight t)
 
@@ -171,10 +183,8 @@
 	     :host github
 	     :repo "leanprover/lean4-mode"
 	     :files ("*.el" "data"))
-  ;; to defer loading the package until required
   :commands (lean4-mode))
 
-;; c++
 (use-package cc-mode
   :straight nil
   :config
@@ -198,10 +208,8 @@
   :mode (("CMakeLists\\.txt\\'" . cmake-mode)
          ("\\.cmake\\'"         . cmake-mode))
   :bind (:map cmake-mode-map
-         ;; Compatible with lsp-mode keybindings
          ("C-c d" . cmake-help))
   :config
-  ;;(set-company-backends-for! cmake-mode company-cmake company-dabbrev-code company-dabbrev)
   )
 
 (use-package tempo

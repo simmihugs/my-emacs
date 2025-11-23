@@ -65,4 +65,4 @@
 (add-hook 'after-make-frame-functions
           (lambda (frame)
             (with-selected-frame frame
-              (my-setfont my-fonts))))
+              (my/setfont my/fonts))))
