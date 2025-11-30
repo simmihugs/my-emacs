@@ -174,7 +174,19 @@
   :straight t
   :hook (haskell-mode . lsp-deferred)
   :bind (:map haskell-mode-map
-         ("C-l" . haskell-interactive-mode-clear)))
+         ("C-c C-p" . haskell-interactive-switch)
+         ("C-c C-c" . haskell-process-load-file)
+         ("C-c C-l" . haskell-process-load-file))
+  :config
+  ;; (with-eval-after-load 'haskell-process
+  ;;   (define-key haskell-mode-map (kbd "C-c C-c")
+  ;;     'haskell-process-load-region)
+  ;;   (define-key haskell-mode-map (kbd "C-c C-l")
+  ;;     'haskell-process-load-file))
+  (with-eval-after-load 'haskell-interactive-mode
+    (define-key haskell-interactive-mode-map
+      (kbd "C-l") #'haskell-interactive-mode-clear)))
+
 
 ;; lean4
 (use-package lean4-mode
