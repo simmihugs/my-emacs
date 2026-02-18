@@ -197,3 +197,10 @@
   :straight t)
 
 
+(use-package svelte-mode
+  :straight t
+  :config
+  (customize-set-variable 'svelte-basic-offset 2))
+
+(use-package vterm
+  :straight t)

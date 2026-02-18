@@ -139,32 +139,32 @@
 
 
 
-(defun my/upcase-region-or-char ()
-  "Uppercase the character at point without moving the cursor."
-  (interactive)
-  (let ((pos (point)))
-    (when (characterp (char-after))
-      (let ((char (char-after)))
-        (unless (eq char (upcase char))
-          (save-excursion
-            (goto-char pos)
-            (delete-char 1)
-            (insert-char (upcase char))))))))
+;; (defun my/upcase-region-or-char ()
+;;   "Uppercase the character at point without moving the cursor."
+;;   (interactive)
+;;   (let ((pos (point)))
+;;     (when (characterp (char-after))
+;;       (let ((char (char-after)))
+;;         (unless (eq char (upcase char))
+;;           (save-excursion
+;;             (goto-char pos)
+;;             (delete-char 1)
+;;             (insert-char (upcase char))))))))
 
-(defun my/downcase-region-or-char ()
-  "Lowercase the character at point without moving the cursor."
-  (interactive)
-  (let ((pos (point)))
-    (when (characterp (char-after))
-      (let ((char (char-after)))
-        (unless (eq char (downcase char))
-          (save-excursion
-            (goto-char pos)
-            (delete-char 1)
-            (insert-char (downcase char))))))))
+;; (defun my/downcase-region-or-char ()
+;;   "Lowercase the character at point without moving the cursor."
+;;   (interactive)
+;;   (let ((pos (point)))
+;;     (when (characterp (char-after))
+;;       (let ((char (char-after)))
+;;         (unless (eq char (downcase char))
+;;           (save-excursion
+;;             (goto-char pos)
+;;             (delete-char 1)
+;;             (insert-char (downcase char))))))))
 
-(global-set-key (kbd "C-x C-u") 'my/upcase-region-or-char)
-(global-set-key (kbd "C-x C-l") 'my/downcase-region-or-char)
+;; (global-set-key (kbd "C-x C-u") 'my/upcase-region-or-char)
+;; (global-set-key (kbd "C-x C-l") 'my/downcase-region-or-char)
 
 (defvar my/select-cycle-state 0
   "State for cycling through word, line, paragraph selection.")

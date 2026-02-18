@@ -151,20 +151,20 @@
   (require 'lsp-rust)
   (setq rust-format-on-save t))
 
-(use-package js2-mode
-  :straight t
-  :config
-  (setq-default js2-basic-offset 2)
-  (setq-default indent-tabs-mode nil))
+;; (use-package js2-mode
+;;   :straight t
+;;   :config
+;;   (setq-default js2-basic-offset 2)
+;;   (setq-default indent-tabs-mode nil))
 
-(use-package prettier-js
-  :straight t
-  :hook ((js-mode . prettier-js-mode)
-         (web-mode . prettier-js-mode))
-  :config
-  (add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js-mode))
-  (add-hook 'js-mode-hook 'js2-minor-mode)  
-  (add-hook 'before-save-hook 'prettier-js-mode))
+;; (use-package prettier-js
+;;   :straight t
+;;   :hook ((js-mode . prettier-js-mode)
+;;          (web-mode . prettier-js-mode))
+;;   :config
+;;   (add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js-mode))
+;;   (add-hook 'js-mode-hook 'js2-minor-mode)  
+;;   (add-hook 'before-save-hook 'prettier-js-mode))
 
 
 (use-package lsp-haskell
@@ -256,3 +256,21 @@
                          "Insert a main function"
                          'c-tempo-tags))
 
+
+;; 1. PHP Mode installieren
+(use-package php-mode
+  :straight t
+  :mode ("\\.php\\'" . php-mode))
+
+;; 2. PHP in deine lsp-mode Hooks aufnehmen
+;; Ergänze deinen bestehenden (use-package lsp-mode ...) Hook-Bereich:
+(add-hook 'php-mode-hook #'lsp-deferred)
+
+;; 3. Optional: Formatierung für PHP
+;; Da du format-all nutzt, erkennt es PHP meist automatisch.
+;; Falls du spezifische WordPress-Standards (Tabs statt Spaces) willst:
+(add-hook 'php-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode t)
+            (setq tab-width 4)
+            (setq php-mode-coding-style 'wordpress)))
