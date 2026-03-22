@@ -204,3 +204,6 @@
 
 (use-package vterm
   :straight t)
+
+(use-package systemd
+  :straight t)
