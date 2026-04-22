@@ -136,12 +136,12 @@
   (add-hook 'after-save-hook 'magit-after-save-refresh-status t))
 
 
-(use-package git-gutter
-  :straight t
-  :diminish
-  :hook ((prog-mode . git-gutter-mode))
-  :init
-  (setq git-gutter:update-interval 0.5))
+;; (use-package git-gutter
+;;   :straight t
+;;   :diminish
+;;   :hook ((prog-mode . git-gutter-mode))
+;;   :init
+;;   (setq git-gutter:update-interval 0.5))
 
 
 (use-package nerd-icons
@@ -202,8 +202,8 @@
   :config
   (customize-set-variable 'svelte-basic-offset 2))
 
-(use-package vterm
-  :straight t)
+;; (use-package vterm
+;;   :straight t)
 
 (use-package systemd
   :straight t)

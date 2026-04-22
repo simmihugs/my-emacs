@@ -14,6 +14,21 @@
 	 ;; (load-file "~/.config/emacs/config/packages/theme-config.el")
          (load-file "~/.config/emacs/config/packages/theme.el")	 
          ))
+      ((string= system-type "darwin")
+       (progn
+         ;; mac
+	 (load-file "~/.config/emacs/config/basics.el")
+	 (load-file "~/.config/emacs/config/font-config.el")
+	 (load-file "~/.config/emacs/config/straight-init.el")
+         ;;
+         ;; packages
+         ;;
+	 (load-file "~/.config/emacs/config/packages/orgmode.el")
+	 (load-file "~/.config/emacs/config/packages/packages.el")
+	 (load-file "~/.config/emacs/config/packages/lsp.el")
+	 ;; (load-file "~/.config/emacs/config/packages/theme-config.el")
+         (load-file "~/.config/emacs/config/packages/theme.el")	 
+         ))
       (t
        (progn
          ;; windows

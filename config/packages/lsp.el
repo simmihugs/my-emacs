@@ -224,37 +224,37 @@
   :config
   )
 
-(use-package tempo
-  :ensure nil
-  :after cc-mode
-  :hook ((c-mode . c-mode-tempo-setup)
-         (c++-mode . c++-mode-tempo-setup))
-  :config
-  (defvar c-tempo-tags nil)
-  (defvar c++-tempo-tags nil)
+;; (use-package tempo
+;;   :ensure nil
+;;   :after cc-mode
+;;   :hook ((c-mode . c-mode-tempo-setup)
+;;          (c++-mode . c++-mode-tempo-setup))
+;;   :config
+;;   (defvar c-tempo-tags nil)
+;;   (defvar c++-tempo-tags nil)
 
-  (defun c-mode-tempo-setup ()
-    (tempo-use-tag-list 'c-tempo-tags))
-  (defun c++-mode-tempo-setup ()
-    (tempo-use-tag-list 'c-tempo-tags)
-    (tempo-use-tag-list 'c++-tempo-tags))
+;;   (defun c-mode-tempo-setup ()
+;;     (tempo-use-tag-list 'c-tempo-tags))
+;;   (defun c++-mode-tempo-setup ()
+;;     (tempo-use-tag-list 'c-tempo-tags)
+;;     (tempo-use-tag-list 'c++-tempo-tags))
 
-  (tempo-define-template "c-ifndef"
-                         '("#ifndef " (P "ifndef-clause: " clause) > n
-                           "#define " (s clause) n> p n
-                           "#endif // " (s clause) n>
-                           )
-                         "ifndef"
-                         "Insert #ifndef #define #endif directives"
-                         'c-tempo-tags)
-  (tempo-define-template "c-main"
-                         '("int main(int argc, char* argv[]) {" > n>
-                           p n
-                           "}" > n>
-                           )
-                         "main"
-                         "Insert a main function"
-                         'c-tempo-tags))
+;;   (tempo-define-template "c-ifndef"
+;;                          '("#ifndef " (P "ifndef-clause: " clause) > n
+;;                            "#define " (s clause) n> p n
+;;                            "#endif // " (s clause) n>
+;;                            )
+;;                          "ifndef"
+;;                          "Insert #ifndef #define #endif directives"
+;;                          'c-tempo-tags)
+;;   (tempo-define-template "c-main"
+;;                          '("int main(int argc, char* argv[]) {" > n>
+;;                            p n
+;;                            "}" > n>
+;;                            )
+;;                          "main"
+;;                          "Insert a main function"
+;;                          'c-tempo-tags))
 
 
 ;; 1. PHP Mode installieren
