@@ -1,8 +1,8 @@
-(use-package adwaita-dark-theme
-  :straight (adwaita-dark :type git
-			  :host gitlab
-			  :repo "jessieh/adwaita-dark-theme")
-  :config (load-theme 'adwaita-dark t))
+;; (use-package adwaita-dark-theme
+;;   :straight (adwaita-dark :type git
+;; 			  :host gitlab
+;; 			  :repo "jessieh/adwaita-dark-theme")
+;;   :config (load-theme 'adwaita-dark t))
 
 (use-package doom-modeline
   :straight t

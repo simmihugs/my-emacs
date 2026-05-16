@@ -136,12 +136,12 @@
   (add-hook 'after-save-hook 'magit-after-save-refresh-status t))
 
 
-;; (use-package git-gutter
-;;   :straight t
-;;   :diminish
-;;   :hook ((prog-mode . git-gutter-mode))
-;;   :init
-;;   (setq git-gutter:update-interval 0.5))
+(use-package git-gutter
+  :straight t
+  :diminish
+  :hook ((prog-mode . git-gutter-mode))
+  :init
+  (setq git-gutter:update-interval 0.5))
 
 
 (use-package nerd-icons
@@ -154,8 +154,7 @@
 
 (use-package smartparens
   :straight t
-  :config
-  (smartparens-global-mode t)
+  :config  (smartparens-global-mode t)
   (sp-local-pair 'emacs-lisp-mode "`" "'")
   (sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
   (sp-local-pair 'scheme-mode "`" "'")

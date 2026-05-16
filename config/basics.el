@@ -212,3 +212,8 @@
 
 
 (global-set-key (kbd "C-c s") 'my/cycle-select-region)
+
+
+(setq-default tab-width 4)
+(setq-default indent-tabs-mode nil)
+
