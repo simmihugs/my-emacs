@@ -16,35 +16,29 @@
 (use-package lsp-mode
   :straight t
   :init
-  (setq lsp-format-on-save t)
   :hook ((python-mode     . lsp-deferred)
-	 (c-mode          . lsp-deferred)
-	 (js-mode         . lsp-deferred)
-	 (typescript-mode . lsp-deferred)
-	 (html-mode       . lsp-deferred)
-	 (css-mode        . lsp-deferred)
-	 (rust-mode       . lsp-deferred)
+         (c-mode          . lsp-deferred)
+         (js-mode         . lsp-deferred)
+         (typescript-mode . lsp-deferred)
+         (html-mode       . lsp-deferred)
+         (css-mode        . lsp-deferred)
+         (rust-mode       . lsp-deferred)
          (go-mode         . lsp-deferred)
-         (lsp-mode        . lsp-enable-which-key-integration))
+         (lsp-mode        . lsp-enable-which-key-integration)
+         
+         (python-mode-hook . (lambda () (add-hook 'before-save-hook #'lsp-format-buffer nil t)))
+         (c-mode-hook      . (lambda () (add-hook 'before-save-hook #'lsp-format-buffer nil t)))
+         (c++-mode-hook    . (lambda () (add-hook 'before-save-hook #'lsp-format-buffer nil t)))
+         (java-mode-hook   . (lambda () (add-hook 'before-save-hook #'lsp-format-buffer nil t))))
   :commands (lsp lsp-deferred)
-  :bind (("C-c C-f" . lsp-format-buffer)
-	 )
+  :bind (("C-c C-f" . lsp-format-buffer))
   :config
-  (setq lsp-clients-clangd-args
-	'("--header-insertion=never"))
+  (setq lsp-clients-clangd-args '("--header-insertion=never"))
   (setq lsp-enable-file-watchers nil)
-
-  ;;; Like this?
-
   (setq lsp-prefer-capf t)
   (setq company-backends '(company-capf))
   (setq company-idle-delay 0.1)
-  (setq company-minimum-prefix-length 1)
-
-
-  ;; (setq lsp-rust-analyzer-linked-projects
-  ;;       '("/home/simmi/Projects/pomodoro_player_gtk/Cargo.toml"))
-  )
+  (setq company-minimum-prefix-length 1))
 
 (use-package typescript-mode
   :straight t)

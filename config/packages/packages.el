@@ -60,9 +60,9 @@
   :commands (dired-sidebar-toggle-sidebar)
   :init
   (add-hook 'dired-sidebar-mode-hook
-	    (lambda ()
-	      (unless (file-remote-p default-directory)
-		(auto-revert-mode))))
+	        (lambda ()
+	          (unless (file-remote-p default-directory)
+		        (auto-revert-mode))))
   :config
   (push 'toggle-window-split dired-sidebar-toggle-hidden-commands)
   (push 'rotate-windows dired-sidebar-toggle-hidden-commands)  
@@ -125,9 +125,9 @@
   (show-paren-mode t)
   (setq show-paren-style 'expression)
   (set-face-attribute 'show-paren-match nil
-		      :foreground nil
-		      :background nil
-		      :slant 'italic))
+		              :foreground nil
+		              :background nil
+		              :slant 'italic))
 
 
 (use-package magit
@@ -178,9 +178,9 @@
 (use-package emmet-mode
   :straight t
   :hook ((sqml-mode .  emmet-mode)
-	 (css-mode .  emmet-mode)
-	 (emmet-mode . (lambda () (setq emmet-indentation 2)))
-	 (emmet-mode . (lambda () (setq emmet-indent-after-insert nil))))
+	     (css-mode .  emmet-mode)
+	     (emmet-mode . (lambda () (setq emmet-indentation 2)))
+	     (emmet-mode . (lambda () (setq emmet-indent-after-insert nil))))
   :config (setq emmet-move-cursor-between-quotes t))
 
 
