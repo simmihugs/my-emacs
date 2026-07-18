@@ -176,13 +176,6 @@
   (("C-0" . er/expand-region)))
 
 
-(use-package emmet-mode
-  :straight t
-  :hook ((sqml-mode .  emmet-mode)
-	 (css-mode .  emmet-mode)
-	 (emmet-mode . (lambda () (setq emmet-indentation 2)))
-	 (emmet-mode . (lambda () (setq emmet-indent-after-insert nil))))
-  :config (setq emmet-move-cursor-between-quotes t))
 
 
 (use-package json-mode
@@ -197,3 +190,25 @@
   :straight t)
 
 
+(use-package emmet-mode
+  :straight t
+  :hook ((sqml-mode .  emmet-mode)
+	 (css-mode .  emmet-mode)
+	 (emmet-mode . (lambda () (setq emmet-indentation 2)))
+	 (emmet-mode . (lambda () (setq emmet-indent-after-insert nil))))
+  :config (setq emmet-move-cursor-between-quotes t))
+
+
+(with-eval-after-load 'css-mode
+  (defun my/css-move-colors-to-suffix (ov &rest _args)
+    "Löscht das native linke Kästchen und baut einen fetten Block rechts (Suffix)."
+    (when (overlayp ov)
+      (let ((color-face (get-text-property 0 'face (overlay-get ov 'before-string))))
+        (when color-face
+          ;; 1. Linkes Kästchen löschen
+          (overlay-put ov 'before-string nil)
+          ;; 2. Fetten Block rechts mit der exakt gleichen Farbe einfügen
+          (overlay-put ov 'after-string (propertize " ▉" 'face color-face))))))
+
+  ;; Wir klinken uns direkt nach der Erstellung des Overlays ein
+  (advice-add 'css--make-color-overlay :after #'my/css-move-colors-to-suffix))

@@ -9,14 +9,19 @@
     ("MonaspaceXenonFrozen" . 130)
     ("RecMonoSmCasual Nerd Font" . 130)
     ("Monaspace Radon Frozen" . 130)   
-    ("0xProto Nerd Font" . 110)
+    ;;("0xProto Nerd Font" . 110)
     ("Roboto Mono" . 110)
     ("Chivo Mono" . 110)
     ("SomeType Mono" . 120)
     ("Iosevka NF" . 100)
     ("cascadia code" . 120)
-    ("consolas" . 120))
+    ("consolas" . 120)
+    ;;("FantasqueSansM Nerd Font" . 140)
+    ;;("0xProto Nerd Font" . 140)
+    )
   "List of preferred fonts and their heights.")
+
+
 
 ;; Define the font-setting function
 (defun my/setfont (fonts)

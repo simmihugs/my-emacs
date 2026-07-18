@@ -13,6 +13,32 @@
   (go-mode . (lambda ()
                (add-hook 'before-save-hook #'lsp-format-buffer nil t))))
 
+;; (use-package lsp-mode
+;;   :straight t
+;;   :init
+;;   :hook ((python-mode     . lsp-deferred)
+;;          (c-mode          . lsp-deferred)
+;;          (js-mode         . lsp-deferred)
+;;          (typescript-mode . lsp-deferred)
+;;          (html-mode       . lsp-deferred)
+;;          (css-mode        . lsp-deferred)
+;;          (rust-mode       . lsp-deferred)
+;;          (go-mode         . lsp-deferred)
+;;          (lsp-mode        . lsp-enable-which-key-integration)
+
+;;          (python-mode-hook . (lambda () (add-hook 'before-save-hook #'lsp-format-buffer nil t)))
+;;          (c-mode-hook      . (lambda () (add-hook 'before-save-hook #'lsp-format-buffer nil t)))
+;;          (c++-mode-hook    . (lambda () (add-hook 'before-save-hook #'lsp-format-buffer nil t)))
+;;          (java-mode-hook   . (lambda () (add-hook 'before-save-hook #'lsp-format-buffer nil t))))
+;;   :commands (lsp lsp-deferred)
+;;   :bind (("C-c C-f" . lsp-format-buffer))
+;;   :config
+;;   (setq lsp-clients-clangd-args '("--header-insertion=never"))
+;;   (setq lsp-enable-file-watchers nil)
+;;   (setq lsp-prefer-capf t)
+;;   (setq company-backends '(company-capf))
+;;   (setq company-idle-delay 0.1)
+;;   (setq company-minimum-prefix-length 1))
 (use-package lsp-mode
   :straight t
   :init
@@ -24,6 +50,8 @@
          (css-mode        . lsp-deferred)
          (rust-mode       . lsp-deferred)
          (go-mode         . lsp-deferred)
+         (php-mode        . lsp-deferred)
+         (svelte-mode     . lsp-deferred)
          (lsp-mode        . lsp-enable-which-key-integration)
          
          (python-mode-hook . (lambda () (add-hook 'before-save-hook #'lsp-format-buffer nil t)))
@@ -33,12 +61,17 @@
   :commands (lsp lsp-deferred)
   :bind (("C-c C-f" . lsp-format-buffer))
   :config
+
+  (setq lsp-document-color-modes nil)
+  
+
   (setq lsp-clients-clangd-args '("--header-insertion=never"))
   (setq lsp-enable-file-watchers nil)
   (setq lsp-prefer-capf t)
   (setq company-backends '(company-capf))
   (setq company-idle-delay 0.1)
   (setq company-minimum-prefix-length 1))
+
 
 (use-package typescript-mode
   :straight t)
@@ -102,15 +135,31 @@
   (setq flycheck-flake8-error-format '("%s:%l:%c: %t%n %s"))
   (setq flycheck-flake8-args '("-m" "flake8")))
 
+;; (use-package format-all
+;;   :straight t
+;;   :commands format-all-mode
+;;   :hook (prog-mode . format-all-mode)
+;;   :config
+;;   (setq-default format-all-formatters
+;;                 '(("C"      (astyle "--mode=c"))
+;;                   ("Shell"  (shfmt "-i" "4" "-ci"))
+;;                   ("Python" (black))
+;;                   ("Rust"   nil))))
 (use-package format-all
   :straight t
   :commands format-all-mode
   :hook (prog-mode . format-all-mode)
   :config
   (setq-default format-all-formatters
-                '(("C"     (astyle "--mode=c"))
-                  ("Shell" (shfmt "-i" "4" "-ci"))
-                  ("Python" (black)))))
+                '(("C"          (astyle "--mode=c"))
+                  ("Shell"      (shfmt "-i" "4" "-ci"))
+                  ("Python"     (black))
+                  ("Rust"       nil)
+                  ;; Hier deaktivieren wir format-all für Sprachen, die Prettier übernimmt:
+                  ("JavaScript" nil)
+                  ("TypeScript" nil)
+                  ("CSS"        nil)
+                  ("HTML"       nil))))
 
 (defun my/set-python-venv ()
   "Set the python environment."
@@ -121,9 +170,9 @@
     (if (file-directory-p default-venv-path)
       (setq venv-path default-venv-path)
       (setq venv-path
-	    (expand-file-name
-	     "venv"
-	     (read-directory-name "Path to virtual environment root: "))))
+	        (expand-file-name
+	         "venv"
+	         (read-directory-name "Path to virtual environment root: "))))
     (when (not (file-directory-p venv-path))
       (error "Invalid virtual environment directory: %s" venv-path))
     (setenv "VIRTUAL_ENV" venv-path)
@@ -135,15 +184,17 @@
       (with-current-buffer python-buffer
         (python-shell-restart)))))
 
-;(global-set-key (kbd "C-c s v") 'my/set-python-venv)
+                                        ;(global-set-key (kbd "C-c s v") 'my/set-python-venv)
 
 
 (use-package rust-mode
   :straight t
+  :hook (rust-mode . lsp-deferred)
   :config
-  (require 'rust-rustfmt)
+  ;; (require 'rust-rustfmt)
   (require 'lsp-rust)
-  (setq rust-format-on-save t))
+  (setq rust-format-on-save nil)
+  (add-hook 'before-save-hook #'lsp-format-buffer nil t))
 
 ;; (use-package js2-mode
 ;;   :straight t
@@ -159,7 +210,32 @@
 ;;   (add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js-mode))
 ;;   (add-hook 'js-mode-hook 'js2-minor-mode)  
 ;;   (add-hook 'before-save-hook 'prettier-js-mode))
+(use-package web-mode
+  :straight t
+  :mode ("\\.html\\'"
+         "\\.phtml\\'"
+         "\\.tpl\\.php\\'"
+         "\\.jsp\\'"
+         "\\.as[cp]x\\'"
+         "\\.erb\\'"
+         "\\.mustache\\'"
+         "\\.djhtml\\'"))
 
+(use-package svelte-mode
+  :straight t
+  :mode "\\.svelte\\'"
+  :config
+  (customize-set-variable 'svelte-basic-offset 2))
+
+
+(use-package prettier
+  :straight t
+  :hook ((js-mode         . prettier-mode)
+         (typescript-mode . prettier-mode)
+         (html-mode       . prettier-mode)
+         (css-mode        . prettier-mode)
+         (web-mode        . prettier-mode)
+         (svelte-mode     . prettier-mode)))
 
 (use-package lsp-haskell
   :straight t)
@@ -185,10 +261,10 @@
 ;; lean4
 (use-package lean4-mode
   :straight (lean4-mode
-	     :type git
-	     :host github
-	     :repo "leanprover/lean4-mode"
-	     :files ("*.el" "data"))
+	         :type git
+	         :host github
+	         :repo "leanprover/lean4-mode"
+	         :files ("*.el" "data"))
   :commands (lean4-mode))
 
 (use-package cc-mode

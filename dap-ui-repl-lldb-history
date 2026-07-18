@@ -1,0 +1,9 @@
+p a
+print a
+print b
+print a
+print a[0]
+frame variable -R a 
+p a 
+p a.buf.ptr
+p a.buf

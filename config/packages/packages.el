@@ -1,16 +1,3 @@
-(use-package elisp-autofmt
-  :straight t
-  :config
-  (add-hook 'emacs-lisp-mode-hook 'elisp-autofmt-mode))
-
-(use-package ace-window
-  :straight t
-  :config
-  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
-  :bind
-  ("M-o" . ace-window))
-
-
 (use-package yasnippet
   :straight t
   :init
@@ -179,10 +166,38 @@
   :straight t
   :hook ((sqml-mode .  emmet-mode)
 	     (css-mode .  emmet-mode)
+	     (web-mode .  emmet-mode)         
 	     (emmet-mode . (lambda () (setq emmet-indentation 2)))
 	     (emmet-mode . (lambda () (setq emmet-indent-after-insert nil))))
-  :config (setq emmet-move-cursor-between-quotes t))
+  :config
+  (setq emmet-move-cursor-between-quotes t))
 
+(setq css-fontify-colors nil)
+
+(defun my/draw-only-suffix-blocks ()
+  "Zeichnet nur die Suffix-Blöcke und lässt den Text komplett in Ruhe."
+  (save-excursion
+    (goto-char (point-min))
+    (remove-overlays (point-min) (point-max) 'my-custom-color-block t)
+    (while (re-search-forward "#[a-fA-F0-9]\\{3,6\\}\\|[a-z]\\{3,20\\}" nil t)
+      (let ((color (match-string 0)))
+        (when (or (string-prefix-p "#" color) (color-defined-p color))
+          (let* ((rgb (color-name-to-rgb color))
+                 (lightness (+ (* (nth 0 rgb) 0.299)
+                               (* (nth 1 rgb) 0.587)
+                               (* (nth 2 rgb) 0.114)))                 
+                 (border-color (if (> lightness 0.6) "#555555" "#FFFFFF")))
+            (let ((ov (make-overlay (match-beginning 0) (match-end 0))))
+              (overlay-put ov 'my-custom-color-block t)
+              (overlay-put ov 'after-string 
+                           (concat 
+                            (propertize " " 'display '(space :width (2)))
+                            (propertize " ▉" 'face `(:box ,border-color
+                                                     :background ,color :foreground ,color)))))))))))
+(add-hook 'css-mode-hook #'my/draw-only-suffix-blocks)
+(add-hook 'web-mode-hook #'my/draw-only-suffix-blocks)
+
+;;(add-hook 'after-save-hook #'my/draw-only-suffix-blocks)
 
 (use-package json-mode
   :straight t)
@@ -192,17 +207,3 @@
   :config (setq yaml-indent-offset 2)
   (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode)))
 
-(use-package dockerfile-mode
-  :straight t)
-
-
-(use-package svelte-mode
-  :straight t
-  :config
-  (customize-set-variable 'svelte-basic-offset 2))
-
-;; (use-package vterm
-;;   :straight t)
-
-(use-package systemd
-  :straight t)
