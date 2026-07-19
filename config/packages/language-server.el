@@ -34,11 +34,16 @@
   :straight t
   :mode "\\.svelte\\'"
   :config
-  (customize-set-variable 'svelte-basic-offset 2)
-  (add-hook 'svelte-mode-hook
-            (lambda ()
-              (local-set-key (kbd "M-o") 'ace-window))))
-(add-hook 'svelte-mode-hook #'my/draw-only-suffix-blocks)
+  (customize-set-variable 'svelte-basic-offset 2))
+
+(defun my-force-ace-window-keys ()
+  "Erzwingt M-o für ace-window in diesem Puffer."
+  (local-set-key (kbd "M-o") 'ace-window))
+
+(add-hook 'svelte-mode-hook 'my-force-ace-window-keys)
+(add-hook 'html-mode-hook 'my-force-ace-window-keys)
+(add-hook 'mhtml-mode-hook 'my-force-ace-window-keys)
+
 
 
 (use-package apheleia
@@ -47,19 +52,11 @@
   (apheleia-global-mode +1)
 
   (setq apheleia-mode-alist
-        '(;;(html-mode       . prettier)
-          ;;(css-mode        . prettier)
-          ;;(js-mode         . prettier)
-          ;;(typescript-mode . prettier)
-          ;;(tsx-mode        . prettier)
-          ;;(web-mode        . prettier)
-          ;;;;(svelte-mode     . svelte-formatter)
-          ;;(svelte-mode     . prettier)
-          (c-mode          . clang-format)
-          (c++-mode        . clang-format)
-          (python-mode     . black)
-          (rust-mode       . rustfmt)
-          (emacs-lisp-mode . lisp-indent))))
+        '(          (c-mode          . clang-format)
+                    (c++-mode        . clang-format)
+                    (python-mode     . black)
+                    (rust-mode       . rustfmt)
+                    (emacs-lisp-mode . lisp-indent))))
 (use-package prettier
   :straight t
   :hook ((js-mode         . prettier-mode)
@@ -102,7 +99,6 @@
                    :type "lldb"
                    :request "launch"
                    :cwd (expand-file-name (locate-dominating-file default-directory "Cargo.toml"))
-                   ;;:initCommands ["command script import /Users/simmi/.rustup/toolchains/stable-aarch64-apple-darwin/lib/rustlib/etc/lldb_lookup.py"]
                    :program (lambda ()
                               (let* ((root (locate-dominating-file default-directory "Cargo.toml"))
                                      (project-name (file-name-nondirectory (directory-file-name root))))
