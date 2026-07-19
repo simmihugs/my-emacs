@@ -34,7 +34,10 @@
   :straight t
   :mode "\\.svelte\\'"
   :config
-  (customize-set-variable 'svelte-basic-offset 2))
+  (customize-set-variable 'svelte-basic-offset 2)
+  (add-hook 'svelte-mode-hook
+            (lambda ()
+              (local-set-key (kbd "M-o") 'ace-window))))
 (add-hook 'svelte-mode-hook #'my/draw-only-suffix-blocks)
 
 
