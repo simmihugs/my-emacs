@@ -112,35 +112,6 @@
   (let ((my-red "#e05e8e"))
     (set-face-attribute 'dape-breakpoint-face nil :foreground my-red :background nil))
 
-  (let ((my-huge-breakpoint
-         [#b0000111111000000
-          #b0001111111110000
-          #b0011111111111000
-          #b0111111111111100
-          #b0111111111111100
-          #b1111111111111110
-          #b1111111111111110
-          #b1111111111111110
-          #b1111111111111110
-          #b0111111111111100
-          #b0111111111111100
-          #b0011111111111000
-          #b0001111111110000
-          #b0000111111000000]))
-    (define-fringe-bitmap 'dape-breakpoint my-huge-breakpoint 16 16)))
-;; (with-eval-after-load 'dape
-;;   (fringe-mode '(25 . 0))
-;;   (set-face-attribute 'dape-breakpoint-face nil :foreground "red" :background nil)
-
-;;   (set-fringe-bitmap-face 'breakpoint 'dape-breakpoint-face)
-;;   (define-fringe-bitmap 'breakpoint (vector #xFFFF) 1 1)
-;;   (setq dape-breakpoint-margin-string "🔴"))
-
-(with-eval-after-load 'dape
-  (fringe-mode '(25 . 0))
-  (let ((my-red "#e05e8e"))
-    (set-face-attribute 'dape-breakpoint-face nil :foreground my-red :background nil))
-
   (let ((large-circle-bitmap (vector #x0000 #x03C0 #x0FF0
                                      #x1FF8 #x3FFA #x3FFA
                                      #x7FFF #x7FFF #x7FFF
