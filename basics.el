@@ -51,7 +51,8 @@
 (global-set-key (kbd "M-s") 'my/kill-word-at-point)
 
 (setq backup-directory-alist '(("*\\.gpg\\'")
-			       ("." . "~/.config/emacs/backup")))
+			                   ("." . "~/.config/emacs/backup")))
+(setq create-lockfiles nil)
 
 (setq scroll-preserve-screen-position nil) 
 (setq scroll-conservatively 10000) 
@@ -68,70 +69,70 @@
 (eval-after-load "lisp-mode"
   '(defun lisp-indent-function (indent-point state)
      (let ((normal-indent (current-column))
-	   (orig-point (point)))
+	       (orig-point (point)))
        (goto-char (1+ (elt state 1)))
        (parse-partial-sexp (point) calculate-lisp-indent-last-sexp 0 t)
        (cond
-	;; car of form doesn't seem to be a symbol, or is a keyword
-	((and (elt state 2)
-	      (or (not (looking-at "\\sw\\|\\s_"))
-		  (looking-at ":")))
-	 (if (not (> (save-excursion (forward-line 1) (point))
-		     calculate-lisp-indent-last-sexp))
-	   (progn (goto-char calculate-lisp-indent-last-sexp)
-		  (beginning-of-line)
-		  (parse-partial-sexp (point)
-				      calculate-lisp-indent-last-sexp 0 t)))
-	 (backward-prefix-chars)
-	 (current-column))
-	((and (save-excursion
-		(goto-char indent-point)
-		(skip-syntax-forward " ")
-		(not (looking-at ":")))
-	      (save-excursion
-		(goto-char orig-point)
-		(looking-at ":")))
-	 (save-excursion
-	   (goto-char (+ 2 (elt state 1)))
-	   (current-column)))
-	(t
-	 (let ((function (buffer-substring (point)
-					   (progn (forward-sexp 1) (point))))
-	       method)
-	   (setq method (or (function-get (intern-soft function)
-					  'lisp-indent-function)
-			    (get (intern-soft function) 'lisp-indent-hook)))
-	   (cond ((or (eq method 'defun)
-		      (and (null method)
-			   (> (length function) 3)
-			   (string-match "\\`def" function)))
-		  (lisp-indent-defform state indent-point))
-		 ((integerp method)
-		  (lisp-indent-specform method state
-					indent-point normal-indent))
-		 (method
-		  (funcall method indent-point state)))))))))
+	    ;; car of form doesn't seem to be a symbol, or is a keyword
+	    ((and (elt state 2)
+	          (or (not (looking-at "\\sw\\|\\s_"))
+		          (looking-at ":")))
+	     (if (not (> (save-excursion (forward-line 1) (point))
+		             calculate-lisp-indent-last-sexp))
+	       (progn (goto-char calculate-lisp-indent-last-sexp)
+		          (beginning-of-line)
+		          (parse-partial-sexp (point)
+				                      calculate-lisp-indent-last-sexp 0 t)))
+	     (backward-prefix-chars)
+	     (current-column))
+	    ((and (save-excursion
+		        (goto-char indent-point)
+		        (skip-syntax-forward " ")
+		        (not (looking-at ":")))
+	          (save-excursion
+		        (goto-char orig-point)
+		        (looking-at ":")))
+	     (save-excursion
+	       (goto-char (+ 2 (elt state 1)))
+	       (current-column)))
+	    (t
+	     (let ((function (buffer-substring (point)
+					                       (progn (forward-sexp 1) (point))))
+	           method)
+	       (setq method (or (function-get (intern-soft function)
+					                      'lisp-indent-function)
+			                (get (intern-soft function) 'lisp-indent-hook)))
+	       (cond ((or (eq method 'defun)
+		              (and (null method)
+			               (> (length function) 3)
+			               (string-match "\\`def" function)))
+		          (lisp-indent-defform state indent-point))
+		         ((integerp method)
+		          (lisp-indent-specform method state
+					                    indent-point normal-indent))
+		         (method
+		          (funcall method indent-point state)))))))))
 
 (defun copy-current-file-path (&optional DirPathOnlyQ)
   (interactive "P")
   (let (($fpath
-	 (if (string-equal major-mode 'dired-mode)
-	   (progn
-	     (let (($result (mapconcat 'identity (dired-get-marked-files) "\n")))
-	       (if (equal (length $result) 0)
-		 (progn default-directory )
-		 (progn $result))))
-	   (if (buffer-file-name)
-	     (buffer-file-name)
-	     (expand-file-name default-directory)))))
+	     (if (string-equal major-mode 'dired-mode)
+	       (progn
+	         (let (($result (mapconcat 'identity (dired-get-marked-files) "\n")))
+	           (if (equal (length $result) 0)
+		         (progn default-directory )
+		         (progn $result))))
+	       (if (buffer-file-name)
+	         (buffer-file-name)
+	         (expand-file-name default-directory)))))
     (kill-new
      (if DirPathOnlyQ
        (progn
-	 (message "Directory copied: %s" (file-name-directory $fpath))
-	 (file-name-directory $fpath))
+	     (message "Directory copied: %s" (file-name-directory $fpath))
+	     (file-name-directory $fpath))
        (progn
-	 (message "File path copied: %s" $fpath)
-	 $fpath )))))
+	     (message "File path copied: %s" $fpath)
+	     $fpath )))))
 
 (eval-after-load "dired"
   '(progn
