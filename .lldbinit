@@ -1,0 +1,9 @@
+# 1. Import the main Rust lookup script
+command script import "/Users/simmi/.rustup/toolchains/stable-aarch64-apple-darwin/lib/rustlib/etc/lldb_lookup.py"
+
+# 2. SOURCE THE COMMANDS FILE (This was missing!)
+command source "/Users/simmi/.rustup/toolchains/stable-aarch64-apple-darwin/lib/rustlib/etc/lldb_commands"
+
+# 3. Enable the category
+type category enable Rust
+

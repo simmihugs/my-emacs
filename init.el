@@ -28,6 +28,7 @@
          (load-file "~/.config/emacs/config/packages/theme.el")
          (load-file "~/.config/emacs/config/packages/ace-windows.el")
          (load-file "~/.config/emacs/config/packages/terminal.el")
+         (load-file "~/.config/emacs/config/packages/dape.el")
          ))
       (t
        (progn

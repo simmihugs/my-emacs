@@ -10,6 +10,7 @@
           c++-mode
           js-mode
           typescript-mode 
+          web-mode
           html-mode
           css-mode
           svelte-mode) . lsp-deferred)
@@ -74,52 +75,6 @@
   (require 'lsp-rust)
   (setq rust-format-on-save nil))
 
-
-(use-package dape
-  :straight t
-  :hook
-  (after-init . dape-breakpoint-load)
-
-  :custom
-  (dape-breakpoint-global-mode +1)
-  (dape-buffer-window-arrangement 'right)
-  (dape-buffer-window-arrangement 'gud)
-  (dape-info-hide-mode-line nil)
-
-  :config
-  (add-hook 'dape-display-source-hook #'pulse-momentary-highlight-one-line)
-  (add-hook 'dape-start-hook (lambda () (save-some-buffers t t)))
-  (add-hook 'dape-compile-hook #'kill-buffer)
-
-  (with-eval-after-load 'dape
-    (add-to-list 'dape-configs
-                 `(rust-lldb-new
-                   modes (rust-mode rust-ts-mode)
-                   command "/opt/homebrew/opt/llvm/bin/lldb-dap" 
-                   :type "lldb"
-                   :request "launch"
-                   :cwd (expand-file-name (locate-dominating-file default-directory "Cargo.toml"))
-                   :program (lambda ()
-                              (let* ((root (locate-dominating-file default-directory "Cargo.toml"))
-                                     (project-name (file-name-nondirectory (directory-file-name root))))
-                                (expand-file-name (format "target/debug/%s" project-name) root)))
-                   :args [])))
-
-  )
-
-(with-eval-after-load 'dape
-  (fringe-mode '(25 . 0))
-  (let ((my-red "#e05e8e"))
-    (set-face-attribute 'dape-breakpoint-face nil :foreground my-red :background nil))
-
-  (let ((large-circle-bitmap (vector #x0000 #x03C0 #x0FF0
-                                     #x1FF8 #x3FFA #x3FFA
-                                     #x7FFF #x7FFF #x7FFF
-                                     #x7FFF #x3FFA #x3FFA
-                                     #x1FF8 #x0FF0 #x03C0
-                                     #x0000)))
-    (define-fringe-bitmap 'breakpoint large-circle-bitmap 16 16)
-    (define-fringe-bitmap 'dape-breakpoint large-circle-bitmap 16 16)))
 
 
 (with-eval-after-load 'company
