@@ -95,7 +95,7 @@
     (add-to-list 'dape-configs
                  `(rust-lldb-new
                    modes (rust-mode rust-ts-mode)
-                   command "/opt/homebrew/opt/llvm/bin/lldb-dap" 
+                   command "/usr/bin/lldb-dap"
                    :type "lldb"
                    :request "launch"
                    :cwd (expand-file-name (locate-dominating-file default-directory "Cargo.toml"))

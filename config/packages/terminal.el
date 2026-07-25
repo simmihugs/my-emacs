@@ -1,6 +1,9 @@
 (with-eval-after-load 'comint
   (define-key comint-mode-map (kbd "C-l") #'comint-clear-buffer))
 
+(use-package vterm
+  :straight t)
+
 (with-eval-after-load 'vterm
   (define-key comint-mode-map (kbd "C-l") #'comint-clear-buffer))
 
