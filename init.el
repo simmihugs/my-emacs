@@ -25,6 +25,7 @@
 	     (load-file "~/.config/emacs/config/packages/orgmode.el")
 	     (load-file "~/.config/emacs/config/packages/packages.el")
          (load-file "~/.config/emacs/config/packages/language-server.el")
+         (load-file "~/.config/emacs/config/packages/format.el")
          (load-file "~/.config/emacs/config/packages/theme.el")
          (load-file "~/.config/emacs/config/packages/ace-windows.el")
          (load-file "~/.config/emacs/config/packages/terminal.el")

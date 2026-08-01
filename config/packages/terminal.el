@@ -1,8 +1,16 @@
+(use-package vterm
+  :straight t
+  :config
+  (setq vterm-max-scrollback 10000)
+  ;; ;; evtl noetiger mac fix
+  ;; (setq mac-option-modifier 'meta)
+
+  (with-eval-after-load 'vterm
+    (define-key comint-mode-map (kbd "C-l") #'comint-clear-buffer)))
+
 (with-eval-after-load 'comint
   (define-key comint-mode-map (kbd "C-l") #'comint-clear-buffer))
 
-(with-eval-after-load 'vterm
-  (define-key comint-mode-map (kbd "C-l") #'comint-clear-buffer))
 
 (with-eval-after-load 'term
   (define-key comint-mode-map (kbd "C-l") #'comint-clear-buffer))

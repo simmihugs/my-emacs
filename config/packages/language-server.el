@@ -45,37 +45,5 @@
 (add-hook 'html-mode-hook 'my-force-ace-window-keys)
 (add-hook 'mhtml-mode-hook 'my-force-ace-window-keys)
 
-
-
-(use-package apheleia
-  :straight t
-  :config
-  (apheleia-global-mode +1)
-
-  (setq apheleia-mode-alist
-        '(          (c-mode          . clang-format)
-                    (c++-mode        . clang-format)
-                    (python-mode     . black)
-                    (rust-mode       . rustfmt)
-                    (emacs-lisp-mode . lisp-indent))))
-(use-package prettier
-  :straight t
-  :hook ((js-mode         . prettier-mode)
-         (typescript-mode . prettier-mode)
-         (html-mode       . prettier-mode)
-         (css-mode        . prettier-mode)
-         (web-mode        . prettier-mode)
-         (svelte-mode     . prettier-mode)))
-
-
-(use-package rust-mode
-  :straight t
-  :hook (rust-mode . lsp-deferred)
-  :config
-  (require 'lsp-rust)
-  (setq rust-format-on-save nil))
-
-
-
 (with-eval-after-load 'company
   (add-to-list 'company-backends 'company-capf))
