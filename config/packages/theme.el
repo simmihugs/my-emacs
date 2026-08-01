@@ -26,6 +26,7 @@
                       :box nil)
 
   (custom-set-faces
+   '(doom-modeline-project-dir ((t (:foreground "yellow green"))))
    '(doom-modeline-buffer-file ((t (:foreground "#51afef" :weight bold))))
    '(doom-modeline-buffer-path ((t (:foreground "#a9a1e1"))))
    ;;'(doom-modeline-buffer-path ((t (:foreground "yellow green"))))             

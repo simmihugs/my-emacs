@@ -170,6 +170,7 @@
                                                      :background ,color :foreground ,color)))))))))))
 (add-hook 'css-mode-hook #'my/draw-only-suffix-blocks)
 (add-hook 'web-mode-hook #'my/draw-only-suffix-blocks)
+(add-hook 'emacs-lisp-mode-hook #'my/draw-only-suffix-blocks)
 
 ;;(add-hook 'after-save-hook #'my/draw-only-suffix-blocks)
 
