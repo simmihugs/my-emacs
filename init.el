@@ -30,6 +30,11 @@
          (load-file "~/.config/emacs/config/packages/ace-windows.el")
          (load-file "~/.config/emacs/config/packages/terminal.el")
          (load-file "~/.config/emacs/config/packages/dape.el")
+         (load-file "~/.config/emacs/config/packages/dape.el")
+         ;;
+         ;; own packages
+         ;;
+         (load-file "~/.config/emacs/config/my-packages/live-server.el")
          ))
       (t
        (progn

@@ -62,20 +62,19 @@
   :straight t)
 
 
-
 (use-package rainbow-delimiters
   :straight t
   :config
   (set-face-attribute 'rainbow-delimiters-depth-1-face    nil :foreground "#f0008b")
   (set-face-attribute 'rainbow-delimiters-depth-2-face    nil :foreground "#00fa9a")
-  (set-face-attribute 'rainbow-delimiters-depth-3-face    nil :foreground "#ffa500")
-  (set-face-attribute 'rainbow-delimiters-depth-4-face    nil :foreground "#f2200b")
-  (set-face-attribute 'rainbow-delimiters-depth-5-face    nil :foreground "orange" )
-  (set-face-attribute 'rainbow-delimiters-depth-6-face    nil :foreground "#f0008b")
-  (set-face-attribute 'rainbow-delimiters-depth-7-face    nil :foreground "#00fa9a")
-  (set-face-attribute 'rainbow-delimiters-depth-8-face    nil :foreground "#0000cd")
-  (set-face-attribute 'rainbow-delimiters-depth-9-face    nil :foreground "#f2200b")
-  (set-face-attribute 'rainbow-delimiters-mismatched-face nil :foreground "orange" )
+  (set-face-attribute 'rainbow-delimiters-depth-3-face    nil :foreground "#cbed42")
+  (set-face-attribute 'rainbow-delimiters-depth-4-face    nil :foreground "#3d89d1")
+  (set-face-attribute 'rainbow-delimiters-depth-5-face    nil :foreground "#f2200b")
+  (set-face-attribute 'rainbow-delimiters-depth-6-face    nil :foreground "#3dd162")
+  (set-face-attribute 'rainbow-delimiters-depth-7-face    nil :foreground "#ffa500")
+  (set-face-attribute 'rainbow-delimiters-depth-8-face    nil :foreground "#3dcad1")
+  (set-face-attribute 'rainbow-delimiters-depth-9-face    nil :foreground "#6557cf")
+  (set-face-attribute 'rainbow-delimiters-mismatched-face nil :foreground "orange " )
   (set-face-attribute 'rainbow-delimiters-unmatched-face  nil :foreground "#f0008b")
   :hook (prog-mode . rainbow-delimiters-mode))
 

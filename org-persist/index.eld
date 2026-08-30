@@ -1,2 +1,2 @@
 ;;   -*- mode: lisp-data; -*-
-((:container ((index "3.2")) :persist-file "d3/08f715-92e3-4efb-b6d6-cd975421cc79" :associated nil :expiry never :last-access 1777134189.373162 :last-access-hr "2026-04-25T18:23:09+0200"))
+((:container ((elisp org-element--headline-cache) (elisp org-element--cache) (version "2.3")) :persist-file "3a/ea201f-8afe-407f-a6d3-0db6d55158d6" :associated (:hash "4abd468ea6a4eb7b9afab978f08cfab9" :file "/Users/simmi/Projects/emacs-packages/live-server/README.org" :inode 8549594) :expiry 30 :last-access 1788107622.332966 :last-access-hr "2026-08-30T18:33:42+0200") (:container ((index "3.2")) :persist-file "d3/08f715-92e3-4efb-b6d6-cd975421cc79" :associated nil :expiry never :last-access 1777134189.373162 :last-access-hr "2026-04-25T18:23:09+0200"))

@@ -6,7 +6,11 @@
   ;; (setq mac-option-modifier 'meta)
 
   (with-eval-after-load 'vterm
-    (define-key comint-mode-map (kbd "C-l") #'comint-clear-buffer)))
+    (define-key comint-mode-map (kbd "C-l") #'comint-clear-buffer))
+  (custom-set-faces
+   '(vterm-color-blue ((t (:foreground "#61afef" :background "#61afef"))))
+   '(vterm-color-bright-blue ((t (:foreground "#35bfef" :background "#35bfef")))))
+  )
 
 (use-package vterm-toggle
   :straight t
