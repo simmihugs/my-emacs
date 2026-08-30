@@ -31,6 +31,7 @@
          (load-file "~/.config/emacs/config/packages/terminal.el")
          (load-file "~/.config/emacs/config/packages/dape.el")
          (load-file "~/.config/emacs/config/packages/dape.el")
+         (load-file "~/.config/emacs/config/packages/lisp-setup.el")
          ;;
          ;; own packages
          ;;
