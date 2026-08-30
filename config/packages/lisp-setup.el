@@ -9,3 +9,9 @@
   :config
   (slime-setup '(slime-fancy slime-quicklisp slime-asdf))
   (setq slime-net-coding-system 'utf-8-unix))
+
+(use-package slime-company
+  :straight t
+  :after (slime company)
+  :config
+  (slime-setup '(slime-fancy slime-company)))
